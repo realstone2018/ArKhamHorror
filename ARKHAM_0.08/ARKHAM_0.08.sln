@@ -6,8 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 =======
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARKHAM_0.08", "ARKHAM_0.08.csproj", "{438169DD-A08C-B3B5-C43D-A53033FA4A27}"
 >>>>>>> 75ed6523c72144138616cf66237a57fbac4dc650
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{787144E6-45DB-4A4D-877E-11219B4C2818}"
+>>>>>>> 15a8240db6473b5fd34cc2235f1f78eed2979277
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

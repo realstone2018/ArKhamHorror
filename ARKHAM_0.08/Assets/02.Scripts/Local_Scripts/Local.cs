@@ -68,9 +68,5 @@ public abstract class Local : MonoBehaviour {
 
     public virtual void EventResult() { }
 
-
-    public void DrowCard()
-    {
-
-    }
+    
 }

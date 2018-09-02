@@ -29,8 +29,22 @@ public class ItemList : MonoBehaviour {
             this.ItemImage = _ItemImage;
 
         }
+
+		public int getPrice()
+		{
+			return this.Price;
+		}
+
+        public Sprite GetImageAction()
+        {
+            return this.ItemImage;
+        }
         
     }
+
+    public Dictionary<int, Item> NomalItemList;
+    public Dictionary<int, Item> MagickItemList;
+    public Dictionary<int, Item> UniqueItemList;
 
     public static ItemList instance = null;
 
@@ -38,25 +52,28 @@ public class ItemList : MonoBehaviour {
     {
         instance = this;
 
-        Dictionary<int, Item> NomalItemList;
+        
         NomalItemList = new Dictionary<int, Item>();
         int num;
 
-        num = 1001001;  // 10=일반아이템 01= 무기 001 =아이템 식별번호
+        //num = 1001001;  // 10=일반아이템 01= 무기 001 =아이템 식별번호
+        num = 1;
         NomalItemList.Add(num, new Item (num,"토미건",6,1,"전투 체크 +6",7,2, Resources.Load<Sprite>("Item_Images/weapon - TommyGun")));
 
-        num = 1002002;  // 10=일반아이템 02 = 서적 002=아이템 식별번호
+        num = 2;  // 10=일반아이템 02 = 서적 002=아이템 식별번호
         NomalItemList.Add(num, new Item(num, "고대문서", 1, 0, "이동 단계: 이동력 2를 쓰고 이 카드를 고갈시킨 다음 지식 체크(-1)를 합니다. 성공하면 이 카드를 버리고 마법주문 카드 1장을 얻습니다. 실패하면 아무 일도 일어나지 않습니다.", 4,0, Resources.Load<Sprite>("Item_Images/book-OldJournal")));
         //서적아이템 따로구현 요망
-        num = 1000003;  // 10=일반아이템 00=일반 003=아이템식별번호
+        num = 3;  // 10=일반아이템 00=일반 003=아이템식별번호
         NomalItemList.Add(num, new Item(num, "어두운망토", 1, 0, "회피 체크 +1", 2,0, Resources.Load<Sprite>("Item_Images/etc-DarkCloak")));
 
         //num = 2001001; // 20=마법아이템 01=무기 001=아이템식별번호
         //ItemList.Add(num, new Item(num, "쭈그려트리기", 1, 2, "회피 체크 +1", 2,1));
 
 
+       
+        
 
-        Dictionary<int, Item> MagickItemList;
+        
         MagickItemList = new Dictionary<int, Item>();
 
         num = 2001001; // 20=마법아이템 01=무기 001=아이템식별번호
@@ -66,7 +83,7 @@ public class ItemList : MonoBehaviour {
 
 
 
-        Dictionary<int, Item> UniqueItemList;
+        
         UniqueItemList = new Dictionary<int, Item>();
 
         num = 3001001;  // 30=특별아이템 01=무기 001아이템식별번호
@@ -80,4 +97,7 @@ public class ItemList : MonoBehaviour {
 
 
     }
+
+
+    
 }

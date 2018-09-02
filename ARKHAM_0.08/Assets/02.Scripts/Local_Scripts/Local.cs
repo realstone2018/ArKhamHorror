@@ -66,5 +66,5 @@ public abstract class Local : MonoBehaviour {
 
     protected abstract void EventSeven();
 
-    public virtual void EventResult() { }
+    public virtual void EventResult(int n) { }
 }

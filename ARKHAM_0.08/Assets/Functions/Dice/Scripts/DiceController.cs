@@ -29,6 +29,11 @@ public class DiceController : MonoBehaviour
         instance = this;
     }
 
+    // 주사위의 사용 목적 : 목적에 따라 호출할 Result함수가 다르다.
+    //        지역이벤트, 회피체크, 공포체크, 전투 체크
+    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck}
+    public Use use;
+
     private void Start()
     {
         cameraObj = GameObject.Find("Camera");
@@ -48,8 +53,35 @@ public class DiceController : MonoBehaviour
         }
     }
 
+    public void SetDiceForCombat(int num, int min, int max, Use _use)
+    {
+        use = _use;
+
+        diceCount = num;
+        minValue = min;
+        maxValue = max;
+
+        // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
+        if (diceCount <= 0)
+            return;
+
+        for (int i = 0; i < diceCount; i++)
+        {
+            GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
+
+
+            dices.Add(instanceDice.GetComponent<Dice>());
+        }
+
+        readyThrow = true;
+    }
+
     public void SetDiceThrow(Local local, int num, int min, int max)
     {
+        use = Use.LocalEventCheck;
+
         eventLocal = local;
 
         diceCount = num;
@@ -71,7 +103,7 @@ public class DiceController : MonoBehaviour
         }
 
         readyThrow = true;
-}
+    }
 
 
     // 각 주사위로부터 result값을 인자로 받아 통계를 낸다.
@@ -100,18 +132,55 @@ public class DiceController : MonoBehaviour
         }
         valueCount++;
 
+        ActiveAdditoryDice();
+    }
+
+    void ActiveAdditoryDice()
+    {
+        // 추가 주사위가 아닐때
         if (diceCount == valueCount && !AdditoryDiceValue)
-        {
-            Debug.Log("AdditoryDiceValue = false ");
-            eventLocal.EventResult();
-            return;
-        }
+            CallResultFunction();
+        // 추가 주사위일 경우 EventResult를 다시 호출해 무한 반복되는것을 방지 
         else if (AdditoryDiceValue)
-        {
-            Debug.Log("AdditoryDiceValue = true");
             DiceController.instance.AdditoryDiceValue = false;
+    }
+
+    void CallResultFunction()
+    {
+        int successCoutn = CountSuccess();
+
+        switch (use)
+        {
+            case Use.LocalEventCheck:
+                eventLocal.EventResult(successCoutn);
+                break;
+            case Use.EvasionCheck:
+                CombatController.instance.EvassionCheckResult(successCoutn);
+                break;
+            case Use.FearCheck:
+                CombatController.instance.FearCheckResult(successCoutn);
+                break;
+            case Use.CombatCheck:
+                CombatController.instance.CombatCheckResult(successCoutn);
+                break;
         }
     }
+
+    // 인자로 성공 범위를 받아, 성공한 주사위 수 반환  
+    public int CountSuccess()
+    {
+        successCount = 0;
+
+        for (int i = (minValue - 1); i <= (maxValue - 1); i++)
+        {
+            successCount += diceValues[i];
+        }
+
+        ResetDice();
+        return successCount;
+    }
+
+
 
     void ResetDice()
     {
@@ -131,22 +200,7 @@ public class DiceController : MonoBehaviour
         }
 
     }
-
-
-    // 인자로 성공 범위를 받아, 성공한 주사위 수 반환  
-    public int SuccessOrFailure()
-    {
-        successCount = 0;
-
-        for (int i = (minValue -1); i <= (maxValue -1); i++)
-        {
-            successCount += diceValues[i];
-        }
-
-        ResetDice();
-        return successCount;
-    }
-
+    
     public int ResultDiceValue()
     { 
         for (int i = 0; i < 6; i++)

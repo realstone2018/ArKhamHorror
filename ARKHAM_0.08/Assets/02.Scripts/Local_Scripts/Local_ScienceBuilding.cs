@@ -68,17 +68,13 @@ public class Local_ScienceBuilding : Local {
     }
 
 
-    public override void EventResult()
+    public override void EventResult(int _successCount)
     {
-        Debug.Log("EventResult()");
-
-        int successCount = DiceController.instance.SuccessOrFailure();
+        int successCount = _successCount;
 
         switch (activeEvent)
         {
             case 1:
-                Debug.Log("EventResult().Switch 1: ");
-
                 if (successCount == 0)
                     Character.instance.characterStamina += 1;
                 else if (successCount > 0)
@@ -91,8 +87,6 @@ public class Local_ScienceBuilding : Local {
                 }
                 break;
             case 2:
-                Debug.Log("EventResult().Switch 2: ");
-
                 if (successCount == 0)
                     Character.instance.characterStamina += 1;
                 else if (successCount > 0)
@@ -105,8 +99,6 @@ public class Local_ScienceBuilding : Local {
                 }
                 break;
             case 3:
-                Debug.Log("EventResult().Switch 3: ");
-
                 if (successCount == 0)
                     Character.instance.characterStamina += 1;
                 else if (successCount > 0)
@@ -118,7 +110,6 @@ public class Local_ScienceBuilding : Local {
                     Character.instance.characterStamina += DiceController.instance.ResultDiceValue();
                 }
                 break;
-
         }
     }
 }

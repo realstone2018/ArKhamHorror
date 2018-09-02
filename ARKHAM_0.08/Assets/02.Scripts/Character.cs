@@ -5,7 +5,6 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     //캐릭터스텟
-
     public int Sanity = 5;
     public int characterSanity { get { return Sanity; } set { Sanity = value; } }
     public int MaxSanity = 5;
@@ -90,7 +89,45 @@ public class Character : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("LOCAL")) 
+            currentLocal_Id = other.GetComponent<Local>().local_Id;
+        // 이동 시 몬스터 지역으로 이동, 바로 전투의 경우만 해당 
+        else if (other.CompareTag("MONSTER"))
+        {
+            CombatController.instance.SetCombatController(this, other.GetComponent<Monster>());
+        }
+            
+    }
 
-        currentLocal_Id = other.GetComponent<Local>().local_Id; 
+    public void DamagedSanity(int damage)
+    {
+        Sanity -= damage;
+
+        if (Sanity < 0)
+            DieCuzSanity();
+
+        // 애니메이션 
+    }
+
+    public void DamagedStamina(int damage)
+    {
+        Stamina -= damage;
+
+        if (Stamina < 0)
+            DieCuzStamina();
+
+        // 애니메이션
+    }
+
+    void DieCuzStamina()
+    {
+        Debug.Log("멘탈이 0이하가 되어 죽음");
+
+    }
+
+    void DieCuzSanity()
+    {
+        Debug.Log("체력이 0이하가 되어 죽음");
+
     }
 }

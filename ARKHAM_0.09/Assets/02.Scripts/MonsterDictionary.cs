@@ -8,13 +8,11 @@ public class MonsterDictionary : MonoBehaviour {
 
     public static MonsterDictionary instance;
 
-     void Awake()
+
+    void Awake()
     {
         instance = this;
-    }
 
-    void Start()
-    {
         monsterMap = new Dictionary<string, Monster>();
 
         string name;

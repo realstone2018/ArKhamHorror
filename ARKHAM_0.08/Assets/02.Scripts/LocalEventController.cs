@@ -103,7 +103,7 @@ public class LocalEventController : MonoBehaviour {
     private void FlipCard()
     {
         // 테스트를 위해 랜덤 값
-        eventLocal.ActiveEvent(Random.Range(1, 4));
+        eventLocal.ActiveEvent(2);
 
         eventMessage.text = eventLocal.eventText;
 

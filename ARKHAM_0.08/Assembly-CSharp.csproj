@@ -63,7 +63,6 @@
     <Compile Include="Assets\02.Scripts\Character.cs" />
     <Compile Include="Assets\02.Scripts\CombatController.cs" />
     <Compile Include="Assets\02.Scripts\FlipCard.cs" />
-    <Compile Include="Assets\02.Scripts\IMonster.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Administration.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Asylum.cs" />
@@ -94,6 +93,9 @@
     <Compile Include="Assets\02.Scripts\LocalEventController.cs" />
     <Compile Include="Assets\02.Scripts\LocalEventDictionary.cs" />
     <Compile Include="Assets\02.Scripts\MaincameraController.cs" />
+    <Compile Include="Assets\02.Scripts\Monster.cs" />
+    <Compile Include="Assets\02.Scripts\MonsterController.cs" />
+    <Compile Include="Assets\02.Scripts\MonsterDictionary.cs" />
     <Compile Include="Assets\02.Scripts\MoveController.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
@@ -113,10 +115,10 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/wlstj/Desktop/ARKHAM_0.08/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.08/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/wlstj/Desktop/ARKHAM_0.08/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.08/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

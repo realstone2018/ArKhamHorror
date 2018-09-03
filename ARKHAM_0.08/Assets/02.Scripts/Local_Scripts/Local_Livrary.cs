@@ -63,10 +63,10 @@ public class Local_Livrary : Local {
 
     }
 
-    public override void EventResult()
+    public override void EventResult(int _successCount)
     {
-        int successCount = DiceController.instance.SuccessOrFailure();
-        int[] diceNum;
+        int successCount = _successCount;
+
 
         switch (activeEvent)
         {

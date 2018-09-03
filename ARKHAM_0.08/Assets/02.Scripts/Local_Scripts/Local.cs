@@ -66,5 +66,15 @@ public abstract class Local : MonoBehaviour {
 
     protected abstract void EventSeven();
 
+<<<<<<< HEAD
     public virtual void EventResult(int n) { }
+=======
+    public virtual void EventResult() { }
+
+
+    public void DrowCard()
+    {
+
+    }
+>>>>>>> 5fe79d44db94fc79e2fbf491ee528d558bdf8a5e
 }

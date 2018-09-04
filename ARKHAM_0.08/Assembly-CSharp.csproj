@@ -108,6 +108,7 @@
      <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
      <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
      <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+     <Compile Include="Assets\ItemInfo1.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/git_PJ/ARKHAM_0.08/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

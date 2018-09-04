@@ -45,6 +45,7 @@ public class ItemList : MonoBehaviour {
     public Dictionary<int, Item> NomalItemList;
     public Dictionary<int, Item> MagickItemList;
     public Dictionary<int, Item> UniqueItemList;
+	//public Dictionary<int, Item> CharacterGetItem;
 
     public static ItemList instance = null;
 
@@ -58,7 +59,7 @@ public class ItemList : MonoBehaviour {
 
         //num = 1001001;  // 10=일반아이템 01= 무기 001 =아이템 식별번호
         num = 1;
-        NomalItemList.Add(num, new Item (num,"토미건",6,1,"전투 체크 +6",7,2, Resources.Load<Sprite>("Item_Images/weapon - TommyGun")));
+        NomalItemList.Add(num, new Item (num,"토미건",6,1,"전투 체크 +6",7,2, Resources.Load<Sprite>("Item_Images/weapon-TommyGun")));
 
         num = 2;  // 10=일반아이템 02 = 서적 002=아이템 식별번호
         NomalItemList.Add(num, new Item(num, "고대문서", 1, 0, "이동 단계: 이동력 2를 쓰고 이 카드를 고갈시킨 다음 지식 체크(-1)를 합니다. 성공하면 이 카드를 버리고 마법주문 카드 1장을 얻습니다. 실패하면 아무 일도 일어나지 않습니다.", 4,0, Resources.Load<Sprite>("Item_Images/book-OldJournal")));

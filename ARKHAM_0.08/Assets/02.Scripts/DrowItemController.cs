@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DrowItemController : MonoBehaviour {
+publifgc class DrowItemController : MonoBehaviour {
 
 
     public GameObject DrowItemPanel;
-    public Image ItemImage;
+    public GameObject Item1Panel;
+	public GameObject Item2Panel;
+	public GameObject Item3Panel;
+	
 
 
 
@@ -32,15 +35,44 @@ public class DrowItemController : MonoBehaviour {
         if (ItemList.instance.NomalItemList.ContainsKey(x))
         {
             ItemList.Item item = ItemList.instance.NomalItemList[x];
+            
+			Item1Panel.GetComponent<ItemInfo1>().CardInfo= item;
 
-            ItemImage.sprite = item.GetImageAction();
+			Item1Panel.GetComponent<Image>().sprite = item.GetImageAction();
+			x =Random.Range(1,4);
+            
+        }
 
+		if (ItemList.instance.NomalItemList.ContainsKey(x))
+        {
+            ItemList.Item item = ItemList.instance.NomalItemList[x];
 			
-            Debug.Log(item.getPrice()); // 이미지 이외 잘들어감
-            Debug.Log("help");
+            
+			Item2Panel.GetComponent<Image>().sprite = item.GetImageAction();
+
+            x =Random.Range(1,4);
+        }
+
+		if (ItemList.instance.NomalItemList.ContainsKey(x))
+        {
+            ItemList.Item item = ItemList.instance.NomalItemList[x];
+            
+			Item3Panel.GetComponent<Image>().sprite = item.GetImageAction();
+
+            x =Random.Range(1,4);
         }
         
         
 
     }
+
+
+	public void CharacterGetItem(int n)
+	{
+		DrowItemPanel.SetActive(false);
+//		Character.instance.CharacterGetItemList.add(1,Item1Panel.GetComponent<ItemInfo1>().CardInfo );
+	
+
+	
+	}
 }

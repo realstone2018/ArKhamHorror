@@ -35,6 +35,8 @@ public class Character : MonoBehaviour
 
     public int MinDiceSucc = 5;
 
+	
+
 
     //소지품
 
@@ -50,6 +52,11 @@ public class Character : MonoBehaviour
     public int movingDirection = 0;
 
     public int currentLocal_Id;
+
+	
+	
+	public Dictionary<int, ItemList.Item> CharacterGetItemList; //소유중인 아이템 리스트
+	
 
 
     //싱글턴 선언

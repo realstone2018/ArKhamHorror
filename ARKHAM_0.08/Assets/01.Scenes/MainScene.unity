@@ -642,11 +642,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sanity: 5
   MaxSanity: 5
-  Stamina: 1
+  Stamina: 5
   MaxStamina: 5
   Speed: 1
   Sneak: 4
-  Fight: 3
+  Fight: 1
   Will: 4
   Lore: 1
   Luck: 4
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f62062ad21fd24ea4751789e0beccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
 --- !u!54 &156413356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3809,7 +3809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &634060261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5166,6 +5166,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114978549634833812, guid: 805b4432e2128d945a767c0d9f503212,
+        type: 2}
+      propertyPath: cameraObj
+      value: 
+      objectReference: {fileID: 332204500}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 805b4432e2128d945a767c0d9f503212, type: 2}
   m_IsPrefabAsset: 0

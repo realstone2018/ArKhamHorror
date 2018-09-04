@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-publifgc class DrowItemController : MonoBehaviour {
+public class DrowItemController : MonoBehaviour {
 
 
     public GameObject DrowItemPanel;

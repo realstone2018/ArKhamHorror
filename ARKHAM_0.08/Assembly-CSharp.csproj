@@ -67,6 +67,11 @@
     <Compile Include="Assets\02.Scripts\DrowItemController.cs" />
     <Compile Include="Assets\02.Scripts\FlipCard.cs" />
     <Compile Include="Assets\02.Scripts\IMonster.cs" />
+    <Compile Include="Assets\02.Scripts\Item_Scripts\Common\Array.cs" />
+    <Compile Include="Assets\02.Scripts\Item_Scripts\Common\DarkCloak.cs" />
+    <Compile Include="Assets\02.Scripts\Item_Scripts\Common\OldJournal.cs" />
+    <Compile Include="Assets\02.Scripts\Item_Scripts\Common\TommyGun.cs" />
+    <Compile Include="Assets\02.Scripts\Item_Scripts\ItemInfomation.cs" />
     <Compile Include="Assets\02.Scripts\ItemList.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Administration.cs" />

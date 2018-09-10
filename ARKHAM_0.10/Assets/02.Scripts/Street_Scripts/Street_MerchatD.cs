@@ -15,7 +15,10 @@ public class Street_MerchatD : Local {
         allowLocal_Id[5] = 9967998;
         allowLocal_Id[6] = 9906899;
 
-        position = transform.position;
+        whitePath_id = 9906899;
+        blackPath_id = 9913694;
+
+position = transform.position;
     }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterDictionary : MonoBehaviour {
 
-    Dictionary<string, Monster> monsterMap;
+    public Dictionary<string, Monster> monsterMap;
 
     public static MonsterDictionary instance;
 
@@ -28,27 +28,31 @@ public class MonsterDictionary : MonoBehaviour {
 
         // 차원에서 휘청대는자
         name = "DimensionalShambler";
-        monsterMap.Add(name, new Monster(name, 1, -2, -2, 0, 1, -3, Monster.Type.Fast, Monster.Simbol.Square, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -2, -2, 0, 1, -3, Monster.Type.Normal, Monster.Simbol.Square, sAttribute));
 
         // 미고
         name = "MiGo";
-        monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Fly, Monster.Simbol.Circle, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Normal, Monster.Simbol.Circle, sAttribute));
 
         sAttribute.Clear();
+
+
         /////////////////////// PhysicalImmunity //////////////////////////////////////////
         sAttribute.Add(Monster.SAttribute.PhysicalImmunity);
 
         // 틴달로스의 개 
         name = "HoundofTindalos";
-        monsterMap.Add(name, new Monster(name, 2, -2, -1, 3, 4, -1, Monster.Type.SMovement, Monster.Simbol.Square, sAttribute));   
+        monsterMap.Add(name, new Monster(name, 2, -2, -1, 3, 4, -1, Monster.Type.Normal, Monster.Simbol.Square, sAttribute));   
         
         sAttribute.Clear();
+
+
         /////////////////////// Various //////////////////////////////////////////
         // 유령 
         name = "Ghost";
         sAttribute.Add(Monster.SAttribute.PhysicalImmunity);
         sAttribute.Add(Monster.SAttribute.Undead);
-        monsterMap.Add(name, new Monster(name, 1, -2, -3, 2, 2, -3, Monster.Type.Fixed, Monster.Simbol.Moon, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -2, -3, 2, 2, -3, Monster.Type.Normal, Monster.Simbol.Moon, sAttribute));
     }
 
     public Monster SearchMonster(string _name)
@@ -76,7 +80,6 @@ public class MonsterDictionary : MonoBehaviour {
         }
 
         var random = enumerator.Current;
-        Debug.Log("num : " + num + "     enumerator.Current : " + random);
 
         Monster randomMon = random.Value;
         return randomMon; 

@@ -52,6 +52,7 @@ public class LocalEventController : MonoBehaviour {
             if (local.local_Id == character.currentLocal_Id)
                 eventLocal = local;
         }
+
         //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
         localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
 

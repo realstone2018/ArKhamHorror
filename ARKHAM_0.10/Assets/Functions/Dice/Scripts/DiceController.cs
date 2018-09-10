@@ -19,6 +19,7 @@ public class DiceController : MonoBehaviour
     public bool AdditoryDiceValue = false;
 
     public Local eventLocal;
+    public Mythos eventMythos;
 
     public GameObject cameraObj;
 
@@ -31,7 +32,7 @@ public class DiceController : MonoBehaviour
 
     // 주사위의 사용 목적 : 목적에 따라 호출할 Result함수가 다르다.
     //        지역이벤트, 회피체크, 공포체크, 전투 체크
-    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck}
+    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent}
     public Use use;
 
     private void Start()
@@ -53,7 +54,7 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    public void SetDiceForCombat(int num, int min, int max, Use _use)
+    public void SetDice(int num, int min, int max, Use _use)
     {
         use = _use;
 
@@ -106,6 +107,33 @@ public class DiceController : MonoBehaviour
     }
 
 
+    public void SetDice(Mythos mythos, int num, int min, int max)
+    {
+        use = Use.MythosEvent;
+
+        eventMythos = mythos;
+
+        diceCount = num;
+        minValue = min;
+        maxValue = max;
+
+        // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
+        if (diceCount <= 0)
+            return;
+
+        for (int i = 0; i < diceCount; i++)
+        {
+            GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
+
+
+            dices.Add(instanceDice.GetComponent<Dice>());
+        }
+
+        readyThrow = true;
+    }
+
     // 각 주사위로부터 result값을 인자로 받아 통계를 낸다.
     public void AddDiceValue(int value)
     {
@@ -152,7 +180,7 @@ public class DiceController : MonoBehaviour
         switch (use)
         {
             case Use.LocalEventCheck:
-                eventLocal.EventResult(successCoutn);
+                eventLocal.EventResult(successCount);
                 break;
             case Use.EvasionCheck:
                 CombatController.instance.EvassionCheckResult(successCoutn);
@@ -162,6 +190,9 @@ public class DiceController : MonoBehaviour
                 break;
             case Use.CombatCheck:
                 CombatController.instance.CombatCheckResult(successCoutn);
+                break;
+            case Use.MythosEvent:
+                eventMythos.EventResult(successCount);
                 break;
         }
     }

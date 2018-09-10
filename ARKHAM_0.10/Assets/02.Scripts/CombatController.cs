@@ -41,7 +41,7 @@ public class CombatController : MonoBehaviour {
 
         //character.EvasionCheck(monster.evasionLevel);
 
-        DiceController.instance.SetDiceForCombat(character.Sneak + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
+        DiceController.instance.SetDice(character.Sneak + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
     public void EvassionCheckResult(int successCount)
@@ -70,7 +70,7 @@ public class CombatController : MonoBehaviour {
         // UI 변경 
         CombatPanel.SetActive(false);
 
-        DiceController.instance.SetDiceForCombat(character.Will + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
+        DiceController.instance.SetDice(character.Will + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
     }
 
     public void FearCheckResult(int successCount)
@@ -93,7 +93,7 @@ public class CombatController : MonoBehaviour {
 
         // UI변경
 
-        DiceController.instance.SetDiceForCombat(character.Fight + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
+        DiceController.instance.SetDice(character.Fight + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
     }
 
     public void CombatCheckResult(int successCount)

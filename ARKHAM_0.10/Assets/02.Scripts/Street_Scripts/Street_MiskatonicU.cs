@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Street_MiskatonicU : Local {
 
-    // Use this for initialization
     void Start () {    
         local_Id = 9913694;   //99=아컴지역 136=인접한거리(1번,3번,6번) 94=장소(10의자리9일경우거리 1의자리는 거리 번호)
         allowLocal_Id = new int[6];
@@ -15,6 +14,8 @@ public class Street_MiskatonicU : Local {
         allowLocal_Id[4] = 9924593;
         allowLocal_Id[5] = 99458996;
 
+        whitePath_id = 99458996;
+        blackPath_id = 9902491;
 
         position = transform.position;
     }

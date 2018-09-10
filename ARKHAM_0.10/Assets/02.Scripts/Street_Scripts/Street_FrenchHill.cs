@@ -11,7 +11,10 @@ public class Street_FrenchHill : Local {
         allowLocal_Id[1] = 9900320;
         allowLocal_Id[2] = 9901392;
         allowLocal_Id[4] = 9913694;
-        allowLocal_Id[3] = 9936795;       
+        allowLocal_Id[3] = 9936795;
+
+        whitePath_id = 9901392;
+        blackPath_id = 9936795;
 
         position = transform.position;
     }

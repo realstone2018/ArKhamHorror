@@ -14,6 +14,9 @@ public class Street_RiverTown : Local {
         allowLocal_Id[4] = 99458996;
         allowLocal_Id[5] = 9905897;
 
+        whitePath_id = 9924593;
+        blackPath_id = 9905897;
+
         position = transform.position;
     }
 

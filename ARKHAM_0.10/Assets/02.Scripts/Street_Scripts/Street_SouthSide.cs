@@ -13,6 +13,9 @@ public class Street_SouthSide : Local {
         allowLocal_Id[4] = 9902491;
         allowLocal_Id[3] = 9924593;
 
+        whitePath_id = 9902491;
+        blackPath_id = 9924593;
+
         position = transform.position;
     }
 

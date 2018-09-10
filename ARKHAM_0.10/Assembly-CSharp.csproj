@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{7B8009BD-6208-3609-26D2-CF0C7672090B}</ProjectGuid>
+    <ProjectGuid>{6AD2C8E6-25DB-323E-D779-71C8F68941A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,7 @@
     <Compile Include="Assets\02.Scripts\Character.cs" />
     <Compile Include="Assets\02.Scripts\CombatController.cs" />
     <Compile Include="Assets\02.Scripts\FlipCard.cs" />
+    <Compile Include="Assets\02.Scripts\GameManager.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Administration.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_Asylum.cs" />
@@ -93,10 +94,17 @@
     <Compile Include="Assets\02.Scripts\LocalEventController.cs" />
     <Compile Include="Assets\02.Scripts\LocalEventDictionary.cs" />
     <Compile Include="Assets\02.Scripts\MaincameraController.cs" />
-    <Compile Include="Assets\02.Scripts\Monster.cs" />
-    <Compile Include="Assets\02.Scripts\MonsterController.cs" />
-    <Compile Include="Assets\02.Scripts\MonsterDictionary.cs" />
+    <Compile Include="Assets\02.Scripts\Monster\Monster.cs" />
+    <Compile Include="Assets\02.Scripts\Monster\MonsterController.cs" />
+    <Compile Include="Assets\02.Scripts\Monster\MonsterDictionary.cs" />
+    <Compile Include="Assets\02.Scripts\Monster\MonsterMoveController.cs" />
     <Compile Include="Assets\02.Scripts\MoveController.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\AllQuitInArkham.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\BigStormSweepsArkham.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\BlueFlu.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
+    <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_EastTown.cs" />
@@ -115,10 +123,10 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.09/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.10/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.09/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.10/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

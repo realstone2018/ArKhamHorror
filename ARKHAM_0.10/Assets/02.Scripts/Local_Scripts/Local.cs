@@ -12,6 +12,9 @@ public abstract class Local : MonoBehaviour {
 
     public string localFunction;
 
+    public int whitePath_id = 0;
+    public int blackPath_id = 0;
+
     public static Character character;
 
     void Awake()

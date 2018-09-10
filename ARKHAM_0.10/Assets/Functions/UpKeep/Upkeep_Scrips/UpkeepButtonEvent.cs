@@ -5,9 +5,13 @@ using UnityEngine;
 public class UpkeepButtonEvent : MonoBehaviour {
 
     public GameObject upkeepEncounterPanel;
-    public GameObject EventButton;
 
+    public static UpkeepButtonEvent instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     //upkeeppanel 활성화
     public void UpkeepEnCounterStep()
@@ -21,8 +25,6 @@ public class UpkeepButtonEvent : MonoBehaviour {
     {
         upkeepEncounterPanel.SetActive(false);
         Character.instance.characterFocus = 0;
-        EventButton.SetActive(true);
-
     }
 
 

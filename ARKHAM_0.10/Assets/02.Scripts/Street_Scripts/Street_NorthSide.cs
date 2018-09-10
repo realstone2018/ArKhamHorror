@@ -13,6 +13,11 @@ public class Street_NorthSide : Local {
         allowLocal_Id[2] = 9900905;
         allowLocal_Id[3] = 99458996;
         allowLocal_Id[4] = 9967998;
+
+        whitePath_id = 9967998;
+        blackPath_id = 99458996;
+
+        position = transform.position;
     }
 
 

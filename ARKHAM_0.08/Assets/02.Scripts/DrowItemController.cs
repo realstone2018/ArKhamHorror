@@ -30,7 +30,6 @@ public class DrowItemController : MonoBehaviour {
         int x =Random.Range(1,4);
         
         DrowItemPanel.SetActive(true);
-		Debug.Log(x);
 
         
 
@@ -65,8 +64,8 @@ public class DrowItemController : MonoBehaviour {
 
             x =Random.Range(1,4);
         }
-        
-        
+
+        Debug.Log("end");
 
     }
 

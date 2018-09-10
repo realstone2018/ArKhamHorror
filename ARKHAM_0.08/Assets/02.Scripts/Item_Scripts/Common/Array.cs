@@ -10,14 +10,20 @@ public class Array : MonoBehaviour {
     public static Array instance = null;
     // Use this for initialization
     void Awake () {
+        
+        var ItemSub = Instantiate(ItemPrefab) as GameObject;
+        ItemSub.AddComponent<TommyGun>();
+        
 
-        GameObject ItemSub = Instantiate(ItemPrefab) as GameObject;
 
         instance = this;
 
         ItemArray[0] = new TommyGun();
 
-        //ItemArray[0] = GameObject.Find("ComonItemList").GetComponent<TommyGun>();
+        ItemArray[0] = ItemSub.GetComponent<TommyGun>();
+
+
+        
         ItemArray[1] = new DarkCloak();
         ItemArray[2] = new OldJournal();
 

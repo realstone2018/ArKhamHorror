@@ -30,7 +30,7 @@ public class ItemList : MonoBehaviour {
 
         }
 
-		public int getPrice()
+		public int GetPrice()
 		{
 			return this.Price;
 		}

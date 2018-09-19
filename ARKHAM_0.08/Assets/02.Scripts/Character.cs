@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
 {
     //캐릭터스텟
 
+
+    public Transform prefab;
     public int Sanity = 5;
     public int characterSanity { get { return Sanity; } set { Sanity = value; } }
     public int MaxSanity = 5;
@@ -53,10 +55,9 @@ public class Character : MonoBehaviour
 
     public int currentLocal_Id;
 
-	
-	
-	public Dictionary<int, ItemList.Item> CharacterGetItemList; //소유중인 아이템 리스트
-	
+    public List<ItemList> characterInventory;
+
+
 
 
     //싱글턴 선언
@@ -99,5 +100,12 @@ public class Character : MonoBehaviour
     {
 
         currentLocal_Id = other.GetComponent<Local>().local_Id; 
+    }
+
+
+    public void addInventory()
+    {
+        GameObject.FindGameObjectWithTag("Inventory").transform.parent = Instantiate(prefab, new Vector3(0, 0, 0),Quaternion.identity);
+
     }
 }

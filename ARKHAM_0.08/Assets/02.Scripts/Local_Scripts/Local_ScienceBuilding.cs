@@ -37,7 +37,7 @@ public class Local_ScienceBuilding : Local {
         Debug.Log("EventTwo");
 
 
-        DrowItemController.instance.DrowItemEncounter();
+        DrowItemController.instance.ShopBuyEvent();
         //EventResult();
 
     }
@@ -103,7 +103,7 @@ public class Local_ScienceBuilding : Local {
             case 3:
                 Debug.Log("EventResult().Switch 3: ");
 
-                DrowItemController.instance.DrowItemEncounter();
+                DrowItemController.instance.ShopBuyEvent();
                 break;
 
         }

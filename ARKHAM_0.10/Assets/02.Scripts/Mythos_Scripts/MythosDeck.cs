@@ -98,6 +98,8 @@ public class MythosDeck : MonoBehaviour {
     // 처음 신화는 소문이 아닌 카드를 뽑을 때 까지 Draw()
     public void FindNotRumor()
     {
+
+        Debug.Log("FindNotRumor");
         while(mythosDeck[0].mythosType == Mythos.MythosType.Rumor)
         {
             mythosDeck.Add(mythosDeck[0]);

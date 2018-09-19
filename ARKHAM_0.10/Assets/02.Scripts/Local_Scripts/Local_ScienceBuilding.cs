@@ -26,6 +26,7 @@ public class Local_ScienceBuilding : Local {
 
 
         DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck), Character.instance.MinDiceSucc, 6);
+
     }
 
     protected override void EventTwo()

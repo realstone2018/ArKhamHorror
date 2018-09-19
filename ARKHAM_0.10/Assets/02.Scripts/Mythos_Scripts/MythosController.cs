@@ -20,11 +20,13 @@ public class MythosController : MonoBehaviour {
     void Awake()
     {
         instance = this;
+        mythosDeck = FindObjectOfType<MythosDeck>();
     }
 
     private void Start()
     {
-        mythosDeck = FindObjectOfType<MythosDeck>();
+        //참조값 없길레 Awake로 옮김
+       // mythosDeck = FindObjectOfType<MythosDeck>();
     }
 
 

@@ -1,6 +1,7 @@
 ﻿  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -40,6 +41,23 @@ public class Character : MonoBehaviour
     public int money = 0;
     public int clue = 0;
 
+    public Transform InventoryCard;
+    public List<ItemCard> CharacterInventory;
+    public int GateNum;
+    public int SumMonsterHP;
+
+
+
+
+    //전투
+    public int PhysicalCombat;  //물리
+    public int MagicalCombat;   //마법
+    public int EvadeCheck;  //전투
+    public int HorrorCheck; //공포
+    public int CombatCheck; //투지+무기 수치
+    
+
+    //이동 관련
 
     public int maxMoveCount;  //이동가능 횟수
     public int currentMoveCount = 0;    //현재 이동횟수
@@ -167,5 +185,24 @@ public class Character : MonoBehaviour
         money = 0;
         clue = 0;
         // 아이템은 선택해서 버리게 
+    }
+
+    public void ShowInventory()
+    {
+        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
+        Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
+        Transform childOj;
+
+        if (0<CharacterInventory.Count)
+        {
+            for(int i=0;i<CharacterInventory.Count ; i++)
+            {
+                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 160 + (i*40), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
+                childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
+                //아이템 인벤토리 표현 좌표값 수정 요망
+            }
+            
+        }
+        
     }
 }

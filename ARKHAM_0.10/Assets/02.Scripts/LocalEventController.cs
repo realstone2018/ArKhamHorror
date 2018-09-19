@@ -13,6 +13,16 @@ public class LocalEventController : MonoBehaviour {
     public GameObject localEncounterPanel;
     public GameObject drawCardPanel;
 
+    public GameObject localCardBuyEvent;
+    public GameObject EventPanel;
+    public GameObject ItemPanel1;
+    public GameObject ItemPanel2;
+    public GameObject ItemPanel3;
+    public List<ItemCard> Drowcard;
+    public Sprite aaaaaa;
+
+
+
     public Image localImage;
     public Text localFunction;
 
@@ -68,6 +78,25 @@ public class LocalEventController : MonoBehaviour {
         drawCardPanel.SetActive(true);
 
         drawCardPanel.GetComponent<Animator>().SetBool("Spread", true);
+    }
+
+    //상점 아이템 구입 이벤트
+
+    public void LocalBuyEventButtonDown()
+    {
+        localEncounterPanel.SetActive(false);
+        localCardBuyEvent.SetActive(true);
+
+        //Drowcard = ItemDictionary.instance.CommonItemDeck;
+
+        //ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
+        //ItemPanel2.GetComponent<Image>().sprite = Drowcard[1].ItemImage;
+        //ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
+
+
+        //aaaaaa = Drowcard[0].ItemImage; 
+        CardBuyEvent.instance.Drowcardsetting(2);
+
     }
 
     // 카드 선택시 중앙으로 이동, 카드 내 지역 이름 Text변경

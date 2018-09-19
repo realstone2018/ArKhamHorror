@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour {
 
     public void UpkeepState()
     {
+        Character.instance.Focus = 3;
+        //캐릭터의 포커스에 맞게 조정
         MythosController.instance.MythosStateEnd();
    
         gameState = GameState.Upkeep;

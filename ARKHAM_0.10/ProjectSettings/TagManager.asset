@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LOCAL
   - MONSTER
+  - Inventory
   layers:
   - Default
   - TransparentFX

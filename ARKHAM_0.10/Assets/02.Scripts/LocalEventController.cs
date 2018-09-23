@@ -80,24 +80,7 @@ public class LocalEventController : MonoBehaviour {
         drawCardPanel.GetComponent<Animator>().SetBool("Spread", true);
     }
 
-    //상점 아이템 구입 이벤트
-
-    public void LocalBuyEventButtonDown()
-    {
-        localEncounterPanel.SetActive(false);
-        localCardBuyEvent.SetActive(true);
-
-        //Drowcard = ItemDictionary.instance.CommonItemDeck;
-
-        //ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
-        //ItemPanel2.GetComponent<Image>().sprite = Drowcard[1].ItemImage;
-        //ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
-
-
-        //aaaaaa = Drowcard[0].ItemImage; 
-        CardBuyEvent.instance.Drowcardsetting(2);
-
-    }
+    
 
     // 카드 선택시 중앙으로 이동, 카드 내 지역 이름 Text변경
     public void SelectCard(Vector3 pos)
@@ -133,19 +116,33 @@ public class LocalEventController : MonoBehaviour {
     private void FlipCard()
     {
         // 테스트를 위해 랜덤 값
-        eventLocal.ActiveEvent(2);
+        eventLocal.ActiveEvent(Random.Range(1,3));
 
         eventMessage.text = eventLocal.eventText;
 
         eventCard.GetComponent<Animator>().SetBool("Flip", true);
     }
 
-    public void DeActivationPanel()
+
+
+    public void DeActivationPanel() 
     {
         for (int i = 0; i < (drawCardPanel.transform.childCount - 1); i++)
         {
             drawCardPanel.transform.GetChild(i).gameObject.SetActive(false);
         }
+
+    }
+
+    public void ExitEvent()
+    {
+        drawCardPanel.SetActive(false);
+    }
+    
+
+    public void CallLocalEvent()
+    {
+        eventLocal.ActiveEvent(7);
     }
 
     /*
@@ -155,4 +152,16 @@ public class LocalEventController : MonoBehaviour {
         eventMessage.text = eventText;
     }
     */
+
+    //상점 아이템 구입 이벤트
+
+    public void LocalBuyEventButtonDown()
+    {
+        localEncounterPanel.SetActive(false);
+        localCardBuyEvent.SetActive(true);
+
+
+        CardBuyEvent.instance.Drowcardsetting(2);
+
+    }
 }

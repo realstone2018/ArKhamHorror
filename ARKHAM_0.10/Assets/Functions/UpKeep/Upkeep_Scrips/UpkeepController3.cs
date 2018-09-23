@@ -4,44 +4,64 @@ using UnityEngine;
 
 public class UpkeepController3 : MonoBehaviour {
 
-    private int Lore= 0;
-    private int Luck = 0;
+    private int Lore1 = 0;
+    private int Luck1 = 0;
+
+    private int Lore2 = 0;
+    private int Luck2 = 0;
+
+    private int Lore3 = 0;
+    private int Luck3 = 0;
+
+    private int Lore4 = 0;
+    private int Luck4 = 0;
+
+    private void Start()
+    {
+        Lore1 = Character.instance.characterLore;
+        Luck1 = Character.instance.characterLuck;
+
+        Lore2 = Lore1 + 1;
+        Luck2 = Luck1 - 1;
+
+        Lore3 = Lore1 + 2;
+        Luck3 = Luck1 - 2;
+
+        Lore4 = Lore1 + 3;
+        Luck4 = Luck1 - 3;
+
+    }
 
     public void SpeedPos1(RectTransform rt)
     {
-        Lore = 1;
-        Luck = 4;
-        if (1 == Mathf.Abs(Lore - Character.instance.characterLore))
+
+        if (1 == Mathf.Abs(Lore1 - Character.instance.characterLore))
         {
-            OnClickMove(rt, Lore, Luck);
+            OnClickMove(rt, Lore1, Luck1);
         }
     }
     public void SpeedPos2(RectTransform rt)
     {
-        Lore = 2;
-        Luck = 3;
 
-        if (1 == Mathf.Abs(Lore - Character.instance.characterLore))
+        if (1 == Mathf.Abs(Lore2 - Character.instance.characterLore))
         {
-            OnClickMove(rt, Lore, Luck);
+            OnClickMove(rt, Lore2, Luck2);
         }
     }
     public void SpeedPos3(RectTransform rt)
     {
-        Lore = 3;
-        Luck = 2;
-        if (1 == Mathf.Abs(Lore - Character.instance.characterLore))
+
+        if (1 == Mathf.Abs(Lore3 - Character.instance.characterLore))
         {
-            OnClickMove(rt, Lore, Luck);
+            OnClickMove(rt, Lore3, Luck3);
         }
     }
     public void SpeedPos4(RectTransform rt)
     {
-        Lore = 4;
-        Luck = 1;
-        if (1 == Mathf.Abs(Lore - Character.instance.characterLore))
+
+        if (1 == Mathf.Abs(Lore4 - Character.instance.characterLore))
         {
-            OnClickMove(rt, Lore, Luck);
+            OnClickMove(rt, Lore4, Luck4);
         }
     }
 

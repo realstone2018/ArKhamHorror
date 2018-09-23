@@ -21,22 +21,18 @@ public class CardBuyEvent : MonoBehaviour {
     private void Awake()
     {
         instance = this;
-        
+    }
+
+    private void Start()
+    {
         Drowcard = ItemDictionary.instance.CommonItemDeck;
-
-        //ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
-        //ItemPanel2.GetComponent<Image>().sprite = Drowcard[1].ItemImage;
-        //ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
-
-        
-
     }
 
 
     //카드 구입 이벤트시 아이템 종류 드로우
     public void Drowcardsetting(int num)
     {
-        Debug.Log("Drowcardseting");
+        
         if(num==1)
         {
             Drowcard = ItemDictionary.instance.CommonItemDeck;
@@ -54,7 +50,7 @@ public class CardBuyEvent : MonoBehaviour {
 
     }
 
-    //아이템 선택시 구매가능 여부 판별
+    //아이템 선택시 구매가능 여부 판별 및 구입
     public void SelectItem(int num)
     {
         
@@ -62,6 +58,7 @@ public class CardBuyEvent : MonoBehaviour {
         {
             Character.instance.money -= Drowcard[num].price;
             Character.instance.CharacterInventory.Add(Drowcard[num]);
+            
             EventPanel.SetActive(false);
         }
         else
@@ -83,12 +80,14 @@ public class CardBuyEvent : MonoBehaviour {
         {
             Drowcard = ItemDictionary.instance.CommonItemDeck;
             Character.instance.CharacterInventory.Add(Drowcard[0]);
+            Drowcard.RemoveAt(0);
 
         }
         if (num == 2)
         {
             Drowcard = ItemDictionary.instance.UniquItemDeck;
             Character.instance.CharacterInventory.Add(Drowcard[0]);
+            ItemDictionary.instance.UniquItemDeck.RemoveAt(0);
         }
         //마법 아이템 추가
 

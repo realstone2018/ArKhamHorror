@@ -5,32 +5,37 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+
+    public Sprite SheetImage;
+
+
     //캐릭터스텟
-    public int Sanity = 5;
+    public int Sanity;
     public int characterSanity { get { return Sanity; } set { Sanity = value; } }
-    public int MaxSanity = 5;
+    public int MaxSanity;
     public int MaxcharacterSanity { get { return MaxSanity; } set { MaxSanity = value; } }
-    public int Stamina = 5;
+    public int Stamina;
     public int characterStamina { get { return Stamina; } set { Stamina = value; } }
-    public int MaxStamina = 5;
+    public int MaxStamina;
     public int MaxcharacterStamina { get { return MaxStamina; } set { MaxStamina = value; } }
 
-    public int Speed=1;
+    public int Speed;
     public int characterSpeed { get { return Speed; } set { Speed = value; } }
-    public int Sneak=4;
+    public int Sneak;
     public int characterSneak { get { return Sneak ; } set { Sneak = value; } }
 
-    public int Fight=1;
+    public int Fight;
     public int characterFight { get { return Fight; } set {  Fight= value; } }
-    public int Will=4;
+    public int Will;
     public int characterWILL { get { return Will; } set { Will = value; } }
 
-    public int Lore=1;
+    public int Lore;
     public int characterLore { get { return Lore; } set {  Lore = value; } }
-    public int Luck=4;
+    public int Luck;
     public int characterLuck { get { return Luck; } set { Luck = value; } }
 
-    public int Focus=3;
+    public int MaxFocus;
+    public int Focus;
     public int characterFocus { get { return Focus; } set {  Focus = value; } }
 
     public int MinDiceSucc = 5;
@@ -41,7 +46,7 @@ public class Character : MonoBehaviour
     public int money = 0;
     public int clue = 0;
 
-    public Transform InventoryCard;
+
     public List<ItemCard> CharacterInventory;
     public int GateNum;
     public int SumMonsterHP;
@@ -58,6 +63,7 @@ public class Character : MonoBehaviour
     
 
     //이동 관련
+
 
     public int maxMoveCount;  //이동가능 횟수
     public int currentMoveCount = 0;    //현재 이동횟수
@@ -187,22 +193,5 @@ public class Character : MonoBehaviour
         // 아이템은 선택해서 버리게 
     }
 
-    public void ShowInventory()
-    {
-        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
-        Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
-        Transform childOj;
-
-        if (0<CharacterInventory.Count)
-        {
-            for(int i=0;i<CharacterInventory.Count ; i++)
-            {
-                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 160 + (i*40), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
-                childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
-                //아이템 인벤토리 표현 좌표값 수정 요망
-            }
-            
-        }
-        
-    }
+    
 }

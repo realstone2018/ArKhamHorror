@@ -6,6 +6,8 @@ using UnityEngine;
 
 // 1. 보스 랜덤 선택 후 출력 
 // 2. 캐릭터 선택 
+
+    
 // 3. 신화 단계 
 
 // 4. 유지 단계 
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour {
     {
         gameState = GameState.Mythos;
         RandomBoss();
+        SettingSystem.instance.SheetSetting();
+        
     }
 
 
@@ -67,9 +71,7 @@ public class GameManager : MonoBehaviour {
 
 
     public void UpkeepState()
-    {
-        Character.instance.Focus = 3;
-        //캐릭터의 포커스에 맞게 조정
+    { 
         MythosController.instance.MythosStateEnd();
    
         gameState = GameState.Upkeep;
@@ -95,11 +97,16 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.Encounter;
 
         LocalEventController.instance.LocalEnCounterStep();
+       
+        
     }
 
 
     public void MythosState()
     {
+        //이벤트 화면 비활성화 홈수
+        //LocalEventController.instance.ExitEvent();
+        
         gameState = GameState.Mythos;
 
         MythosController.instance.MythosStep();

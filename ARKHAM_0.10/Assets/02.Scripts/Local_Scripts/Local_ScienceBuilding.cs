@@ -5,6 +5,7 @@ using UnityEngine;
 public class Local_ScienceBuilding : Local {
 
     public int activeEvent = 0;
+    public GameObject notprice;
 
     void Start()
     {
@@ -14,8 +15,26 @@ public class Local_ScienceBuilding : Local {
 
         position = transform.position;
 
-        localFunction = "2$를 지불하고 생명력을 모두 회복 가능 합니다.";
+        localFunction = "이곳에서 장소 카드를 펼치지 않고 그 대신 회득한 괴물을 체력의 합이 5 이상 되게 내거나, 획득한 차원문 1개를 내면 단서 마커 2개를 얻는다.";
     }
+
+
+
+
+    public void LoalFuncion()
+    {
+        Debug.Log("실행");
+        //얻은 몬스터가 없거나 게이트가 없을경우 경고문
+        if(Character.instance.SumMonsterHP<5 && Character.instance.GateNum<1)
+        {
+            GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
+            Destroy(notPricePanel,1.5f);
+        }
+        
+    }
+
+
+
 
 
     protected override void EventOne()
@@ -27,6 +46,8 @@ public class Local_ScienceBuilding : Local {
 
         DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck), Character.instance.MinDiceSucc, 6);
 
+        
+
     }
 
     protected override void EventTwo()
@@ -35,7 +56,7 @@ public class Local_ScienceBuilding : Local {
 
         eventText = "화학과 연구실에 들어가보니 한 교수가 공포에 질려 있었습니다. 그는 고대의 인공물을 잠겨 있던 책상 서랍에서 써내 들고는 이를 당신의 얼굴로 내밀었습니다. 그리고는 알 수 없는 몸동작과 함께 주문을 외웟습니다. 저주 받은 상태라면 저주를 제거합니다. 저주받은 상태가 아니라면 축복을 받습니다. ";
 
-        DiceController.instance.SetDiceThrow(this, (Character.instance.characterLuck), Character.instance.MinDiceSucc, 6);
+       
 
     }
 
@@ -44,6 +65,7 @@ public class Local_ScienceBuilding : Local {
         activeEvent = 3;
 
         eventText = "한 교수의 연구실에서 그를 도운 결과 유용한 마법주문 하나를 발견하였습니다. 마법주문 카드 1장을 얻습니다. 대신 투지 체크(-1)를 해야합니다. 실패하면 손버릇 나쁜 학생하나가 당신의 물건 하나를 훔쳐갑니다. 아이템 카드 1장을 선택하여 버립니다.";
+        CardBuyEvent.instance.CardDrow(1); //임시적으로 일반아이템 드로우
         DiceController.instance.SetDiceThrow(this, (Character.instance.characterFight - 1), Character.instance.MinDiceSucc, 6);
     }
 
@@ -65,7 +87,7 @@ public class Local_ScienceBuilding : Local {
 
     protected override void EventSeven()
     {
-
+        LoalFuncion();
     }
 
 

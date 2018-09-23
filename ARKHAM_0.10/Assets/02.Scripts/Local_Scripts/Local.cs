@@ -47,6 +47,9 @@ public abstract class Local : MonoBehaviour {
             case 3:
                 EventThree();
                 break;
+            case 7:
+                EventSeven();
+                break;
             default:
                 Debug.Log("ActiveEventFalse");
                 break;

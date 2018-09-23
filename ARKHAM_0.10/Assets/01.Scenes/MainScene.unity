@@ -1329,7 +1329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19269, y: 0.22800002}
   m_AnchorMax: {x: 0.30569002, y: 0.38959733}
-  m_AnchoredPosition: {x: -1.7923584, y: 2.4724693}
+  m_AnchoredPosition: {x: -1.7923584, y: 2.472458}
   m_SizeDelta: {x: 37.20549, y: 57.75531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &261051576
@@ -3664,6 +3664,8 @@ MonoBehaviour:
   moneypanel: {fileID: 1710575991}
   tokenpanel1: {fileID: 677428725}
   tokenpanel2: {fileID: 401145564}
+  InventoryCard: {fileID: 224600483853709980, guid: 3100a3a5421beda4998fdd4ee2323cff,
+    type: 2}
   cluetext: {fileID: 0}
 --- !u!4 &593630445
 Transform:
@@ -4548,6 +4550,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &735900316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735900317}
+  - component: {fileID: 735900318}
+  m_Layer: 0
+  m_Name: SettingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &735900317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 735900316}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.638794, y: 2.0217285, z: 26.433655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &735900318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 735900316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d8cdc0c70e9d54798e1f1a3d5d4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &741084787
 Prefab:
   m_ObjectHideFlags: 0
@@ -8209,7 +8251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 732519310}
-        m_MethodName: LocalBuyEventButtonDown
+        m_MethodName: CallLocalEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9517,7 +9559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.277379}
-  m_AnchoredPosition: {x: 0, y: 0.22999954}
+  m_AnchoredPosition: {x: 0, y: 0.22999573}
   m_SizeDelta: {x: 0, y: 0.44999695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500499296
@@ -11650,6 +11692,7 @@ MonoBehaviour:
   whitePath_id: 0
   blackPath_id: 0
   activeEvent: 0
+  notprice: {fileID: 1042941083867706, guid: 0f2ff2ed11fc20b419f2d28ce93db0f2, type: 2}
 --- !u!1 &1811008285
 GameObject:
   m_ObjectHideFlags: 0

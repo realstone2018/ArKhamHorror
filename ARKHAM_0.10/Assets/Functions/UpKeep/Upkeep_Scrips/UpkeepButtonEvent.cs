@@ -15,6 +15,8 @@ public class UpkeepButtonEvent : MonoBehaviour {
     public GameObject tokenpanel1;
     public GameObject tokenpanel2;
 
+    public Transform InventoryCard;
+
     public Text cluetext;
 
     private void Awake()
@@ -32,8 +34,9 @@ public class UpkeepButtonEvent : MonoBehaviour {
         tokenpanel2.GetComponent<Text>().text = Character.instance.SumMonsterHP.ToString();
 
         upkeepEncounterPanel.SetActive(true);
-        Character.instance.ShowInventory();
-        Character.instance.characterFocus = 3;
+        ShowInventory();
+        
+        Character.instance.characterFocus = Character.instance.MaxFocus;
 
         
 
@@ -59,6 +62,26 @@ public class UpkeepButtonEvent : MonoBehaviour {
         upkeepEncounterPanel.SetActive(false);
         Character.instance.characterFocus = 0;
         
+    }
+
+
+    public void ShowInventory()
+    {
+        Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
+        Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
+        Transform childOj;
+
+        if (0 < Character.instance.CharacterInventory.Count)
+        {
+            for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
+            {
+                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 160 + (i * 40), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
+                childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
+                //아이템 인벤토리 표현 좌표값 수정 요망
+            }
+
+        }
+
     }
 
 

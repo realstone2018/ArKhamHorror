@@ -120,6 +120,7 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
+    <Compile Include="Assets\02.Scripts\SelectCharacter.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_EastTown.cs" />
@@ -137,6 +138,8 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+    <Compile Include="Assets\SelectBoss.cs" />
+    <Compile Include="Assets\SettingSystem.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM_0.10/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

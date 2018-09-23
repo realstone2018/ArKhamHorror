@@ -4,44 +4,65 @@ using UnityEngine;
 
 public class UpkeepController1 : MonoBehaviour {
 
-    private int Speed = 0;
-    private int Sneak = 0;
+    private int Speed1 = 0;
+    private int Sneak1 = 0;
+
+    private int Speed2 = 0;
+    private int Sneak2 = 0;
+
+    private int Speed3 = 0;
+    private int Sneak3 = 0;
+
+    private int Speed4 = 0;
+    private int Sneak4 = 0;
+
+
+    private void Start()
+    {
+        Speed1 = Character.instance.characterSpeed;
+        Sneak1 = Character.instance.characterSneak;
+
+        Speed2 = Speed1+1;
+        Sneak2 = Sneak1-1;
+
+        Speed3 = Speed1+2;
+        Sneak3 = Sneak1+2;
+
+        Speed4 = Speed1+3;
+        Sneak4 = Sneak1-3;
+    }
 
     public void SpeedPos1(RectTransform rt)
     {
-        Speed = 1;
-        Sneak = 4;
-        if (1 == Mathf.Abs(Speed -Character.instance.characterSpeed))
+
+        if (1 == Mathf.Abs(Speed1 -Character.instance.characterSpeed))
         {
-            OnClickMove(rt,Speed,Sneak);
+            OnClickMove(rt,Speed1,Sneak1);
         }
     }
     public void SpeedPos2(RectTransform rt)
     {
-        Speed = 2;
-        Sneak = 3;
-        if (1 == Mathf.Abs(Speed - Character.instance.characterSpeed))
+
+        if (1 == Mathf.Abs(Speed2 - Character.instance.characterSpeed))
         {
-            OnClickMove(rt, Speed, Sneak);
+            OnClickMove(rt, Speed2, Sneak2);
         }
     }
     public void SpeedPos3(RectTransform rt)
     {
-        Speed = 3;
-        Sneak = 2;
-        if (1 == Mathf.Abs(Speed - Character.instance.characterSpeed))
+
+        if (1 == Mathf.Abs(Speed3 - Character.instance.characterSpeed))
         {
-            OnClickMove(rt, Speed, Sneak);
+            OnClickMove(rt, Speed3, Sneak3);
         }
     }
 
     public void SpeedPos4(RectTransform rt)
     {
-        Speed = 4;
-        Sneak = 1;
-        if (1 == Mathf.Abs(Speed - Character.instance.characterSpeed))
+
+        if (1 == Mathf.Abs(Speed4 - Character.instance.characterSpeed))
         {
-            OnClickMove(rt, Speed, Sneak);
+            OnClickMove(rt, Speed4, Sneak4);
         }
     }
 

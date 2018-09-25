@@ -57,6 +57,8 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.money = 1;
         Characterset.clue = 1;
 
+        Characterset.currentLocal_Id = 9900411;
+
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/AmandaSharpe");
 
     }

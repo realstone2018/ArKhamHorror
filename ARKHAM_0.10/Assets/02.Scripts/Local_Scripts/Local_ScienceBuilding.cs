@@ -7,7 +7,7 @@ public class Local_ScienceBuilding : Local {
     public int activeEvent = 0;
     public GameObject notprice;
 
-    void Start()
+    public void Awake()
     {
         local_Id = 9900411;   //99=아컴지역 004=인접한거리(1번,3번,6번) 10=장소번호
         allowLocal_Id = new int[1];
@@ -18,6 +18,11 @@ public class Local_ScienceBuilding : Local {
         localFunction = "이곳에서 장소 카드를 펼치지 않고 그 대신 회득한 괴물을 체력의 합이 5 이상 되게 내거나, 획득한 차원문 1개를 내면 단서 마커 2개를 얻는다.";
     }
 
+    public Local_ScienceBuilding(int _local_Id)
+    {
+        local_Id = _local_Id;
+        position = new Vector3(GameObject.Find("Science_Building").GetComponent<Transform>().position.x,1, GameObject.Find("Science_Building").GetComponent<Transform>().position.z);
+    }
 
 
 

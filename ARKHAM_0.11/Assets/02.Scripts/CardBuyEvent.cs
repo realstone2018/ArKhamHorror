@@ -76,20 +76,7 @@ public class CardBuyEvent : MonoBehaviour {
     //카드 드로우 이벤트
     public void CardDrow(int num)
     {
-        if (num == 1)
-        {
-            Drowcard = ItemDictionary.instance.CommonItemDeck;
-            Character.instance.CharacterInventory.Add(Drowcard[0]);
-            Drowcard.RemoveAt(0);
-
-        }
-        if (num == 2)
-        {
-            Drowcard = ItemDictionary.instance.UniquItemDeck;
-            Character.instance.CharacterInventory.Add(Drowcard[0]);
-            ItemDictionary.instance.UniquItemDeck.RemoveAt(0);
-        }
-        //마법 아이템 추가
+        ItemDictionary.instance.DrowOneCard(num);
 
     }
 

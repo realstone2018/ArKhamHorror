@@ -89,6 +89,8 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.money = 1;
         Characterset.clue = 3;
 
+        Characterset.currentLocal_Id = 9900608;
+
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/AshcanPete");
     }
     public void BobJenkins()
@@ -116,6 +118,8 @@ public class SelectCharacter : MonoBehaviour {
 
         Characterset.money = 9;
         Characterset.clue = 0;
+
+        Characterset.currentLocal_Id = 9900521;
 
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/BobJenkins");
     }

@@ -38,4 +38,22 @@ public class ItemDictionary : MonoBehaviour {
 
     }
 
+    public void DrowOneCard(int i)
+    {
+        int num = i;
+        if (num == 1)
+        {
+            
+            Character.instance.CharacterInventory.Add(CommonItemDeck[0]);
+            CommonItemDeck.RemoveAt(0);
+
+        }
+        if (num == 2)
+        { 
+            Character.instance.CharacterInventory.Add(UniquItemDeck[0]);
+            UniquItemDeck.RemoveAt(0);
+        }
+        //마법 아이템 추가
+    }
+
 }

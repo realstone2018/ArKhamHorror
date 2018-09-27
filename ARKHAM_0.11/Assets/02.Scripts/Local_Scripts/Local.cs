@@ -17,7 +17,7 @@ public abstract class Local : MonoBehaviour {
 
     public static Character character;
 
-    void Awake()
+    void Start()
     {
         character = GameObject.Find("character").GetComponent<Character>();
     }

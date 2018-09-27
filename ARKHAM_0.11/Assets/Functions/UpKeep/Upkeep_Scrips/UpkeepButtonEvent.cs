@@ -75,7 +75,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
         {
             for (int i = 0; i < Character.instance.CharacterInventory.Count; i++)
             {
-                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 160 + (i * 40), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
+                childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
                 childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
                 //아이템 인벤토리 표현 좌표값 수정 요망
             }

@@ -55,9 +55,9 @@ public class Character : MonoBehaviour
 
 
     //전투
-    public int PhysicalCombat;  //물리
-    public int MagicalCombat;   //마법
-    public int EvadeCheck;  //전투
+    public int PhysicalCombat;  //무기공격력(한손x2 or 양손)
+    public int MagicalCombat;   //마법공격력
+    public int EvadeCheck;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
     public int HorrorCheck; //공포
     public int CombatCheck; //투지+무기 수치
     

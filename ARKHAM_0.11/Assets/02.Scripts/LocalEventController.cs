@@ -63,12 +63,14 @@ public class LocalEventController : MonoBehaviour {
                 eventLocal = local;
         }
 
+        localEncounterPanel.SetActive(true);
+
+
         //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
         localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
 
         //localFunction.text = eventLocal.localFunction;
 
-        localEncounterPanel.SetActive(true);
     }
 
     // 지역조우 패널 비활성화,  카드 선택 패널 활성화

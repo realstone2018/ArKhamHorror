@@ -22,22 +22,29 @@ public class SettingSystem : MonoBehaviour {
         for (int i = 0; i < StartPointSetting.Count;i++)
         {
 
-            Debug.Log(i);
-            Debug.Log(StartPointSetting[i].local_Id);
-            Debug.Log(Character.instance.currentLocal_Id);
-
             if (StartPointSetting[i].local_Id==Character.instance.currentLocal_Id)
             {
                 GameObject.Find("character").GetComponent<Transform>().position = new Vector3(StartPointSetting[i].position.x,1, StartPointSetting[i].position.z);
                 
                 Debug.Log("포지션"+StartPointSetting[i].position);
             }
-            Debug.Log(i);
         }
 
         
 
         GameObject.Find("CharacterSheet").GetComponent<Image>().sprite = Character.instance.SheetImage;
+
+        UpkeepButtonEvent.instance.UpkeepEnCounterStep();
+        Character.instance.Focus = 100;
+
+    }
+
+    public void EndSetting()
+    {
+
+        UpkeepButtonEvent.instance.UpkeepStepEnd();
+
+        MythosController.instance.FirstMythos();
     }
 
 

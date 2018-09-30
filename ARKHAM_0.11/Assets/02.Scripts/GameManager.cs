@@ -18,16 +18,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public enum GameState {Upkeep, Move, Encounter, Mythos}
+    public enum GameState {Setting,Upkeep, Move, Encounter, Mythos}
     public GameState gameState;
 
 
     void Start()
     {
-        gameState = GameState.Mythos;
-        RandomBoss();
+        gameState = GameState.Setting;
+        //RandomBoss();
         SettingSystem.instance.SheetSetting();
-        
+
     }
 
 
@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour {
     {
         switch(gameState)
         {
+            case GameState.Setting:
+                GameSetting();
+                break;
             case GameState.Upkeep:
                 MoveState();
                 break;
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour {
                 break;
         }
     }
+
 
 
     public void RandomBoss()
@@ -68,6 +72,14 @@ public class GameManager : MonoBehaviour {
         // 처음 신화는 소문이 아닌 카드를 뽑을 때 까지 Draw()
         MythosController.instance.FirstMythos();
     }
+
+    public void GameSetting()
+    {
+        gameState = GameState.Mythos;
+        SettingSystem.instance.EndSetting();
+
+    }
+
 
 
     public void UpkeepState()

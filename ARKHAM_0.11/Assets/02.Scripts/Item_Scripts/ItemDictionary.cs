@@ -27,8 +27,7 @@ public class ItemDictionary : MonoBehaviour {
         CommonItemDeck.Add(new etc_DarkCloak("어두운 망토", 2, 0, ItemCard.ItemKind.CommonItem, ItemCard.ItemType.Nomal, Resources.Load<Sprite>("Item_Images/etc-DarkCloak"), "회피 체크 +1"));
         CommonItemDeck.Add(new weapon_Cross("십자가", 3, 1, ItemCard.ItemKind.CommonItem, ItemCard.ItemType.Magical,Resources.Load<Sprite>("Item_Images/weapon-cross"), "전투 체크 +0 (언데드 괴물을 상대할 때는 + 3)  공포 체크 + 1"));
 
-        Debug.Log("배열 할당 갯수"+CommonItemDeck.Count);
-        Debug.Log(CommonItemDeck[1].ItemName);
+
 
         UniquItemDeck.Add(new book_BookOfDzyan("드잔서", 3, 0, ItemCard.ItemKind.UniquItem, ItemCard.ItemType.Book, Resources.Load<Sprite>("Item_Images/book-BookOfDzyan"), "이동 단계: 이동력 2를 쓰고 이 카드를 고갈시킵니다. 지식 체크(-1)를 합니다. 성공하면 마법주문 카드 1장을 얻습니다. 정신력 1을 잃은 다음 이 카드 위에 사용하지 않은 체력 마커 1개를 올려놓습니다. 이 카드 위에 체력 마커가 2개째 놓이면 이 카드를 버립니다. 실패하면 아무 일도 일어나지 않습니다."));
         UniquItemDeck.Add(new book_TheKingInYellow("황색의 왕", 2, 0, ItemCard.ItemKind.UniquItem, ItemCard.ItemType.Book, Resources.Load<Sprite>("Item_Images/book-TheKingInYellow"), "이동 단계: 이동력 2를 쓰고 이 카드를 고갈시킵니다. 지식 체크(-2)를 합니다. 성공하면 단서 마커 4개를 얻습니다. 정신력 1을 잃고 이 카드를 버립니다. 실패하면 아무 일도 일어나지 않습니다."));

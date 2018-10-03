@@ -61,6 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Azathoth.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Boss.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Cthulhu.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Yig.cs" />
     <Compile Include="Assets\02.Scripts\CameraMoveZone.cs" />
     <Compile Include="Assets\02.Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\Character.cs" />
@@ -120,8 +124,10 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
-    <Compile Include="Assets\02.Scripts\SelectCharacter.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
+    <Compile Include="Assets\02.Scripts\StartMainScripts\SelectBoss.cs" />
+    <Compile Include="Assets\02.Scripts\StartMainScripts\SelectCharacter.cs" />
+    <Compile Include="Assets\02.Scripts\StartMainScripts\SettingSystem.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_EastTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_FrenchHill.cs" />
@@ -138,8 +144,6 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
-    <Compile Include="Assets\SelectBoss.cs" />
-    <Compile Include="Assets\SettingSystem.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM_0.11/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
     public enum GameState {Setting,Upkeep, Move, Encounter, Mythos}
     public GameState gameState;
+<<<<<<< HEAD
 
     public static GameManager instance = null;
 
@@ -29,9 +30,14 @@ public class GameManager : MonoBehaviour {
         instance = this;
     }
 
+=======
+    public int BossBattle=0;
+>>>>>>> dcd15e3bf11da386b7bc45c2ad8ca5c7b97b7819
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().Worshippers();    //영향을 끼치는 몬스터
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossAbility();    //필드 영향
         gameState = GameState.Setting;
         //RandomBoss();
         SettingSystem.instance.SheetSetting();

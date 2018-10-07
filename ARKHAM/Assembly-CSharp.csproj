@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{B91A9BEE-403F-6074-5D9E-6267DFEB1935}</ProjectGuid>
+    <ProjectGuid>{6745637E-3FAD-8040-9711-328507971EE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,10 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\02.Scripts\Boss_Scripts\Azathoth.cs" />
-    <Compile Include="Assets\02.Scripts\Boss_Scripts\Boss.cs" />
-    <Compile Include="Assets\02.Scripts\Boss_Scripts\Cthulhu.cs" />
-    <Compile Include="Assets\02.Scripts\Boss_Scripts\Yig.cs" />
     <Compile Include="Assets\02.Scripts\CameraMoveZone.cs" />
     <Compile Include="Assets\02.Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\Character.cs" />
@@ -124,10 +120,8 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
+    <Compile Include="Assets\02.Scripts\SelectCharacter.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
-    <Compile Include="Assets\02.Scripts\StartMainScripts\SelectBoss.cs" />
-    <Compile Include="Assets\02.Scripts\StartMainScripts\SelectCharacter.cs" />
-    <Compile Include="Assets\02.Scripts\StartMainScripts\SettingSystem.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_EastTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_FrenchHill.cs" />
@@ -145,17 +139,19 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+    <Compile Include="Assets\SelectBoss.cs" />
+    <Compile Include="Assets\SettingSystem.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.11/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.11/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.11/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM_0.11/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

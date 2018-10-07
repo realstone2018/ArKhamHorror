@@ -37,7 +37,6 @@ public class GameStart : MonoBehaviour {
     //보스 선택버튼
     public void SelectBossBtn()
     {
-        SelectBoss.instance.PickBoss(ImageNum);
         ObjectImage.Clear();
         SelectBossPanel.SetActive(false);
         SelectCharacterPanel.SetActive(true);
@@ -48,13 +47,13 @@ public class GameStart : MonoBehaviour {
         ImageNum = 0;
         GameObject.Find("SelectImage").GetComponent<Image>().sprite = ObjectImage[ImageNum];
 
-
     }
 
 
 	// 캐릭터 선택버튼
     public void SelectCharacterBtn()
     {
+        Debug.Log(ImageNum);
         SelectCharacter.instance.PickCharacter(ImageNum);
         SceneManager.LoadScene("MainScene",LoadSceneMode.Single);
     }

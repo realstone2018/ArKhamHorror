@@ -41,6 +41,8 @@ public class LocalEventController : MonoBehaviour {
 
     void Start()
     {
+        character = GameObject.Find("character").GetComponent<Character>();
+
         locals = GameObject.FindObjectsOfType<Local>();
 
         localName = eventCard.transform.GetChild(1).GetComponent<Text>();

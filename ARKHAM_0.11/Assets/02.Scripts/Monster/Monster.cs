@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour {
 
     public float moveSpeed = 3f;   //속도   
 
+    public bool meetPlayer = false;
 
     public Monster(string _name, int _hp, int _fearLevel, int _combatLevel, int _staminaDamage, int _sanityDamage, int _evasionLevel, Type _type, Simbol _simbol, List <SAttribute> _sAttribute)
     {
@@ -47,7 +48,6 @@ public class Monster : MonoBehaviour {
 
     // 대입 연산자 오버로딩할랬는데 C#은 대입연산자는 오버로딩 불가능
     // ref는 참조자(&)를 의미 
-
     public void CopyValue(ref Monster mon)
     {
         name = mon.id;
@@ -68,6 +68,7 @@ public class Monster : MonoBehaviour {
         }
     }
 
+
     public IEnumerator MovePosition(Vector3 position)
     {
         Vector3 goalPosition = new Vector3(position.x, 1.2f, position.z - 3.0f);
@@ -79,6 +80,22 @@ public class Monster : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, goalPosition, 10.0f); //현재 캐릭터 정보에있는 위치와 이동해야될 위치를 보고 직선으로 이동 
 
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            meetPlayer = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            meetPlayer = false;
         }
     }
 }

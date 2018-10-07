@@ -17,8 +17,11 @@ public class MaincameraController : MonoBehaviour {
     }
 
     void Start () {
-        offset = transform.position - character.transform.position;
+        character = GameObject.Find("character");
+
         characterCont = character.GetComponent<Character>();
+
+        offset = transform.position - character.transform.position;
     }
 	
     // LateUpdate에서 GetComponent<> 사용 x, 변수에 저장해서 쓰는 형식으로 바꿈 

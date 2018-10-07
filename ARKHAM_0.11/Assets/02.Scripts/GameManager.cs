@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour {
     public enum GameState {Setting,Upkeep, Move, Encounter, Mythos}
     public GameState gameState;
 
+    public static GameManager instance = null;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     void Start()
     {
@@ -54,7 +62,6 @@ public class GameManager : MonoBehaviour {
     }
 
 
-
     public void RandomBoss()
     {
         Debug.Log("Boss Random Choice");
@@ -72,6 +79,7 @@ public class GameManager : MonoBehaviour {
         // 처음 신화는 소문이 아닌 카드를 뽑을 때 까지 Draw()
         MythosController.instance.FirstMythos();
     }
+
 
     public void GameSetting()
     {
@@ -125,4 +133,12 @@ public class GameManager : MonoBehaviour {
 
     }
 
+
+    public bool CheckState(GameState confirmState)
+    {
+        if (confirmState == gameState)
+            return true;
+        else
+            return false;
+    }
 }

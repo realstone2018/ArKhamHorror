@@ -126,7 +126,7 @@ public class Character : MonoBehaviour
             currentLocal_Id = other.GetComponent<Local>().local_Id;
         }
         // 이동 시 몬스터 지역으로 이동, 바로 전투의 경우만 해당 
-        else if (other.CompareTag("MONSTER"))
+        else if (other.CompareTag("MONSTER") && GameManager.instance.CheckState(GameManager.GameState.Move))
         {
             characterState = State.COMBAT;
             CombatController.instance.SetCombatController(this, other.GetComponent<Monster>());

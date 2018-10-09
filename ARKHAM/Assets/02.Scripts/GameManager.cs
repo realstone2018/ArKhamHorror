@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour {
     {
         gameState = GameState.Mythos;
         SettingSystem.instance.EndSetting();
-
     }
 
 
@@ -117,15 +116,13 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.Encounter;
 
         LocalEventController.instance.LocalEnCounterStep();
-       
-        
     }
 
 
     public void MythosState()
     {
         //이벤트 화면 비활성화 홈수
-        //LocalEventController.instance.ExitEvent();
+        LocalEventController.instance.ExitEvent();
         
         gameState = GameState.Mythos;
 

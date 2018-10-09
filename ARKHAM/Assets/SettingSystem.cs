@@ -26,7 +26,6 @@ public class SettingSystem : MonoBehaviour {
             {
                 GameObject.Find("character").GetComponent<Transform>().position = new Vector3(StartPointSetting[i].position.x,1, StartPointSetting[i].position.z);
                 
-                Debug.Log("포지션"+StartPointSetting[i].position);
             }
         }
 

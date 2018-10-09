@@ -8,22 +8,11 @@ public class MonsterMoveController : MonoBehaviour {
     public Local currentLocal;
     public Local goalLocal;
 
-    Local[] locals;
-
     public enum Color { White, Black };
     Color color;
 
-
-    private void Start()
-    {
-        locals = FindObjectsOfType<Local>();
-    }
-
-
     public void MoveEachType(Monster _monster, Color _color)
     {
-        Debug.Log(_monster + "MoveEachType");
-
         monster = _monster;
         Monster.Type type = monster.type;
         color = _color;
@@ -55,13 +44,12 @@ public class MonsterMoveController : MonoBehaviour {
 
         currentLocal = monster.GetComponentInParent<Local>();
 
-
-        // 지역에서 거리로
+        // 지역에서 거리로      ////////////////////////////////  Local Id값들 변경 후 조건문 바꾸기  
         if (currentLocal.allowLocal_Id.Length == 1)
         {
             Debug.Log("From Local to Street");
 
-            goalLocal = FindLocalById(currentLocal.allowLocal_Id[0]);
+            goalLocal = Local.GetLocalObjById(currentLocal.allowLocal_Id[0]);
             
             StartCoroutine(monster.MovePosition(goalLocal.position));
         }
@@ -71,13 +59,13 @@ public class MonsterMoveController : MonoBehaviour {
             Debug.Log("Local to Local"); 
 
             if (color == Color.White) {
-                goalLocal = FindLocalById(currentLocal.whitePath_id);
+                goalLocal = Local.GetLocalObjById(currentLocal.whitePath_id);
 
                 StartCoroutine(monster.MovePosition(goalLocal.position));
             }
             else
             {
-                goalLocal = FindLocalById(currentLocal.blackPath_id);
+                goalLocal = Local.GetLocalObjById(currentLocal.blackPath_id);
 
                 StartCoroutine(monster.MovePosition(goalLocal.position));
             }
@@ -94,7 +82,7 @@ public class MonsterMoveController : MonoBehaviour {
 
         // 조사자와 같은 지역에 있을 경우 이동 중지 
         if (!monster.meetPlayer)
-            NormalMove();
+            Invoke("NormalMove", 3.0f);
     }
 
 
@@ -107,46 +95,74 @@ public class MonsterMoveController : MonoBehaviour {
 
         currentLocal = monster.GetComponentInParent<Local>();
 
-
         // 모든 조사자 들을 불러와 거리에있는 조사자만 분리해서 저장
+        // Find드는 배열에만 저장되므로 배열사용, 최대 4인게임이므로 크기는 4
         GameObject[] characters = new GameObject[4];
         List<Character> streetCharacter = new List<Character>();
         characters = GameObject.FindGameObjectsWithTag("Player");
 
         for (int i = 0; i < characters.Length; i++)
         {
+            Debug.Log("캐릭터 리스트 : " + characters[i]);
+
             if (characters[i] != null)
             {
                 // 캐릭터가 위치한 지역의 이동가능경로 수를 보고 지역인지 장소인지 판별
-                Character c = characters[i].GetComponent<Character>();
-                Local local = FindLocalById(c.currentLocal_Id);
+                Character ch = characters[i].GetComponent<Character>();
+                Local local = Local.GetLocalObjById(ch.currentLocal_Id);
 
+                //////////////////////////     이부분도 Localid 변경되면 바꾸기
                 if (local.allowLocal_Id.Length > 1)
                 {
-                    streetCharacter.Add(c);
+                    Debug.Log("캐릭터 리스트 : " + characters[i] + "는 거리에 있습니다");
+                    streetCharacter.Add(ch);
                 }
             }
         }
 
+        //if 지역, 거리에있다면 자신으로부터 인접한 거리의 조사자에게 이동 
+        if (true)
+        {
+            Debug.Log("하늘몬스터가 지역,거리에 있다고 가정 ");
 
-        // if(currentLocal == 하늘지역id)
+            int distance = 0;
+            int farthest = 0;
+            Character farthestChar = null;
+
+            for (int i = 0; i < streetCharacter.Count; i++)
+            {
+                if (streetCharacter[i] != null)
+                {
+                    distance = DistanceBetween.instance.GetDistance(currentLocal.local_Id, streetCharacter[i].currentLocal_Id);
+
+                    if (distance > farthest)
+                    {
+                        farthest = distance;
+                        farthestChar = streetCharacter[i];
+                    }
+                }
+            }
+            Debug.Log("가장 멀리 떨어져있는 캐릭터 :" + farthestChar.name);
+
+            goalLocal = Local.GetLocalObjById(farthestChar.currentLocal_Id);
+            StartCoroutine(monster.MovePosition(goalLocal.position));
+        }
+        //(currentLocal == 하늘지역id)
+        else
         {
             // 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
             Character lowSneakChar = streetCharacter[0];
 
-            for (int j = 0; j < streetCharacter.Count; j++)
+            for (int i = 0; i < streetCharacter.Count; i++)
             {
-                if (streetCharacter[j].Sneak < lowSneakChar.Sneak)
-                    lowSneakChar = streetCharacter[j];
+                if (streetCharacter[i].Sneak < lowSneakChar.Sneak)
+                    lowSneakChar = streetCharacter[i];
             }
 
-            goalLocal = FindLocalById(lowSneakChar.currentLocal_Id);
+            goalLocal = Local.GetLocalObjById(lowSneakChar.currentLocal_Id);
             StartCoroutine(monster.MovePosition(goalLocal.position));
         }
-        //else 지역, 거리에있다면 
-        {
-                // 가장 가까운 조사자 판별을 위해 
-        }
+        
     }
 
 
@@ -166,23 +182,59 @@ public class MonsterMoveController : MonoBehaviour {
         // Chthonian - 이동해야 할 때, 이동하지 않고 그 대신 주사위를 1개 굴려 4~6이 나오면 아컴에 있는 모든 조사자는 체력 1을 잃는다.
         if (monster.id == "HoundofTindalos")
         {
+            currentLocal = monster.GetComponentInParent<Local>();
 
+            // 모든 조사자 들을 불러와 장소에만있는 조사자만 분리해서 저장
+            GameObject[] characters = new GameObject[4];
+            List<Character> LocalCharacter = new List<Character>();
+            characters = GameObject.FindGameObjectsWithTag("Player");
+
+            for (int i = 0; i < characters.Length; i++)
+            {
+                Debug.Log("캐릭터 리스트 : " + characters[i]);
+
+                if (characters[i] != null)
+                {
+                    // 캐릭터가 위치한 지역의 이동가능경로 수를 보고 지역인지 장소인지 판별
+                    Character ch = characters[i].GetComponent<Character>();
+                    Local local = Local.GetLocalObjById(ch.currentLocal_Id);
+
+                    //////////////////////////     이부분도 Localid 변경되면 바꾸기
+                    if (local.allowLocal_Id.Length == 1)
+                    {
+                        Debug.Log("캐릭터 리스트 : " + characters[i] + "는 거리에 있습니다");
+                        LocalCharacter.Add(ch);
+                    }
+                }
+            }
+
+
+            int distance = 0;
+            int farthest = 0;
+            Character farthestChar = null;
+
+            for (int i = 0; i < LocalCharacter.Count; i++)
+            {
+                if (LocalCharacter[i] != null)
+                {
+                    distance = DistanceBetween.instance.GetDistance(currentLocal.local_Id, LocalCharacter[i].currentLocal_Id);
+
+                    if (distance > farthest)
+                    {
+                        farthest = distance;
+                        farthestChar = LocalCharacter[i];
+                    }
+                }
+            }
+            Debug.Log("가장 멀리 떨어져있는 캐릭터 :" + farthestChar.name);
+
+            goalLocal = Local.GetLocalObjById(farthestChar.currentLocal_Id);
+            StartCoroutine(monster.MovePosition(goalLocal.position));
         }
+        //크토니안 
         else
         {
-
+            //주사위 이벤트 호출
         }
-    }
-
-
-    private Local FindLocalById(int id)
-    {
-        foreach (Local local in locals)
-        {
-            if (local.local_Id == id)
-                return local;
-        }
-
-        return null;
     }
 }

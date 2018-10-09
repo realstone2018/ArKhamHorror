@@ -6,9 +6,9 @@ public class Local_RiverDock : Local {
 
     void Start()
     {
-        local_Id = 9900608;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 32;  
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 99458996;
+        allowLocal_Id[0] = 30;
 
         position = transform.position;
     }

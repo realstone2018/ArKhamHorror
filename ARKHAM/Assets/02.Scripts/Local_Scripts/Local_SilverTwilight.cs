@@ -6,9 +6,9 @@ public class Local_SilverTwilight : Local {
 
     void Start()
     {
-        local_Id = 9900319;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 62;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9924593;
+        allowLocal_Id[0] = 60;
 
         position = transform.position;
     }

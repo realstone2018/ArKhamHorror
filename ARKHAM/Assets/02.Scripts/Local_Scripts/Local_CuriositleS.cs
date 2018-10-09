@@ -7,9 +7,9 @@ public class Local_CuriositleS : Local {
 
 
     void Start () {
-        local_Id = 9900906;   //99=아컴지역 004=인접한거리(1번,3번,6번) 00=장소번호
+        local_Id = 01;   //99=아컴지역 004=인접한거리(1번,3번,6번) 00=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9906899;
+        allowLocal_Id[0] = 00;
 
         position = transform.position;
         localFunction = "특별카드 3장을 뽑고 원하는 카드는 금액을 지불하고 구입가능하다";

@@ -7,7 +7,6 @@ public class LocalEventController : MonoBehaviour {
 
     public Character character;
 
-    public Local[] locals;
     public Local eventLocal;
 
     public GameObject localEncounterPanel;
@@ -15,6 +14,8 @@ public class LocalEventController : MonoBehaviour {
 
     public GameObject localCardBuyEvent;
     public GameObject EventPanel;
+
+    //변수 이름 왜이래 고쳐라 
     public GameObject ItemPanel1;
     public GameObject ItemPanel2;
     public GameObject ItemPanel3;
@@ -39,41 +40,40 @@ public class LocalEventController : MonoBehaviour {
         instance = this;
     }
 
+
     void Start()
     {
         character = GameObject.Find("character").GetComponent<Character>();
 
-        locals = GameObject.FindObjectsOfType<Local>();
-
         localName = eventCard.transform.GetChild(1).GetComponent<Text>();
         eventMessage = eventCard.transform.GetChild(2).GetComponent<Text>();
     }
-    /*
-    private void Update()
-    {
-        Debug.Log(Resources.Load("Local_Images/Black_cave", typeof(Sprite)) as Sprite);
-    }
-    */
-
+    
+    
     // 지역 조우 패널 활성화
     public void LocalEnCounterStep()
     {
         Character.instance.currentMoveCount = Character.instance.maxMoveCount;
+
+        /* Local 스크립트의 static함수로 대체
         foreach (Local local in locals)
         {
             if (local.local_Id == character.currentLocal_Id)
-                eventLocal = local;
+                eventLocal = Local.local;
         }
+        */
+        eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
 
         localEncounterPanel.SetActive(true);
-
 
         //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
         localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
 
+        //추후 text 추가 
         //localFunction.text = eventLocal.localFunction;
 
     }
+
 
     // 지역조우 패널 비활성화,  카드 선택 패널 활성화
     public void LocalEventButtonDown()
@@ -101,6 +101,7 @@ public class LocalEventController : MonoBehaviour {
         localName.text = eventLocal.name;
     }
 
+
     private void MoveCenter()
     {
         Vector3 currentPosition = eventCard.transform.position;
@@ -117,6 +118,7 @@ public class LocalEventController : MonoBehaviour {
         Invoke("DeActivationPanel", 1.2f);
     }
 
+
     private void FlipCard()
     {
         // 테스트를 위해 랜덤 값
@@ -128,7 +130,6 @@ public class LocalEventController : MonoBehaviour {
     }
 
 
-
     public void DeActivationPanel() 
     {
         for (int i = 0; i < (drawCardPanel.transform.childCount - 1); i++)
@@ -137,6 +138,7 @@ public class LocalEventController : MonoBehaviour {
         }
 
     }
+
 
     public void ExitEvent()
     {
@@ -166,6 +168,5 @@ public class LocalEventController : MonoBehaviour {
 
 
         CardBuyEvent.instance.Drowcardsetting(2);
-
     }
 }

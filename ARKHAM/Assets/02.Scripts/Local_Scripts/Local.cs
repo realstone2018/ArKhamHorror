@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Local : MonoBehaviour {
 
-    public int local_Id = 0000000;    //장소아이디  맨앞 두자리 99=아컴지역 이외다른세계, 다음 3자리 004=인접한거리 번호 00=장소번호
+    public int local_Id;   
     public Vector3 position;   //장소 좌표값
     public int[] allowLocal_Id;    //이동가능한 id값배열
     public string eventText;
@@ -15,12 +15,19 @@ public abstract class Local : MonoBehaviour {
     public int whitePath_id = 0;
     public int blackPath_id = 0;
 
-    public static Character character;
+    // 부모의 static 함수에서만 사용하므로 private
+    private static Local[] locals;
+
+    // 가상함수에서 사용함으로 Protected
+    protected static Character character;
 
     void Start()
     {
+        locals = FindObjectsOfType<Local>();
+
         character = GameObject.Find("character").GetComponent<Character>();
     }
+
 
     private void OnMouseDown()
     {
@@ -33,6 +40,19 @@ public abstract class Local : MonoBehaviour {
             }
         }
     }
+
+    // static함수는 객체가 상속되도 하나만 존재하며,  싱글턴없이 바로 함수 호출 가능 Local.GetLocalObjById( .. );
+    public static Local GetLocalObjById(int id)
+    {
+        foreach (Local local in locals)
+        {
+            if (local.local_Id == id)
+                return local;
+        }
+
+        return null;
+    }
+
 
     public void ActiveEvent(int num)
     {

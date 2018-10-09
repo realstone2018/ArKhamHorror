@@ -24,15 +24,15 @@ public class MonsterDictionary : MonoBehaviour {
 
         // 추종자
         name = "Cultist";
-        monsterMap.Add(name, new Monster(name, 1, 0, 1, 1, 0, -3, Monster.Type.Normal, Monster.Simbol.Moon, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, 0, 1, 1, 0, -3, Monster.Type.Fast, Monster.Simbol.Moon, sAttribute));
 
         // 차원에서 휘청대는자
         name = "DimensionalShambler";
-        monsterMap.Add(name, new Monster(name, 1, -2, -2, 0, 1, -3, Monster.Type.Normal, Monster.Simbol.Square, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -2, -2, 0, 1, -3, Monster.Type.Fast, Monster.Simbol.Square, sAttribute));
 
         // 미고
         name = "MiGo";
-        monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Normal, Monster.Simbol.Circle, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Fast, Monster.Simbol.Circle, sAttribute));
 
         sAttribute.Clear();
 
@@ -42,7 +42,7 @@ public class MonsterDictionary : MonoBehaviour {
 
         // 틴달로스의 개 
         name = "HoundofTindalos";
-        monsterMap.Add(name, new Monster(name, 2, -2, -1, 3, 4, -1, Monster.Type.Normal, Monster.Simbol.Square, sAttribute));   
+        monsterMap.Add(name, new Monster(name, 2, -2, -1, 3, 4, -1, Monster.Type.Fast, Monster.Simbol.Square, sAttribute));   
         
         sAttribute.Clear();
 
@@ -52,7 +52,7 @@ public class MonsterDictionary : MonoBehaviour {
         name = "Ghost";
         sAttribute.Add(Monster.SAttribute.PhysicalImmunity);
         sAttribute.Add(Monster.SAttribute.Undead);
-        monsterMap.Add(name, new Monster(name, 1, -2, -3, 2, 2, -3, Monster.Type.Normal, Monster.Simbol.Moon, sAttribute));
+        monsterMap.Add(name, new Monster(name, 1, -2, -3, 2, 2, -3, Monster.Type.Fast, Monster.Simbol.Moon, sAttribute));
     }
 
     public Monster SearchMonster(string _name)

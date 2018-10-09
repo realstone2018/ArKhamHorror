@@ -9,9 +9,9 @@ public class Local_TrainStation : Local {
     void Start()
     {
         
-        local_Id = 9900901;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 03;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9906899;
+        allowLocal_Id[0] = 00;
 
         position = transform.position;
     }

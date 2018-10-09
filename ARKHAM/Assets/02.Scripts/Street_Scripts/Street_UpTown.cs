@@ -6,16 +6,16 @@ public class Street_UpTown : Local {
 
     void Start ()
     {
-        local_Id = 9902491;   //99=아컴지역 136=인접한거리(1번,3번,6번) 94=장소(10의자리9일경우거리 1의자리는 거리 번호)
+        local_Id = 70;   //99=아컴지역 136=인접한거리(1번,3번,6번) 94=장소(10의자리9일경우거리 1의자리는 거리 번호)
         allowLocal_Id = new int[5];
-        allowLocal_Id[0] = 9900113;
-        allowLocal_Id[1] = 9900114;
-        allowLocal_Id[2] = 9900115;
-        allowLocal_Id[4] = 9901392;
-        allowLocal_Id[3] = 9913694;
+        allowLocal_Id[0] = 73;
+        allowLocal_Id[1] = 72;
+        allowLocal_Id[2] = 71;
+        allowLocal_Id[4] = 80;
+        allowLocal_Id[3] = 50;
 
-        whitePath_id = 9913694;
-        blackPath_id = 9901392;
+        whitePath_id = 50;
+        blackPath_id = 80;
 
         position = transform.position;
     }

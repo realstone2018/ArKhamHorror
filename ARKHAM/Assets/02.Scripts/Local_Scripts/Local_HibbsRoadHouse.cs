@@ -6,9 +6,9 @@ public class Local_HibbsRoadHouse : Local {
 
     void Start()
     {
-        local_Id = 9900726;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 21;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9905897;
+        allowLocal_Id[0] = 20;
 
         position = transform.position;
     }

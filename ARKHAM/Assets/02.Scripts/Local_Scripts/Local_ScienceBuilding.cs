@@ -9,9 +9,9 @@ public class Local_ScienceBuilding : Local {
 
     public void Awake()
     {
-        local_Id = 9900411;   //99=아컴지역 004=인접한거리(1번,3번,6번) 10=장소번호
+        local_Id = 53;   //99=아컴지역 004=인접한거리(1번,3번,6번) 10=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9913694;
+        allowLocal_Id[0] = 50;
 
         position = transform.position;
 

@@ -71,9 +71,6 @@ public class MythosController : MonoBehaviour {
     }
 
 
-
-
-
     public void MythosStep()
     {
         pulledMythos = mythosDeck.DrawCard();

@@ -63,9 +63,6 @@ public class Character : MonoBehaviour
     
 
     //이동 관련
-
-
-
     public int maxMoveCount;  //이동가능 횟수
     public int currentMoveCount = 0;    //현재 이동횟수
 

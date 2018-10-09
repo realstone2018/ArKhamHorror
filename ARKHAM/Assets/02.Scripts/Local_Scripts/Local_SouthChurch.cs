@@ -6,9 +6,9 @@ public class Local_SouthChurch : Local {
 
     void Start()
     {
-        local_Id = 9900217;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 82;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9901392;
+        allowLocal_Id[0] = 80;
 
         position = transform.position;
     }

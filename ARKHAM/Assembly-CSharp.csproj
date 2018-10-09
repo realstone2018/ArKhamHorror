@@ -109,6 +109,7 @@
     <Compile Include="Assets\02.Scripts\LocalEventController.cs" />
     <Compile Include="Assets\02.Scripts\LocalEventDictionary.cs" />
     <Compile Include="Assets\02.Scripts\MaincameraController.cs" />
+    <Compile Include="Assets\02.Scripts\Monster\DistanceBetween.cs" />
     <Compile Include="Assets\02.Scripts\Monster\Monster.cs" />
     <Compile Include="Assets\02.Scripts\Monster\MonsterController.cs" />
     <Compile Include="Assets\02.Scripts\Monster\MonsterDictionary.cs" />

@@ -8,9 +8,9 @@ public class Local_Livrary : Local {
 
     void Start ()
     {
-        local_Id = 9900410;   //99=아컴지역 004=인접한거리(1번,3번,6번) 10=장소번호
+        local_Id = 51;   //99=아컴지역 004=인접한거리(1번,3번,6번) 10=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9913694;
+        allowLocal_Id[0] = 50;
 
         position = transform.position;
     }

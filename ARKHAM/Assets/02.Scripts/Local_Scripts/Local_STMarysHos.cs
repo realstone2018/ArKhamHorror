@@ -6,9 +6,9 @@ public class Local_STMarysHos : Local {
 
     void Start()
     {
-        local_Id = 9900113;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
+        local_Id = 73;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
-        allowLocal_Id[0] = 9902491;
+        allowLocal_Id[0] = 70;
 
         position = transform.position;
     }

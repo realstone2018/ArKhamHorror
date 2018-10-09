@@ -22,9 +22,6 @@ public class Monster : MonoBehaviour {
     public Type type;
     public Simbol simbol;
     public List<SAttribute> sAttribute = new List<SAttribute>();
-
-    public float moveSpeed = 3f;   //속도   
-
     public bool meetPlayer = false;
 
     public Monster(string _name, int _hp, int _fearLevel, int _combatLevel, int _staminaDamage, int _sanityDamage, int _evasionLevel, Type _type, Simbol _simbol, List <SAttribute> _sAttribute)

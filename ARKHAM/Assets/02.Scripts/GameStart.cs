@@ -53,7 +53,6 @@ public class GameStart : MonoBehaviour {
 	// 캐릭터 선택버튼
     public void SelectCharacterBtn()
     {
-        Debug.Log(ImageNum);
         SelectCharacter.instance.PickCharacter(ImageNum);
         SceneManager.LoadScene("MainScene",LoadSceneMode.Single);
     }
@@ -62,7 +61,6 @@ public class GameStart : MonoBehaviour {
     //이미지 변경 버튼 
     public void ImageRightBtn()
     {
-        
         ImageNum += 1;
         if (ImageNum > 2)
             ImageNum = 0;

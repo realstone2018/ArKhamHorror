@@ -6,16 +6,16 @@ public class Street_NorthSide : Local {
 
     void Start () {
 
-        local_Id = 9906899;   //99=아컴지역 136=인접한거리(1번,3번,6번) 94=장소(10의자리9일경우거리 1의자리는 거리 번호)
+        local_Id = 00;   //99=아컴지역 136=인접한거리(1번,3번,6번) 94=장소(10의자리9일경우거리 1의자리는 거리 번호)
         allowLocal_Id = new int[5];
-        allowLocal_Id[0] = 9900901;
-        allowLocal_Id[1] = 9900906;
-        allowLocal_Id[2] = 9900905;
-        allowLocal_Id[3] = 99458996;
-        allowLocal_Id[4] = 9967998;
+        allowLocal_Id[0] = 03;
+        allowLocal_Id[1] = 01;
+        allowLocal_Id[2] = 02;
+        allowLocal_Id[3] = 30;
+        allowLocal_Id[4] = 10;
 
-        whitePath_id = 9967998;
-        blackPath_id = 99458996;
+        whitePath_id = 10;
+        blackPath_id = 30;
 
         position = transform.position;
     }

@@ -34,6 +34,8 @@ public class LocalEventController : MonoBehaviour {
     public static LocalEventController instance = null;
 
     private Vector3 target;
+    Vector3 currentPosition;
+
 
     void Awake()
     {
@@ -104,7 +106,7 @@ public class LocalEventController : MonoBehaviour {
 
     private void MoveCenter()
     {
-        Vector3 currentPosition = eventCard.transform.position;
+        currentPosition = eventCard.transform.position;
 
         eventCard.transform.position = Vector3.MoveTowards(currentPosition, target,  1.5f);
 
@@ -136,15 +138,24 @@ public class LocalEventController : MonoBehaviour {
         {
             drawCardPanel.transform.GetChild(i).gameObject.SetActive(false);
         }
-
     }
 
 
     public void ExitEvent()
     {
         drawCardPanel.SetActive(false);
+
+        eventCard.transform.position = currentPosition;
+
+        for (int i = 0; i < (drawCardPanel.transform.childCount - 1); i++)
+        {
+            drawCardPanel.transform.GetChild(i).transform.position = drawCardPanel.transform.GetChild(1).transform.position;
+            drawCardPanel.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        eventCard.SetActive(false);
+
     }
-    
+
 
     public void CallLocalEvent()
     {

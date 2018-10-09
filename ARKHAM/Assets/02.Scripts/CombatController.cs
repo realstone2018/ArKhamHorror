@@ -36,12 +36,13 @@ public class CombatController : MonoBehaviour {
 
     public void EvasionCheck()
     {
-        Debug.Log("EvasionCheck : " + character.Sneak + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
+        Debug.Log("EvasionCheck : " + character.EvadeCheck + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
+
         CombatPanel.SetActive(false);
 
         //character.EvasionCheck(monster.evasionLevel);
 
-        DiceController.instance.SetDice(character.Sneak + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
+        DiceController.instance.SetDice(character.EvadeCheck + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
     public void EvassionCheckResult(int successCount)
@@ -65,12 +66,12 @@ public class CombatController : MonoBehaviour {
 
     public void FearCheck()
     {
-        Debug.Log("FearCheck: " + character.Will + "(Character Will)  +  " + monster.fearLevel + "(Monster FearLevel)");
+        Debug.Log("FearCheck: " + character.HorrorCheck + "(Character Will)  +  " + monster.fearLevel + "(Monster FearLevel)");
 
         // UI 변경 
         CombatPanel.SetActive(false);
 
-        DiceController.instance.SetDice(character.Will + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
+        DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
     }
 
     public void FearCheckResult(int successCount)
@@ -89,11 +90,11 @@ public class CombatController : MonoBehaviour {
 
     public void CombatCheck()
     {
-        Debug.Log("CombayCheck: " + character.Fight + "(Character Fight)  +  " + monster.combatLevel + "(Monster combatLevel)");
+        Debug.Log("CombayCheck: " + character.CombatCheck + "(Character Fight)  +  " + monster.combatLevel + "(Monster combatLevel)");
 
         // UI변경
 
-        DiceController.instance.SetDice(character.Fight + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
+        DiceController.instance.SetDice(character.CombatCheck + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
     }
 
     public void CombatCheckResult(int successCount)

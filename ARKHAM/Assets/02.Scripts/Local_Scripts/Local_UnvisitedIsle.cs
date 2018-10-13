@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_UnvisitedIsle : Local {
 
-    void Start()
+    void Awake()
     {
         local_Id = 33;   
         allowLocal_Id = new int[1];

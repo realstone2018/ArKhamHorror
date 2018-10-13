@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_PoliceStation : Local {
 
-    void Start()
+    void Awake()
     {
         local_Id = 23;  
         allowLocal_Id = new int[1];

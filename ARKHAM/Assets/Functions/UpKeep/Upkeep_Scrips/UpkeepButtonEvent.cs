@@ -58,9 +58,9 @@ public class UpkeepButtonEvent : MonoBehaviour {
         }
         
         
-        
         upkeepEncounterPanel.SetActive(false);
         Character.instance.characterFocus = 0;
+        Character.instance.currentMoveCount = 0;
         
     }
 

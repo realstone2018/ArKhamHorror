@@ -7,9 +7,11 @@ public class MonsterMoveController : MonoBehaviour {
     public Monster monster;
     public Local currentLocal;
     public Local goalLocal;
+    public Local sky;
 
     public enum Color { White, Black };
     Color color;
+
 
     public IEnumerator MoveEachType(Color _color)
     {
@@ -79,14 +81,9 @@ public class MonsterMoveController : MonoBehaviour {
     }
 
 
-    // 거리, 지역에 있을때 이동 시 인접한 거리에 있는 조사자 쪽으로, 없으면 하늘로
-    // 하늘에서 이동 시 거리에있는 조사자중 은둔수치가 가장 낮은 애한테 바로 이동, 없으면 그대로 
     private void FlyMove()
     {
         currentLocal = monster.GetComponentInParent<Local>();
-
-        Debug.Log(monster + "Move FlyMove");
-
 
         // 모든 조사자 들을 불러와 거리에있는 조사자만 분리해서 저장    
         //////////////////////////////////////////////////////////////////////////////  따로 분리해서 저장할 필요있나 그냥 if문으로 거리애들만 적용하면 되장ㄶ나 
@@ -116,10 +113,15 @@ public class MonsterMoveController : MonoBehaviour {
 
         // 몬스터가 하늘 인 경우 
         if (currentLocal.local_Id == 121)
-        {
-            SkyUI.instance.TakeToGround();
+        {            
+            // 거리에 있는 조사자가 없는 경우 그대로 
+            if (streetCharacter.Count == 0)
+            {
+                Debug.Log(monster + "거리에 있는 조사자가 없어 하늘에 머뭅니다.");
+                return;
+            }
 
-            // 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
+            // 거리에 있는 조사다들중 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
             Character lowSneakChar = streetCharacter[0];
 
             for (int i = 0; i < streetCharacter.Count; i++)
@@ -130,21 +132,29 @@ public class MonsterMoveController : MonoBehaviour {
 
             goalLocal = Local.GetLocalObjById(lowSneakChar.currentLocal_Id);
             StartCoroutine(MovePosition(goalLocal.position));
+
+            SkyUI.instance.UpdateSkyUI();
         }
         // 몬스터가 지역, 거리에 있을 경우 
         else
         {
-            //if 지역, 거리에있다면 자신으로부터 인접한 거리의 조사자에게 이동, 없다면 하늘로  
+            //조사자가 거리에 없다면 하늘로  
             if (streetCharacter.Count == 0)
             {
-                // SkyUI.cs의 몬스터 이미지 변경, 활성화 함수 호출 
-                // 하늘 몬스터 맵상에서 삭제 
-                SkyUI.instance.TakeToSky(monster.name);
-                Destroy(monster);
+                Debug.Log(monster + "거리에 조사자가 없어 하늘로 올라갑니다.");
+                
+                sky = GameObject.FindObjectOfType<Local_Sky>();
+
+                monster.transform.SetParent(sky.transform);
+
+                monster.transform.localPosition = Vector3.zero;
+
+                SkyUI.instance.UpdateSkyUI();
 
                 return;
             }
-            
+
+            //지역, 거리에있다면 자신으로부터 인접한 거리의 조사자에게 이동,
             int distance = 0;
             int farthest = 0;
             Character farthestChar = null;
@@ -166,7 +176,6 @@ public class MonsterMoveController : MonoBehaviour {
 
             goalLocal = Local.GetLocalObjById(farthestChar.currentLocal_Id);
             StartCoroutine(MovePosition(goalLocal.position));
-
         }
     }
 

@@ -9,7 +9,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 	public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("OnPointerEnter");
         displayPanel.SetActive(true);
     }
 

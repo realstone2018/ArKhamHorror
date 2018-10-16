@@ -22,7 +22,7 @@ public abstract class Local : MonoBehaviour {
     protected static Character character;
 
     void Start()
-    {
+    {        
         locals = FindObjectsOfType<Local>();
 
         character = GameObject.Find("character").GetComponent<Character>();

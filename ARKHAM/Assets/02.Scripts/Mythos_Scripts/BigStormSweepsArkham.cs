@@ -12,7 +12,7 @@ public class BigStormSweepsArkham : Mythos
     
     public override void OccurEvent()
     {
-        Debug.Log("하늘과 교외에 있는 모든 몬스터들이 주머니로 돌아갑습니다.");
+        //Debug.Log("하늘과 교외에 있는 모든 몬스터들이 주머니로 돌아갑습니다.");
     }
 
     public override void EventResult(int successCount)

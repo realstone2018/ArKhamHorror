@@ -61,13 +61,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Azathoth.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Boss.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Cthulhu.cs" />
+    <Compile Include="Assets\02.Scripts\Boss_Scripts\Yig.cs" />
     <Compile Include="Assets\02.Scripts\CameraMoveZone.cs" />
     <Compile Include="Assets\02.Scripts\CardBuyEvent.cs" />
     <Compile Include="Assets\02.Scripts\Character.cs" />
+    <Compile Include="Assets\02.Scripts\Clue.cs" />
     <Compile Include="Assets\02.Scripts\CombatController.cs" />
+    <Compile Include="Assets\02.Scripts\FinalBattle.cs" />
     <Compile Include="Assets\02.Scripts\FlipCard.cs" />
     <Compile Include="Assets\02.Scripts\GameManager.cs" />
     <Compile Include="Assets\02.Scripts\GameStart.cs" />
+    <Compile Include="Assets\02.Scripts\Gate.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_AncientTome.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_BookOfDzyan.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_TheKingInYellow.cs" />
@@ -132,8 +139,20 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Abyss.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\AnotherDimension.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\CityoftheGreatRace.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\OtherWorld.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\PlateauOfLeng.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Rlyeh.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\TheDreamlands.cs" />
+    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Yuggoth.cs" />
     <Compile Include="Assets\02.Scripts\SelectCharacter.cs" />
+    <Compile Include="Assets\02.Scripts\SettingSystem.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
+    <Compile Include="Assets\02.Scripts\StartScene_Scripts\GameStart.cs" />
+    <Compile Include="Assets\02.Scripts\StartScene_Scripts\SelectBoss.cs" />
+    <Compile Include="Assets\02.Scripts\StartScene_Scripts\SelectCharacter.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_DownTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_EastTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_FrenchHill.cs" />
@@ -158,16 +177,16 @@
     <Compile Include="Assets\SelectBoss.cs" />
     <Compile Include="Assets\SettingSystem.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Git_Project/TestMoon2/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/git_PJ/ARKHAM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -368,10 +387,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/wlstj/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/moon/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/wlstj/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/moon/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

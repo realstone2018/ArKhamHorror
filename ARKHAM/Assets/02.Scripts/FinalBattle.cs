@@ -18,15 +18,15 @@ public class FinalBattle : MonoBehaviour {
     }
 
     public void CheckDoomTrack(int BossDoomtrack)   //보스 전투 조건 체크
-    {
-        //아자토스 보스 전투 안함
-        if (GameObject.FindGameObjectWithTag("Boss").ToString() == "Boss_Azathoth(Clone) (UnityEngine.GameObject)")
-        {
-            Debug.Log("게임 끝");
-        }
+    { 
 
-        else if (DoomTrack == BossDoomtrack)
+        if (DoomTrack == BossDoomtrack)
         {
+            //아자토스 보스 전투 안함
+            if (GameObject.FindGameObjectWithTag("Boss").ToString() == "Boss_Azathoth(Clone) (UnityEngine.GameObject)")
+            {
+                Debug.Log("게임 끝");
+            }
             //GameObject.FindGameObjectWithTag("Boss").ToString();
             Debug.Log("마지막 전투 패널 활성화 나머지 비활성화");
         }

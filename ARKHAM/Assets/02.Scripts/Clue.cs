@@ -11,7 +11,7 @@ public class Clue : MonoBehaviour {
             {
                 if (GameManager.instance.gameState == GameManager.GameState.Encounter)
                 {
-                    Debug.Log("클루 삭제");
+
                     Character.instance.clue += 1;
                     Destroy(this);
                     

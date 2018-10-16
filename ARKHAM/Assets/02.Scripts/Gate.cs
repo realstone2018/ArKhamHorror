@@ -16,16 +16,21 @@ public class Gate : MonoBehaviour {
     {
 
         GameObject child = GameObject.Find(openloacl);
+        Transform GateLocal = child.transform.Find("Gate(Clone)");
 
 
-        if (child.transform.Find(GatePrefab.name).name == null )
+
+
+        if (GateLocal == null )
         {
-            Debug.Log("차원문 충돌");
+            Instantiate(GatePrefab, GameObject.Find(openloacl).transform);
+            FinalBattle.instance.DoomTrack = +1;
+           
         }
         else
         {
-            Instantiate(GatePrefab, GameObject.Find(openloacl).transform);
-           
+            Debug.Log("차원문 충돌");
+
         }
     }
 }

@@ -32,9 +32,15 @@ public class MonsterDictionary : MonoBehaviour {
 
         // 미고
         name = "MiGo";
+<<<<<<< HEAD
         monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Normal, Monster.Simbol.Circle, sAttribute));
 
+=======
+        monsterMap.Add(name, new Monster(name, 1, -1, 0, 1, 2, -2, Monster.Type.Fast, Monster.Simbol.Circle, sAttribute));
+       
+>>>>>>> BossAndGate
         sAttribute.Clear();
+        
 
 
         /////////////////////// PhysicalImmunity //////////////////////////////////////////

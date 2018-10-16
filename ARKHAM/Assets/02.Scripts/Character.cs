@@ -51,6 +51,10 @@ public class Character : MonoBehaviour
     public int GateNum;
     public int SumMonsterHP;
 
+    public int InitCommonItemNum;
+    public int InitUniqutemNum;
+    public int InitSpellNum;
+    public int InitSkillNum;
 
 
 
@@ -129,6 +133,19 @@ public class Character : MonoBehaviour
             CombatController.instance.SetCombatController(this, other.GetComponent<Monster>());
         }
             
+
+        if(other.CompareTag("Gate"))
+        {
+            if(GameManager.instance.CheckState(GameManager.GameState.Encounter))
+            {
+                Debug.Log("다른세계로 날리기");
+                this.transform.position = GameObject.Find("Abyss").transform.position; //다른세계로 날려보내기
+                OnTriggerEnter(other);
+            }
+            
+
+        }
+
     }
 
     public void DamagedSanity(int damage)

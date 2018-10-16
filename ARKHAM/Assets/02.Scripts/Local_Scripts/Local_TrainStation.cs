@@ -6,7 +6,7 @@ public class Local_TrainStation : Local {
 
     public int activeEvent = 0;
 
-    void Start()
+    void Awake()
     {
         
         local_Id = 03;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호

@@ -10,8 +10,6 @@ public class BlueFlu : Mythos
 
     }
 
-
-
     public override void OccurEvent()
     {
         //Debug.Log("감옥에 수감된 모든 플레이어들이 풀려났습니다. ");

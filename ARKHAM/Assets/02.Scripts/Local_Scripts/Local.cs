@@ -21,13 +21,8 @@ public abstract class Local : MonoBehaviour {
     // 가상함수에서 사용함으로 Protected
     protected static Character character;
 
-<<<<<<< HEAD
     void Start()
     {        
-=======
-    void Awake()
-    {
->>>>>>> BossAndGate
         locals = FindObjectsOfType<Local>();
 
         character = GameObject.Find("character").GetComponent<Character>();

@@ -7,7 +7,6 @@ TagManager:
   - LOCAL
   - MONSTER
   - Inventory
-  - Gate
   layers:
   - Default
   - TransparentFX

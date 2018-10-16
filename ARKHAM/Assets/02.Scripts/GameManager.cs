@@ -44,48 +44,41 @@ public class GameManager : MonoBehaviour {
         switch(gameState)
         {
             case GameState.Setting:
-                Debug.Log(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
-                
                 GameSetting();
                 break;
             case GameState.Upkeep:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 MoveState();
                 break;
             case GameState.Move:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 EncounterState();
                 break;
             case GameState.Encounter:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 MythosState();
                 break;
             case GameState.Mythos:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 UpkeepState();
                 break;
         }
     }
 
 
-    /*public void RandomBoss()
+    public void RandomBoss()
     {
         Debug.Log("Boss Random Choice");
 
         // 랜덤 선택 후 출력 그 다음에 자동으로 캐릭터 선택 단계로
         ChoiceCharacter();
-    }*/
+    }
 
 
-    /*public void ChoiceCharacter()
+    public void ChoiceCharacter()
     {
         Debug.Log("Character Choice Complete");
         // 캐릭터 선택 완료 후 
 
         // 처음 신화는 소문이 아닌 카드를 뽑을 때 까지 Draw()
         MythosController.instance.FirstMythos();
-    }*/
+    }
 
 
     public void GameSetting()

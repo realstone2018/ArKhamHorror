@@ -247,5 +247,29 @@ public class DiceController : MonoBehaviour
         return 0;
     }
 
+    public void SetDiceThrowBoss(int num, int min, int max)
+    {
+        use = Use.LocalEventCheck;
+
+        diceCount = num;
+        minValue = min;
+        maxValue = max;
+
+        // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
+        if (diceCount <= 0)
+            return;
+
+        for (int i = 0; i < diceCount; i++)
+        {
+            GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
+
+
+            dices.Add(instanceDice.GetComponent<Dice>());
+        }
+
+        readyThrow = true;
+    }
 
 }

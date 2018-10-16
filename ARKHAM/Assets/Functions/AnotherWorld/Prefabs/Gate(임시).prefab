@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114950412907185844}
   m_Layer: 0
   m_Name: "Gate(\uC784\uC2DC)"
-  m_TagString: Untagged
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,9 +81,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437634455341520}
-  m_LocalRotation: {x: 0, y: 0, z: 0.85186446, w: 0.52376235}
-  m_LocalPosition: {x: -8.35, y: 3.84, z: -15.82}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalRotation: {x: -0.85186446, y: -0.52376235, z: -0, w: 0}
+  m_LocalPosition: {x: 0.29999378, y: 0.28125414, z: 1.950002}
+  m_LocalScale: {x: 1.5625012, y: 1.5625014, z: 0.62500006}
   m_Children:
   - {fileID: 4338012507797310}
   - {fileID: 4121147902926602}
@@ -96,13 +96,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1183696207363202}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.29220328, y: 0.90029645, z: 0.03571086, w: 0.3206375}
   m_LocalPosition: {x: -0.19, y: -0.12, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4161115517868634}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.07, y: 142.93, z: 33.59}
 --- !u!114 &114950412907185844
 MonoBehaviour:
   m_ObjectHideFlags: 1

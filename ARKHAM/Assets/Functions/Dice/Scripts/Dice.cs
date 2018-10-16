@@ -35,13 +35,10 @@ public class Dice : MonoBehaviour {
     // 주사위가 5.5초가 지난 후에도 움직이고 있으면 1초후 다시 호출 
     void CheckDiceMoving()
     {
-        Debug.Log("CheckDiceMoving");
-
         if (gameObject.GetComponent<Rigidbody>().IsSleeping() && transform.position.y <= 1.5f)
             CompareValusHeight();
         else
         {
-            Debug.Log("CheckDiceMoving");
             Invoke("CheckDiceMoving", 1.0f);
         }
     }

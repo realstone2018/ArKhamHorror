@@ -146,8 +146,15 @@ public class LocalEventController : MonoBehaviour {
         drawCardPanel.SetActive(false);
 
         eventCard.transform.position = currentPosition;
+        eventCard.transform.rotation = Quaternion.Euler(0, 180, 0);
 
-        for (int i = 0; i < (drawCardPanel.transform.childCount - 1); i++)
+        eventCard.transform.GetChild(3).gameObject.SetActive(true);
+
+        // 배경화면 
+        drawCardPanel.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        drawCardPanel.transform.GetChild(0).gameObject.SetActive(true);
+        // 카드 이미지들 
+        for (int i = 1; i < (drawCardPanel.transform.childCount - 1); i++)
         {
             drawCardPanel.transform.GetChild(i).transform.position = drawCardPanel.transform.GetChild(1).transform.position;
             drawCardPanel.transform.GetChild(i).gameObject.SetActive(true);

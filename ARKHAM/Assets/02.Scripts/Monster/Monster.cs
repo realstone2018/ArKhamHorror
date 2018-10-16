@@ -65,21 +65,6 @@ public class Monster : MonoBehaviour {
         }
     }
 
-
-    public IEnumerator MovePosition(Vector3 position)
-    {
-        Vector3 goalPosition = new Vector3(position.x, 1.2f, position.z - 3.0f);
-
-        while (Vector3.Distance(goalPosition, transform.position) >= 0.1f)
-        {
-            Debug.Log(this.name + "    Distance : "  + Vector3.Distance(goalPosition, transform.position));
-
-            transform.position = Vector3.MoveTowards(transform.position, goalPosition, 10.0f); //현재 캐릭터 정보에있는 위치와 이동해야될 위치를 보고 직선으로 이동 
-
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

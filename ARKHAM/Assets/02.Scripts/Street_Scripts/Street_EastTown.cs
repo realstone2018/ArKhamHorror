@@ -14,7 +14,7 @@ public class Street_EastTown : Local {
         allowLocal_Id[3] = 40;
         allowLocal_Id[4] = 10;
 
-        whitePath_id = 60;
+        whitePath_id = 40;
         blackPath_id = 10;
 
         position = transform.position;

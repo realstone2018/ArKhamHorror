@@ -106,6 +106,17 @@
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_VelmaDiner.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_woods.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\Local_WrrchHouse.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Lcoal_DreamLands.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Abyss.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Celeano.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Dimention.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_GreatRace.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_LostInTimeSpace.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_OutSkirts.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_PlateauOfLeng.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Rlyeh.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Sky.cs" />
+    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Yuggoth.cs" />
     <Compile Include="Assets\02.Scripts\LocalEventController.cs" />
     <Compile Include="Assets\02.Scripts\LocalEventDictionary.cs" />
     <Compile Include="Assets\02.Scripts\MaincameraController.cs" />
@@ -132,6 +143,9 @@
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_RiverTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_SouthSide.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_UpTown.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />
     <Compile Include="Assets\Functions\AnotherWorld\Scripts\RotationGate.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\Dice.cs" />
     <Compile Include="Assets\Functions\Dice\Scripts\DiceController.cs" />
@@ -140,6 +154,7 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+    <Compile Include="Assets\Local_Disappear.cs" />
     <Compile Include="Assets\SelectBoss.cs" />
     <Compile Include="Assets\SettingSystem.cs" />
     <Reference Include="UnityEditor.StandardEvents">

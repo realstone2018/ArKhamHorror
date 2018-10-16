@@ -19,11 +19,11 @@ public class AllQuitInArkham : Mythos {
     {
         if (successCount > 0)
         {
-            Debug.Log(this + " 신화 이벤트 성공");
+            //Debug.Log(this + " 신화 이벤트 성공");
         }
         else
         {
-            Debug.Log(this + " 신화 이벤트 실패");
+            //Debug.Log(this + " 신화 이벤트 실패");
         }
     }
 

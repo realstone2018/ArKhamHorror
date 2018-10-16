@@ -79,7 +79,7 @@ public class MythosController : MonoBehaviour {
         mythosPanel.SetActive(true);
 
         // 차원문 생성 
-
+        Gate.instance.OpenGate(pulledMythos.gateLocal.name);
 
         // 몬스터 생성
         MonsterController.instance.CreateMonster(pulledMythos.gateLocal);

@@ -14,6 +14,9 @@ public class SettingSystem : MonoBehaviour {
 
     public void SheetSetting()
     {
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().Worshippers();    //필드에 영향을 주는 보스능력
+
+
         Vector3 startPosition;
 
         Local startloal = Local.GetLocalObjById(Character.instance.currentLocal_Id);

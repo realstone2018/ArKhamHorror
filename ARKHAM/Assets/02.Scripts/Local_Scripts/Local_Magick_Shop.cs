@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_Magick_Shop : Local {
 
-    void Start()
+    void Awake()
     {
         local_Id = 72;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];

@@ -39,6 +39,20 @@ ExportedObj/
 *.unityproj
  
 *.booproj
+
+*.dwlt
+
+*.csproj
+
+*.dwlt
+
+.txt
+
+.mdb
+
+expandedItems
+
+assetDatabase3
  
  
  

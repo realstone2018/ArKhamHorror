@@ -171,12 +171,7 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Local_Disappear.cs" />
-    <Compile Include="Assets\SelectBoss.cs" />
-    <Compile Include="Assets\SettingSystem.cs" />
->>>>>>> Fast이동 구현, 몬스터이동 시 카메라 이동, UI작업
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

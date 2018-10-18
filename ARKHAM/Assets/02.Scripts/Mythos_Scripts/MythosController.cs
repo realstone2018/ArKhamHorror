@@ -94,6 +94,7 @@ public class MythosController : MonoBehaviour {
 
         // 차원문 생성 
 
+        GateController.instance.OpenGate(pulledMythos.gateLocal.name);
 
         // 몬스터 생성
         MonsterController.instance.CreateMonster(pulledMythos.gateLocal);

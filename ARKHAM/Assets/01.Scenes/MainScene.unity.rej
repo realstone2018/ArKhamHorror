@@ -1,0 +1,9 @@
+diff a/ARKHAM/Assets/01.Scenes/MainScene.unity b/ARKHAM/Assets/01.Scenes/MainScene.unity	(rejected hunks)
+@@ -6741,7 +6741,6 @@
+   monster: {fileID: 0}
+   currentLocal: {fileID: 0}
+   goalLocal: {fileID: 0}
+-  sky: {fileID: 714830216}
+ --- !u!4 &837984025
+ Transform:
+   m_ObjectHideFlags: 0

@@ -32,6 +32,8 @@ public class MaincameraController : MonoBehaviour {
         else if (characterCont.movingDirection == 1)
             transform.Translate(Vector3.up * Time.deltaTime, Space.World);
         */
+
+        //고정되서 안움직이길레 이동떄는 캐릭터, 신화때는 몬스터 따라다니게 바꿈
         if(Character.instance.characterState==Character.State.MOVE)
         {
             transform.position = target.transform.position + offset;

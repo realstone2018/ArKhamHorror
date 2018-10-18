@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Local_Abyss : Local
 {
+   
     void Start()
     {
         local_Id = 112;

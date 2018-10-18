@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_WrrchHouse : Local {
 
-    void Start()
+    void Awake()
     {
         local_Id = 61;  
         allowLocal_Id = new int[1];

@@ -55,7 +55,6 @@ public class LocalEventController : MonoBehaviour {
     // 지역 조우 패널 활성화
     public void LocalEnCounterStep()
     {
-        
         Character.instance.currentMoveCount = Character.instance.maxMoveCount;
 
         /* Local 스크립트의 static함수로 대체
@@ -67,18 +66,13 @@ public class LocalEventController : MonoBehaviour {
         */
         eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
 
-        Debug.Log(eventLocal.tag);
-        if (eventLocal.tag == "Local")
-        {
+        localEncounterPanel.SetActive(true);
 
-            localEncounterPanel.SetActive(true);
+        //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
+        localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
 
-            //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
-            localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
-
-            //추후 text 추가 
-            //localFunction.text = eventLocal.localFunction;
-        }
+        //추후 text 추가 
+        //localFunction.text = eventLocal.localFunction;
 
     }
 

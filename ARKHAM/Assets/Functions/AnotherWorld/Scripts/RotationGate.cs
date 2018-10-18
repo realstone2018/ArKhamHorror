@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RotationGate : MonoBehaviour {
 
-
     void FixedUpdate () {
         transform.Rotate(Vector3.back * Time.deltaTime * 22.0f);
 	}

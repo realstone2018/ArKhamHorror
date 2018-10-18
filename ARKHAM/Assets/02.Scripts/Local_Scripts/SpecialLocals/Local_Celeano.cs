@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Local_Celeano : Local
 {
+    
     void Start()
     {
         local_Id = 115;

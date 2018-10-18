@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -481,6 +481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13313528e8418ee40b134b91e3988f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossPrifab1: {fileID: 1866997132634202, guid: a9f420a622ed0dd4e849d55d4cdc7d57,
+    type: 2}
+  BossPrifab2: {fileID: 1098202131059188, guid: a5d8ea75f2d889e439e3e0d15f5fc5fc,
+    type: 2}
+  BossPrifab3: {fileID: 1984971263421196, guid: eb9c7afe4b0cc6c4f8d1b8a8ea57e80e,
+    type: 2}
 --- !u!1 &513103484
 GameObject:
   m_ObjectHideFlags: 0

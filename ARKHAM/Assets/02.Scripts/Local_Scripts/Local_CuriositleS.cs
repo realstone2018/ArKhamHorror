@@ -6,7 +6,7 @@ public class Local_CuriositleS : Local {
     public int activeEvent = 0;
 
 
-    void Start () {
+    void Awake () {
         local_Id = 01;   //99=아컴지역 004=인접한거리(1번,3번,6번) 00=장소번호
         allowLocal_Id = new int[1];
         allowLocal_Id[0] = 00;

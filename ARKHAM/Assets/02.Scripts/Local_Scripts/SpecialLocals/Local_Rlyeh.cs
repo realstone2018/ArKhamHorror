@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Local_Rlyeh : Local
 {
+   
     void Start()
     {
         local_Id = 118;
         allowLocal_Id = new int[0];
-
+   
         position = transform.position;
     }
 

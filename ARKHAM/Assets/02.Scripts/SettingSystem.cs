@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class SettingSystem : MonoBehaviour {
 
-	public static SettingSystem instance = null;
-
+	public static SettingSystem instance = null; 
 
     private void Awake()
     {
@@ -15,24 +14,16 @@ public class SettingSystem : MonoBehaviour {
 
     public void SheetSetting()
     {
-        List<Local> StartPointSetting = new List<Local>();
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().Worshippers();    //필드에 영향을 주는 보스능력
 
-        StartPointSetting.Add(GameObject.Find("Science_Building").GetComponent<Local_ScienceBuilding>());
 
-        for (int i = 0; i < StartPointSetting.Count;i++)
-        {
+        Vector3 startPosition;
 
-            if (StartPointSetting[i].local_Id==Character.instance.currentLocal_Id)
-            {
-                GameObject.Find("character").GetComponent<Transform>().position = new Vector3(StartPointSetting[i].position.x,1, StartPointSetting[i].position.z);
-                
-            }
-        }
-
-        
+        Local startloal = Local.GetLocalObjById(Character.instance.currentLocal_Id);
+        startPosition = new Vector3(startloal.transform.position.x, 1, startloal.transform.position.z-3);    
+        GameObject.Find("character").GetComponent<Transform>().position = startPosition;
 
         GameObject.Find("CharacterSheet").GetComponent<Image>().sprite = Character.instance.SheetImage;
-
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
         Character.instance.Focus = 100;
 

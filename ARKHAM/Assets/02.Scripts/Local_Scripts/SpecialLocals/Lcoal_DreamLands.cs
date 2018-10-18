@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lcoal_DreamLands : Local
 {
-   
     void Start()
     {
         local_Id = 116;

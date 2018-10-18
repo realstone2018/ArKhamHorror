@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Local_GreatRace : Local
 {
-   
     void Start()
     {
         local_Id = 113;

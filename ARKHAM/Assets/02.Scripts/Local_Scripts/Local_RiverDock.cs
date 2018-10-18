@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_RiverDock : Local {
 
-    void Awake()
+    void Start()
     {
         local_Id = 32;  
         allowLocal_Id = new int[1];

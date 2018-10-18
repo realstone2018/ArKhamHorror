@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Local_Yuggoth : Local
 {
-    
     void Start()
     {
         local_Id = 114;

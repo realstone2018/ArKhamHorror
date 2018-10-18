@@ -43,6 +43,11 @@ public class MonsterController : MonoBehaviour {
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;
 
         monsters.Add(instanceMon);
+
+        if (monsters.Count > 4)
+        {
+            // 교외로 
+        }
     }
 
 
@@ -64,14 +69,14 @@ public class MonsterController : MonoBehaviour {
     {
         for (int k = 0; k < simbol.Count; k++)
         {
-            Debug.Log("Simbol : " + simbol[k] + "   Color : " + color);
+            //Debug.Log("Simbol : " + simbol[k] + "   Color : " + color);
 
             for (int i = 0; i < monsters.Count; i++)
             {
 
                 if (monsters[i].simbol == simbol[k])
                 {
-                    Debug.Log(monsters[i] + " is move Start");
+                    //Debug.Log(monsters[i] + " is move Start");
 
                     MonsterMoveController moveCtrl = monsters[i].GetComponent<MonsterMoveController>();
 

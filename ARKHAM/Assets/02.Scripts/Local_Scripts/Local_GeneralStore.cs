@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Local_GeneralStore : Local {
 
-    void Awake () {
+    void Start () {
         local_Id = 43;   //99=아컴지역 004=인접한거리(1번,3번,6번) 02=장소번호
         allowLocal_Id = new int[1];
         allowLocal_Id[0] = 40;

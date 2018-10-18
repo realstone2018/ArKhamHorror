@@ -32,15 +32,7 @@ public class MaincameraController : MonoBehaviour {
         else if (characterCont.movingDirection == 1)
             transform.Translate(Vector3.up * Time.deltaTime, Space.World);
         */
-        if(Character.instance.characterState==Character.State.MOVE)
-        {
-            transform.position = target.transform.position + offset;
-        }
-        if(GameManager.instance.gameState==GameManager.GameState.Mythos)
-        {
-            transform.position = target.transform.position + offset;
-        }
-        
+        transform.position = target.transform.position + offset;
     }
 
     public void SetPosition(Vector3 pos)

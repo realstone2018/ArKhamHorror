@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    IEnumerator MovingCharacter;
+
     public Sprite SheetImage;
 
 
@@ -51,10 +51,6 @@ public class Character : MonoBehaviour
     public int GateNum;
     public int SumMonsterHP;
 
-    public int InitCommonItemNum;
-    public int InitUniqutemNum;
-    public int InitSpellNum;
-    public int InitSkillNum;
 
 
 
@@ -94,7 +90,6 @@ public class Character : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-
     }
 
     public void StartMove(Vector3 goalPos)
@@ -105,11 +100,11 @@ public class Character : MonoBehaviour
         {
             characterState = State.MOVE; 
             currentMoveCount++;
-            MovingCharacter = MoveController.instance.MovePosition(goalPosition);
-            StartCoroutine(MovingCharacter);
+
+            StartCoroutine(MoveController.instance.MovePosition(goalPosition));
         }   
     }
-   
+
     public void MovingComplete()
     {
         if (characterState == State.MOVE)
@@ -123,7 +118,6 @@ public class Character : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("LOCAL"))
         {
             currentLocal_Id = other.GetComponent<Local>().local_Id;
@@ -135,16 +129,6 @@ public class Character : MonoBehaviour
             CombatController.instance.SetCombatController(this, other.GetComponent<Monster>());
         }
             
-
-        if(other.CompareTag("Gate"))
-        {
-            StopCoroutine(MovingCharacter);
-            MovingComplete();
-            Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
-
-            transform.position = OtherWorld.position; //다른세계로 날려보내기
-        }
-
     }
 
     public void DamagedSanity(int damage)

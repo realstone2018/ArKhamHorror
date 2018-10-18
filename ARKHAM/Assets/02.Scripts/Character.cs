@@ -143,7 +143,11 @@ public class Character : MonoBehaviour
             Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
 
             transform.position = OtherWorld.position; //다른세계로 날려보내기
+<<<<<<< HEAD
             
+=======
+            OnTriggerEnter(other);
+>>>>>>> 931394b2f28e82047f7c6655b97f8b7447656188
    
 
         }

@@ -73,7 +73,16 @@
     <Compile Include="Assets\02.Scripts\FinalBattle.cs" />
     <Compile Include="Assets\02.Scripts\FlipCard.cs" />
     <Compile Include="Assets\02.Scripts\GameManager.cs" />
-    <Compile Include="Assets\02.Scripts\Gate.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_Abyss.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_Celeano.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_Demention.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_DreamLands.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_GreatRace.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_PlateauOfLeng.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_Rlyeh.cs" />
+    <Compile Include="Assets\02.Scripts\Gate_Scripts\Gate_Yuggoth.cs" />
+    <Compile Include="Assets\02.Scripts\GateController.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_AncientTome.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_BookOfDzyan.cs" />
     <Compile Include="Assets\02.Scripts\Item_Scripts\book_TheKingInYellow.cs" />
@@ -138,14 +147,6 @@
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\Mythos.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosController.cs" />
     <Compile Include="Assets\02.Scripts\Mythos_Scripts\MythosDeck.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Abyss.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\AnotherDimension.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\CityoftheGreatRace.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\OtherWorld.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\PlateauOfLeng.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Rlyeh.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\TheDreamlands.cs" />
-    <Compile Include="Assets\02.Scripts\OtherWorld_Scripts\Yuggoth.cs" />
     <Compile Include="Assets\02.Scripts\SettingSystem.cs" />
     <Compile Include="Assets\02.Scripts\SpreadEventCard.cs" />
     <Compile Include="Assets\02.Scripts\StartScene_Scripts\GameStart.cs" />
@@ -171,12 +172,7 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Local_Disappear.cs" />
-    <Compile Include="Assets\SelectBoss.cs" />
-    <Compile Include="Assets\SettingSystem.cs" />
->>>>>>> Fast이동 구현, 몬스터이동 시 카메라 이동, UI작업
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

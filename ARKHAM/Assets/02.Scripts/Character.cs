@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-
+    IEnumerator MovingCharacter;
     public Sprite SheetImage;
 
 
@@ -94,6 +94,7 @@ public class Character : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+
     }
 
     public void StartMove(Vector3 goalPos)
@@ -104,11 +105,11 @@ public class Character : MonoBehaviour
         {
             characterState = State.MOVE; 
             currentMoveCount++;
-
-            StartCoroutine(MoveController.instance.MovePosition(goalPosition));
+            MovingCharacter = MoveController.instance.MovePosition(goalPosition);
+            StartCoroutine(MovingCharacter);
         }   
     }
-
+   
     public void MovingComplete()
     {
         if (characterState == State.MOVE)
@@ -122,6 +123,7 @@ public class Character : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("LOCAL"))
         {
             currentLocal_Id = other.GetComponent<Local>().local_Id;
@@ -136,13 +138,13 @@ public class Character : MonoBehaviour
 
         if(other.CompareTag("Gate"))
         {
-            if(GameManager.instance.CheckState(GameManager.GameState.Encounter))
-            {
-                Debug.Log("다른세계로 날리기");
-                this.transform.position = GameObject.Find("Abyss").transform.position; //다른세계로 날려보내기
-                OnTriggerEnter(other);
-            }
+            StopCoroutine(MovingCharacter);
+            MovingComplete();
+            Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
+
+            transform.position = OtherWorld.position; //다른세계로 날려보내기
             
+   
 
         }
 

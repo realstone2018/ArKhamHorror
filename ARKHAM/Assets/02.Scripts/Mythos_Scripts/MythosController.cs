@@ -93,7 +93,7 @@ public class MythosController : MonoBehaviour {
         eventCard.GetComponent<Animator>().SetBool("Flip", true);
 
         // 차원문 생성 
-        Gate.instance.OpenGate(pulledMythos.gateLocal.name);
+        GateController.instance.OpenGate(pulledMythos.gateLocal.name);
 
         // 몬스터 생성
         MonsterController.instance.CreateMonster(pulledMythos.gateLocal);

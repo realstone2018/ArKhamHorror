@@ -8,6 +8,8 @@ TagManager:
   - MONSTER
   - Inventory
   - Gate
+  - Boss
+  - Street
   layers:
   - Default
   - TransparentFX

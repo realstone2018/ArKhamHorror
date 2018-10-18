@@ -37,6 +37,7 @@ public class GameStart : MonoBehaviour {
     //보스 선택버튼
     public void SelectBossBtn()
     {
+        SelectBoss.instance.PickBoss(ImageNum);
         ObjectImage.Clear();
         SelectBossPanel.SetActive(false);
         SelectCharacterPanel.SetActive(true);
@@ -58,7 +59,7 @@ public class GameStart : MonoBehaviour {
     }
 
 
-    //이미지 변경 버튼 
+    //이미지 변경 오른쪽 버튼 
     public void ImageRightBtn()
     {
         ImageNum += 1;
@@ -68,7 +69,7 @@ public class GameStart : MonoBehaviour {
 
     }
 
-
+    //이미지 변경 왼쪽 버튼
     public void ImageLeftBtn()
     {
         

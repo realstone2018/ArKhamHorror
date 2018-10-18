@@ -57,7 +57,9 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.money = 1;
         Characterset.clue = 1;
 
-        Characterset.currentLocal_Id = 9900411;
+        Characterset.currentLocal_Id = 53;
+
+        
 
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/AmandaSharpe");
 
@@ -89,7 +91,7 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.money = 1;
         Characterset.clue = 3;
 
-        Characterset.currentLocal_Id = 9900608;
+        Characterset.currentLocal_Id = 32;
 
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/AshcanPete");
     }
@@ -119,7 +121,7 @@ public class SelectCharacter : MonoBehaviour {
         Characterset.money = 9;
         Characterset.clue = 0;
 
-        Characterset.currentLocal_Id = 9900521;
+        Characterset.currentLocal_Id = 43;
 
         Characterset.SheetImage = Resources.Load<Sprite>("Sheet/BobJenkins");
     }

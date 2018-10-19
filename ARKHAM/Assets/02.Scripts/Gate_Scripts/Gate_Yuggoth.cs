@@ -6,7 +6,7 @@ public class Gate_Yuggoth : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("Yuggoth").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Circle;
     }
 }

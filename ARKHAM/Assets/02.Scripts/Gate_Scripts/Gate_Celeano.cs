@@ -6,7 +6,7 @@ public class Gate_Celeano : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("Celeano").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Star;
     }
 }

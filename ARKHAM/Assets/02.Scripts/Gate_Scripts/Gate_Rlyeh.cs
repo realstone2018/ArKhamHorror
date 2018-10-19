@@ -6,7 +6,7 @@ public class Gate_Rlyeh : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("Rlyeh").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Cross;
     }
 

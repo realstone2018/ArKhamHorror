@@ -26,6 +26,15 @@ public class Gate : MonoBehaviour {
                 
                 //몬스터 삭제
             }
+
+            //차원문 봉인
         }
+    }
+
+
+
+    public void SealGate(int Lore)
+    {
+
     }
 }

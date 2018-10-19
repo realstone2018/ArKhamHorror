@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "C:/Users/Administrator/Documents/\uCE74\uCE74\uC624\uD1A1 \uBC1B\uC740 \uD30C\uC77C/ARKHAM_Jinsuk/Assets/01.Scenes/StartMain.unity"
+- path: Assets/01.Scenes/MainScene.unity
   isLoaded: 1
   isActive: 1

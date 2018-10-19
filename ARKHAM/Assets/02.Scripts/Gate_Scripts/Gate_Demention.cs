@@ -6,7 +6,7 @@ public class Gate_Demention : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("Demention").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Square;
     }
 }

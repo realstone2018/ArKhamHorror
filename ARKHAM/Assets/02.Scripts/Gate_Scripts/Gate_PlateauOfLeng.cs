@@ -6,7 +6,7 @@ public class Gate_PlateauOfLeng : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("PlateauOfLeng").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Diamond;
     }
 }

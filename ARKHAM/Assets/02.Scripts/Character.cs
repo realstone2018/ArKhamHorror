@@ -79,6 +79,9 @@ public class Character : MonoBehaviour
     public enum State {IDLE, MOVE, COMBAT, FAINT};
     public State characterState = State.IDLE;
 
+
+    public bool Check
+
     //싱글턴 선언
     public static Character instance = null;
 

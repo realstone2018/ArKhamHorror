@@ -6,7 +6,7 @@ public class Gate_GreatRace : Gate {
 
     private void Awake()
     {
-        OpenLocal = GameObject.Find("Abyss").GetComponent<Local>();
+        OpenLocal = GameObject.Find("GreatRace").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Triangle;
     }
 }

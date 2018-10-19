@@ -8,35 +8,43 @@ public class SkyUI : MonoBehaviour {
     [SerializeField]
     public List<Image> monsterImages = new List<Image>();
 
-    public GameObject sky;
+    public Transform skyUIPanel;
+    public Transform skyLocal;
     int num = 0;
 
     public static SkyUI instance = null;
 
+
     private void Awake()
     {
         instance = this;
+
+        for (int i = 1; i < skyUIPanel.childCount; i++)
+        {
+            monsterImages.Add(skyUIPanel.GetChild(i).GetComponent<Image>());
+        }
     }
+
+
+    private void Start()
+    {
+        skyLocal = GameObject.FindObjectOfType<Local_Sky>().transform;
+    }
+
 
     public void UpdateSkyUI()
     {
-        num = sky.transform.childCount;
+        num = skyLocal.childCount;
 
         if (num == 0)
             return;
 
         for (int i = 0; i < num; i++)
         {
-            if (i > 5)
-            {
-                Debug.Log("하늘에 몬스터수가 6  마리를 초과");
-                break;
-            }
+            Monster monster = skyLocal.GetChild(i).GetComponent<Monster>();
 
-            Monster monster = sky.transform.GetChild(i).GetComponent<Monster>();
-
-            monsterImages[i+1].sprite = Resources.Load<Sprite>("MonsterImages/" +monster.id);
-            monsterImages[i+1].gameObject.SetActive(true);
+            monsterImages[i].sprite = Resources.Load<Sprite>("MonsterImages/" +monster.id);
+            monsterImages[i].gameObject.SetActive(true);
         }
         
     }

@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class OutSkirtsUI : MonoBehaviour {
 
+
     [SerializeField]
     public List<Image> monsterImages = new List<Image>();
 
-    public GameObject sky;
+    public Transform outskirtsUIPanel;
+    public Transform outSkirtsLocal;
     int num = 0;
 
     public static OutSkirtsUI instance = null;
@@ -16,27 +18,28 @@ public class OutSkirtsUI : MonoBehaviour {
     private void Awake()
     {
         instance = this;
+
+        outSkirtsLocal = GameObject.FindObjectOfType<Local_OutSkirts>().transform;
+
+        for (int i = 1; i < outskirtsUIPanel.childCount; i++)
+        {
+            monsterImages.Add(outskirtsUIPanel.GetChild(i).GetComponent<Image>());
+        }
     }
 
-    public void UpdateSkyUI()
+    public void UpdateOutSkirtsUI()
     {
-        num = sky.transform.childCount;
+        num = outSkirtsLocal.childCount;
 
         if (num == 0)
             return;
 
         for (int i = 0; i < num; i++)
         {
-            if (i > 5)
-            {
-                Debug.Log("하늘에 몬스터수가 6  마리를 초과");
-                break;
-            }
+            Monster monster = outSkirtsLocal.GetChild(i).GetComponent<Monster>();
 
-            Monster monster = sky.transform.GetChild(i).GetComponent<Monster>();
-
-            monsterImages[i + 1].sprite = Resources.Load<Sprite>("MonsterImages/" + monster.id);
-            monsterImages[i + 1].gameObject.SetActive(true);
+            monsterImages[i].sprite = Resources.Load<Sprite>("MonsterImages/" + monster.id);
+            monsterImages[i].gameObject.SetActive(true);
         }
 
     }

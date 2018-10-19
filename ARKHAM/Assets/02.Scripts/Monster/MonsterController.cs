@@ -93,4 +93,6 @@ public class MonsterController : MonoBehaviour {
         }
         yield return null;
     }
+
+    // 신화단계 종료 시 필드 및 하늘에 몬스터수가 7마리를 초과한다면 외각으로 이동 
 }

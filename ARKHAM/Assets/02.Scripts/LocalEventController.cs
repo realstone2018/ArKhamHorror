@@ -67,7 +67,7 @@ public class LocalEventController : MonoBehaviour {
         */
         eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
 
-        Debug.Log(eventLocal.tag);
+        //Debug.Log(eventLocal.tag);
         if (eventLocal.tag == "Local")
         {
 

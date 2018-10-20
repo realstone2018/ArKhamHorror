@@ -15,12 +15,10 @@ public class LocalEventController : MonoBehaviour {
     public GameObject localCardBuyEvent;
     public GameObject EventPanel;
 
-    //변수 이름 왜이래 고쳐라 
     public GameObject ItemPanel1;
     public GameObject ItemPanel2;
     public GameObject ItemPanel3;
     public List<ItemCard> Drowcard;
-    public Sprite aaaaaa;
 
 
 
@@ -55,29 +53,38 @@ public class LocalEventController : MonoBehaviour {
     // 지역 조우 패널 활성화
     public void LocalEnCounterStep()
     {
-        
-        Character.instance.currentMoveCount = Character.instance.maxMoveCount;
-
-        /* Local 스크립트의 static함수로 대체
-        foreach (Local local in locals)
+        //차원문이 있을시 조우단계에서 차원문 닫기 패널 활성화
+        if (Character.instance.specialLocalCheck)
         {
-            if (local.local_Id == character.currentLocal_Id)
-                eventLocal = Local.local;
+            Character.instance.currentMoveCount = Character.instance.maxMoveCount;
+            //차원문 닫기 쪽 패널 활성화
+            GateController.instance.closePanel();
         }
-        */
-        eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
-
-        Debug.Log(eventLocal.tag);
-        if (eventLocal.tag == "Local")
+        else
         {
+            Character.instance.currentMoveCount = Character.instance.maxMoveCount;
 
-            localEncounterPanel.SetActive(true);
+            /* Local 스크립트의 static함수로 대체
+            foreach (Local local in locals)
+            {
+                if (local.local_Id == character.currentLocal_Id)
+                    eventLocal = Local.local;
+            }
+            */
+            eventLocal = Local.GetLocalObjById(character.currentLocal_Id);
 
-            //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
-            localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
+            Debug.Log(eventLocal.tag);
+            if (eventLocal.tag == "LOCAL")
+            {
 
-            //추후 text 추가 
-            //localFunction.text = eventLocal.localFunction;
+                localEncounterPanel.SetActive(true);
+
+                //localImage.sprite = Resources.Load("Local_Images/" + eventLocal.name, typeof(Sprite)) as Sprite;
+                localImage.sprite = Resources.Load<Sprite>("Local_Images/" + eventLocal.name);
+
+                //추후 text 추가 
+                //localFunction.text = eventLocal.localFunction;
+            }
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -14,6 +15,12 @@ public class GateController : MonoBehaviour {
     public GameObject RlyehGate;
     public GameObject YuggoyhGate;
     public List<GameObject> GateDeck;
+
+
+    public GameObject CloseGatePanel;
+    public Image GateImage;
+
+    public Gate CharacterInGate;
 
     public static GateController instance = null;
 
@@ -76,5 +83,19 @@ public class GateController : MonoBehaviour {
         }
 
         return randomList; 
+    }
+
+
+    public void closePanel()
+    {
+        CloseGatePanel.SetActive(true);
+        GateImage.sprite = CharacterInGate.GateImage;
+
+    }
+
+
+    public void closeGateBtn(int n)
+    {
+        CharacterInGate.ClosesGateCheck(n);
     }
 }

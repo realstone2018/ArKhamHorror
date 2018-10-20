@@ -80,7 +80,7 @@ public class Character : MonoBehaviour
     public State characterState = State.IDLE;
 
 
-    public bool Check
+    public bool specialLocalCheck=false;  //탐사 완료 표시
 
     //싱글턴 선언
     public static Character instance = null;
@@ -139,13 +139,18 @@ public class Character : MonoBehaviour
         }
             
 
-        if(other.CompareTag("Gate"))
+        if(other.CompareTag("Gate") && !specialLocalCheck)//아컴으로 돌아올때 cpecialLocalCheck를 true로 줘야함
         {
+
             StopCoroutine(MovingCharacter);
             MovingComplete();
             Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
 
             transform.position = OtherWorld.position; //다른세계로 날려보내기
+        }
+        else if(other.CompareTag("Gate") && specialLocalCheck)
+        {
+            GateController.instance.CharacterInGate=other.GetComponent<Gate>();
         }
 
     }

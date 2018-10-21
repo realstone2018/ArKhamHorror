@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883305031385430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.859, y: 18.188545, z: 18.8096}
+  m_LocalPosition: {x: -35.137894, y: 34.328598, z: -12.901848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4698722006783542}
@@ -141,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GateSimbol: 0
   OpenLocal: {fileID: 0}
+  Modifier: 0
+  GateImage: {fileID: 0}
   BackMonster: []
 --- !u!198 &198063993710789078
 ParticleSystem:

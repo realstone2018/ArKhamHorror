@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Local_NewsPaper : Local {
-
-    public int activeEvent = 0;
-
+    public int activeEvent;
 
     void Awake()
     {
@@ -20,8 +18,8 @@ public class Local_NewsPaper : Local {
     {
         activeEvent = 1;
         eventText = "당신이 흥미로운 이야기를 제공하는 대가로 도일 제프리 편집장이 원고료를 지급합니다. 보유 자산 카드 1장을 얻습니다.";
-        Debug.Log("보유자산 획득이벤트 구현");
-        //획득만하면 되는 이벤트 구현필요
+        Character.instance.Retainer=true;
+
     }
 
     protected override void EventTwo()
@@ -69,8 +67,6 @@ public class Local_NewsPaper : Local {
             case 1:
                 break;
             case 2:
-                Debug.Log("축복 획득 이벤트 구현");
-                ///축복획득 이벤트 구현
                 break;
             case 3:
                 Debug.Log("마법주문 획득 이벤트");

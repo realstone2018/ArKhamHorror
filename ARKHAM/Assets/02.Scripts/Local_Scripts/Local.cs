@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public abstract class Local : MonoBehaviour {
 
+    public string[] TextList;
+
     public int local_Id;   
     public Vector3 position;   //장소 좌표값
     public int[] allowLocal_Id;    //이동가능한 id값배열
     public string eventText;
-    public bool SealMark;   //장소에 봉인여부
+    public string readEventText { get { return eventText; } set { eventText = value; } }
+    public bool SealMark=false;   //장소에 봉인여부
 
     public string localFunction;
 

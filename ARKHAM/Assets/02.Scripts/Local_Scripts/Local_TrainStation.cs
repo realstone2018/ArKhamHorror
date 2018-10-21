@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Local_TrainStation : Local {
-
-    public int activeEvent = 0;
+    public int activeEvent;
 
     void Awake()
     {
@@ -71,25 +70,26 @@ public class Local_TrainStation : Local {
         {
             case 1:
                 Debug.Log("아이템 구입 이벤트 발생  잡화점 고정 능력과 함께 구현");
+
+                LocalEventController.instance.LocalBuyEventButtonDown(11);
                 break;
                 //잡화점에서 구매 이벤트에 가격을 +1해서 살수있는 이벤트
             case 2:
                 if (successCount == 0)
                 {
-                    /*DiceController.instance.SetDiceThrow(this, 1, Character.instance.MinDiceSucc, 6);
-                    diceNum = DiceController.instance.diceValues;
-                    for(int i = 0; i<6;i++)
-                    {
-                        if (diceNum[i] == 1)
-                            Character.instance.characterStamina -= i;
-                    }*/
+                    DiceController.instance.AdditoryDiceValue = true;
+
+                    DiceController.instance.SetDiceThrow(this, 1, 1, 6);
+
+                    Character.instance.characterStamina -= DiceController.instance.ResultDiceValue();
                     //주사위랑 결과부분 분리 요망
                     //주사위에서 결과를 호출해서 주사위가 계속 반복됨
                     //주사위 굴려서 나온 숫자만큼 체력 감소
                 }
                 else if (successCount > 0)
                 {
-                    Debug.Log("특별 아이템 획득 이벤트");
+                    ItemDictionary.instance.DrowOneCard(2);//특별아이템 획득이벤트
+                    
                 }
 
 

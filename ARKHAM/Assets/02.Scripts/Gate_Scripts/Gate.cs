@@ -17,10 +17,10 @@ public class Gate : MonoBehaviour {
     {
         
         BackMonster = FindObjectsOfType<Monster>();
+        
         Debug.Log("게이트 닫힐시 해당 심볼 몬스터 삭제");
         for (int i = 0;i<BackMonster.Length ;i++)
         {
-
             if (BackMonster[i].simbol == GateSimbol)
             {
                 GameObject DestroyMonster = GameObject.Find(BackMonster[i].name);
@@ -29,6 +29,7 @@ public class Gate : MonoBehaviour {
                 //몬스터 삭제
             }
         }
+        OpenLocal.allowLocal_Id[0] = 0;
         Destroy(this.gameObject);
 
 
@@ -65,6 +66,9 @@ public class Gate : MonoBehaviour {
                 {
                     Character.instance.clue -= 5;
                     Character.instance.GateNum += 1;
+                    Local seallocal = this.GetComponentInParent<Local>();
+                    seallocal.SealMark = true;
+                    
                 }
             }
             CloseGate();

@@ -61,6 +61,22 @@ public class Local_ScienceBuilding : Local {
 
         eventText = "화학과 연구실에 들어가보니 한 교수가 공포에 질려 있었습니다. 그는 고대의 인공물을 잠겨 있던 책상 서랍에서 써내 들고는 이를 당신의 얼굴로 내밀었습니다. 그리고는 알 수 없는 몸동작과 함께 주문을 외웟습니다. 저주 받은 상태라면 저주를 제거합니다. 저주받은 상태가 아니라면 축복을 받습니다. ";
 
+        
+        switch(Character.instance.MinDiceSucc)
+        {
+            case 4:
+                break;
+            case 5:
+                Character.instance.MinDiceSucc = 4;
+                break;
+            case 6:
+                Character.instance.MinDiceSucc = 5;
+                break;
+            default:
+                Debug.Log(Character.instance.MinDiceSucc + "확인요망");
+                break;
+        }
+        
        
 
     }
@@ -115,28 +131,15 @@ public class Local_ScienceBuilding : Local {
                 }
                 break;
             case 2:
-                if (successCount == 0)
-                    Character.instance.characterStamina += 1;
-                else if (successCount > 0)
-                {
-                    DiceController.instance.AdditoryDiceValue = true;
-
-                    DiceController.instance.SetDiceThrow(this, 1, 1, 6);
-
-                    Character.instance.characterStamina += DiceController.instance.ResultDiceValue();
-                }
+                
                 break;
             case 3:
                 if (successCount == 0)
-                    Character.instance.characterStamina += 1;
-                else if (successCount > 0)
                 {
-                    DiceController.instance.AdditoryDiceValue = true;
-
-                    DiceController.instance.SetDiceThrow(this, 1, 1, 6);
-
-                    Character.instance.characterStamina += DiceController.instance.ResultDiceValue();
+                    Debug.Log("아이템 하나 삭제");
                 }
+                    
+                
                 break;
         }
     }

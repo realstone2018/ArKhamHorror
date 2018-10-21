@@ -8,7 +8,7 @@ public class Local_Rlyeh : Local
     void Start()
     {
         local_Id = 118;
-        allowLocal_Id = new int[0];
+        allowLocal_Id = new int[2];
    
         position = transform.position;
     }

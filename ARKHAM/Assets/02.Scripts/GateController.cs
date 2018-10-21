@@ -51,21 +51,41 @@ public class GateController : MonoBehaviour {
 
     public void OpenGate(string openloacl)
     {
+        
+        GameObject parent = GameObject.Find(openloacl);
+        Local sealMarkCheck = parent.GetComponent<Local>();
 
-        GameObject child = GameObject.Find(openloacl);
-        Transform GateLocal = child.transform.Find("Gate(Clone)");
-
-        if (GateLocal == null )
+        if(sealMarkCheck.SealMark)
         {
-            Instantiate(GateDeck[0], GameObject.Find(openloacl).transform);
-            FinalBattle.instance.DoomTrack = +1;
-            GateDeck.RemoveAt(0);
+            Debug.Log("봉인된지역");
         }
         else
         {
-            Debug.Log("차원문 충돌");
+            Transform GateLocal = parent.transform.Find("Gate(Clone)"); //불가능
 
+            Debug.Log(GateDeck[0].name);
+            if (GateLocal == null)
+            {
+                GameObject gateClone = Instantiate(GateDeck[0], parent.transform);
+
+                Local otherWold = gateClone.GetComponent<Gate>().OpenLocal;
+                if(otherWold.allowLocal_Id[0]==0)
+                    otherWold.allowLocal_Id[0] = parent.GetComponent<Local>().local_Id;
+                
+                else
+                    otherWold.allowLocal_Id[1] = parent.GetComponent<Local>().local_Id;
+
+
+                FinalBattle.instance.DoomTrack = +1;
+                GateDeck.RemoveAt(0);
+            }
+            else
+            {
+                Debug.Log("차원문 충돌");
+
+            }
         }
+       
     }
 
 
@@ -96,6 +116,7 @@ public class GateController : MonoBehaviour {
 
     public void closeGateBtn(int n)
     {
+        CloseGatePanel.SetActive(false);
         CharacterInGate.ClosesGateCheck(n);
     }
 }

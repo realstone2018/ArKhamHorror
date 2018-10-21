@@ -84,5 +84,31 @@ public class UpkeepButtonEvent : MonoBehaviour {
 
     }
 
+    public void RetainerAndBless()
+    {
+        if(Character.instance.Retainer == true)
+        {
+            Debug.Log("보유자산 체크");
+            Character.instance.money += 1;
+            DiceController.instance.AdditoryDiceValue = true;
+            DiceController.instance.returnDiceResult(1,1,6);
+            if(1==DiceController.instance.ResultDiceValue())
+            {
+                Character.instance.Retainer = false;
+            }
+
+        }
+        if(Character.instance.MinDiceSucc==4 || Character.instance.MinDiceSucc==6)
+        {
+            Debug.Log("축복 체크");
+            DiceController.instance.AdditoryDiceValue = true;
+            DiceController.instance.returnDiceResult(1, 1, 6);
+            if (1 == DiceController.instance.ResultDiceValue())
+            {
+                Character.instance.MinDiceSucc = 5;
+            }
+        }
+    }
+
 
 }

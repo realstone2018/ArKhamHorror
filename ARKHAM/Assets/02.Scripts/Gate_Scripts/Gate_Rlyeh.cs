@@ -8,6 +8,8 @@ public class Gate_Rlyeh : Gate {
     {
         OpenLocal = GameObject.Find("Rlyeh").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Cross;
+        Modifier = -3;
+        GateImage = Resources.Load<Sprite>("GateImages/Rlyeh");
     }
 
 }

@@ -48,6 +48,21 @@ public class CardBuyEvent : MonoBehaviour {
             ItemPanel3.GetComponent<Image>().sprite = Drowcard[2].ItemImage;
         }
 
+        if(num==3)//마법
+        {
+
+        }
+
+        if(num==11)
+        {
+            Drowcard[0] = ItemDictionary.instance.CommonItemDeck[0];
+            Drowcard[1] = ItemDictionary.instance.CommonItemDeck[0];
+            Drowcard[2] = ItemDictionary.instance.CommonItemDeck[0];
+            ItemPanel1.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
+            ItemPanel2.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
+            ItemPanel3.GetComponent<Image>().sprite = Drowcard[0].ItemImage;
+        }
+
     }
 
     //아이템 선택시 구매가능 여부 판별 및 구입

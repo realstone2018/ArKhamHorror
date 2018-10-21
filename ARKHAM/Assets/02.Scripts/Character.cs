@@ -56,6 +56,7 @@ public class Character : MonoBehaviour
     public int InitSpellNum;
     public int InitSkillNum;
 
+    public bool Retainer=false;
 
 
     //전투
@@ -139,7 +140,7 @@ public class Character : MonoBehaviour
         }
             
 
-        if(other.CompareTag("Gate") && !specialLocalCheck)//아컴으로 돌아올때 cpecialLocalCheck를 true로 줘야함
+        if(other.CompareTag("Gate") && !specialLocalCheck)//아컴으로 돌아올때 specialLocalCheck를 true로 줘야함
         {
 
             StopCoroutine(MovingCharacter);

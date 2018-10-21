@@ -141,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GateSimbol: 0
   OpenLocal: {fileID: 0}
+  Modifier: 0
+  GateImage: {fileID: 0}
   BackMonster: []
 --- !u!198 &198870164898625068
 ParticleSystem:

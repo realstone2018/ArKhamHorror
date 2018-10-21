@@ -18,6 +18,7 @@ public class ItemDictionary : MonoBehaviour {
     {
         CommonItemDeck = new List<ItemCard>();
         UniquItemDeck = new List<ItemCard>();
+        
 
         instance = this;
         
@@ -43,12 +44,11 @@ public class ItemDictionary : MonoBehaviour {
         int num = i;
         if (num == 1)
         {
-            
             Character.instance.CharacterInventory.Add(CommonItemDeck[0]);
             CommonItemDeck.RemoveAt(0);
 
         }
-        if (num == 2)
+        if (num == 2)   //특별아이템
         { 
             Character.instance.CharacterInventory.Add(UniquItemDeck[0]);
             UniquItemDeck.RemoveAt(0);

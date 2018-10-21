@@ -32,7 +32,7 @@ public class MaincameraController : MonoBehaviour {
         else if (characterCont.movingDirection == 1)
             transform.Translate(Vector3.up * Time.deltaTime, Space.World);
         */
-        if(Character.instance.characterState==Character.State.MOVE)
+        if(Character.instance.characterState==Character.State.MOVE || GameManager.instance.gameState == GameManager.GameState.Encounter)
         {
             transform.position = target.transform.position + offset;
         }

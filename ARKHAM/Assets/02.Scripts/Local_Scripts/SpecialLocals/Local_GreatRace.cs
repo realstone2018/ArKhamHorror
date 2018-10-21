@@ -8,7 +8,7 @@ public class Local_GreatRace : Local
     void Start()
     {
         local_Id = 113;
-        allowLocal_Id = new int[0];
+        allowLocal_Id = new int[2];
 
         position = transform.position;
     }

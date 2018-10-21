@@ -34,6 +34,10 @@ public class LocalEventController : MonoBehaviour {
     private Vector3 target;
     Vector3 currentPosition;
 
+    //임의의 이벤트 카드 뽑은뒤 선택
+    public GameObject SelectLocalEventPanel;
+    private int i, j, k;
+    private Local tempLocal;
 
     void Awake()
     {
@@ -192,12 +196,78 @@ public class LocalEventController : MonoBehaviour {
 
     //상점 아이템 구입 이벤트
 
-    public void LocalBuyEventButtonDown()
+    public void LocalBuyEventButtonDown(int n)
     {
         localEncounterPanel.SetActive(false);
         localCardBuyEvent.SetActive(true);
 
 
-        CardBuyEvent.instance.Drowcardsetting(2);
+        CardBuyEvent.instance.Drowcardsetting(n);
+    }
+
+    public void SelectLocalEvent(int num,Local _local)
+    {
+        Debug.Log(_local);
+        tempLocal = _local;
+        SelectLocalEventPanel.SetActive(true);
+        switch(num)
+        {
+            case 1:
+                i = Random.Range(1, 3);
+                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
+                SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(true);
+                SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(false);
+                SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(false);
+                break;
+            case 2:
+
+                SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(false);
+                j = Random.Range(1, 3);
+                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
+                SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(true);
+                k = Random.Range(1, 3);
+                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
+                SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(true);
+                break;
+            case 3:
+                i = Random.Range(1, 3);
+                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
+                SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(true);
+                j = Random.Range(1, 3);
+                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
+                SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(true);
+                k = Random.Range(1, 3);
+                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
+                SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    public void SelectLocalEventBtn(int n)
+    {
+        Debug.Log(tempLocal);
+        Debug.Log(n);
+
+        switch (n)
+        {
+            case 1:
+                Debug.Log(i);
+                SelectLocalEventPanel.SetActive(false);
+                tempLocal.ActiveEvent(i);
+                tempLocal = null;i = 0;j = 0;k = 0;
+                break;
+            case 2:
+                Debug.Log(j);
+                SelectLocalEventPanel.SetActive(false);
+                tempLocal.ActiveEvent(j);
+                tempLocal = null; i = 0; j = 0; k = 0;
+                break;
+            case 3:
+                Debug.Log(k);
+                SelectLocalEventPanel.SetActive(false);
+                tempLocal.ActiveEvent(k);
+                tempLocal = null; i = 0; j = 0; k = 0;
+                break;
+        }
     }
 }

@@ -103,14 +103,16 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.Upkeep;
 
         UpkeepButtonEvent.instance.UpkeepEnCounterStep();
+        UpkeepButtonEvent.instance.RetainerAndBless();
     }
 
 
     public void MoveState()
     {
         gameState = GameState.Move;
-
+        
         UpkeepButtonEvent.instance.UpkeepStepEnd();
+        MoveController.instance.CheckOtherWorld();
 
         // 이동 단계 UI 결정되면 출력함수 호출
     }

@@ -8,5 +8,7 @@ public class Gate_GreatRace : Gate {
     {
         OpenLocal = GameObject.Find("GreatRace").GetComponent<Local>();
         GateSimbol = Monster.Simbol.Triangle;
+        Modifier = 0;
+        GateImage = Resources.Load<Sprite>("GateImages/TheCityOfTheGreatRace");
     }
 }

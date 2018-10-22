@@ -173,6 +173,7 @@
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController1.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController2.cs" />
     <Compile Include="Assets\Functions\UpKeep\Upkeep_Scrips\UpkeepController3.cs" />
+    <Compile Include="Assets\MovePointPop.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/project/git_pj/100mb/ARKHAM/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

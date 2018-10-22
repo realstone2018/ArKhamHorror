@@ -33,7 +33,7 @@ public class DiceController : MonoBehaviour
 
     // 주사위의 사용 목적 : 목적에 따라 호출할 Result함수가 다르다.
     //        지역이벤트, 회피체크, 공포체크, 전투 체크,신화체크,보스공격,마지막전투,게이트봉인
-    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent,BossHit,FinalBattle,SealGate,Nomal}
+    public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent,BossHit,FinalBattle,SealGate,Bless,Retainer}
     public Use use;
 
     private void Start()
@@ -92,8 +92,10 @@ public class DiceController : MonoBehaviour
 
         // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
         if (diceCount <= 0)
+        {
+            ActiveAdditoryDice();
             return;
-
+        }
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
@@ -120,7 +122,11 @@ public class DiceController : MonoBehaviour
 
         // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
         if (diceCount <= 0)
+        {
+            CallResultFunction();
             return;
+        }
+            
 
         for (int i = 0; i < diceCount; i++)
         {
@@ -200,6 +206,12 @@ public class DiceController : MonoBehaviour
                 break;
             case Use.FinalBattle:
 
+                break;
+            case Use.Retainer:
+                UpkeepButtonEvent.instance.resultRetainer(successCoutn);
+                break;
+            case Use.Bless:
+                UpkeepButtonEvent.instance.resultBless(successCoutn);
                 break;
         }
     }
@@ -303,30 +315,7 @@ public class DiceController : MonoBehaviour
 
         readyThrow = true;
     }
-    public void returnDiceResult(int num, int min, int max)
-    {
-        use = Use.Nomal;
-
-        diceCount = num;
-        minValue = min;
-        maxValue = max;
-
-        // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
-        if (diceCount <= 0)
-            return;
-
-        for (int i = 0; i < diceCount; i++)
-        {
-            GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            instanceDice.transform.parent = cameraObj.transform;
-            instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
-
-
-            dices.Add(instanceDice.GetComponent<Dice>());
-        }
-
-        readyThrow = true;
-    }
+    
 
     
 

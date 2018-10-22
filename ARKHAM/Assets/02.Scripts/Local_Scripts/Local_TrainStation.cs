@@ -81,7 +81,7 @@ public class Local_TrainStation : Local {
 
                     DiceController.instance.SetDiceThrow(this, 1, 1, 6);
 
-                    Character.instance.characterStamina -= DiceController.instance.ResultDiceValue();
+                    Character.instance.DamagedStamina(DiceController.instance.ResultDiceValue());
                     //주사위랑 결과부분 분리 요망
                     //주사위에서 결과를 호출해서 주사위가 계속 반복됨
                     //주사위 굴려서 나온 숫자만큼 체력 감소

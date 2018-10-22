@@ -14,7 +14,7 @@ public class MonsterController : MonoBehaviour {
     [SerializeField]
     public List<Monster> monsters = new List<Monster>();
 
-
+    private int i=1;
     public int number = 0;
     
     public static MonsterController instance = null;
@@ -38,6 +38,7 @@ public class MonsterController : MonoBehaviour {
         instanceMon.CopyValue(ref dictionaryMon);
         instanceMon.name = instanceMon.name + number;
 
+        Debug.Log(instanceMon.name);
         // 이미지를 Resources파일에서 가져옴
         Texture monsterTexture = Resources.Load<Texture>("MonsterImages/" + instanceMon.name);
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;

@@ -214,8 +214,8 @@ public class LocalEventController : MonoBehaviour {
         {
             case 1:
                 i = Random.Range(1, 3);
-                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
                 SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(true);
+                GameObject.Find("EventCard3").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[i];
                 SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(false);
                 SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(false);
                 break;
@@ -223,11 +223,11 @@ public class LocalEventController : MonoBehaviour {
 
                 SelectLocalEventPanel.transform.Find("EventCard3").gameObject.SetActive(false);
                 j = Random.Range(1, 3);
-                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
                 SelectLocalEventPanel.transform.Find("EventCard1").gameObject.SetActive(true);
+                GameObject.Find("EventCard1").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[j];
                 k = Random.Range(1, 3);
-                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
                 SelectLocalEventPanel.transform.Find("EventCard2").gameObject.SetActive(true);
+                GameObject.Find("EventCard2").transform.GetChild(2).GetComponent<Text>().text = _local.TextList[k];
                 break;
             case 3:
                 i = Random.Range(1, 3);

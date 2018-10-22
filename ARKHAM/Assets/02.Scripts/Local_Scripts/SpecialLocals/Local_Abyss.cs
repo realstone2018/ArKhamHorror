@@ -38,7 +38,7 @@ public class Local_Abyss : Local
     {
         activeEvent = 3;
         eventText = "정신적인 압박이 느껴집니다. 정신력1을 잃습니다.";
-        Character.instance.characterSanity -=1;
+        Character.instance.DamagedSanity(1);
     }
 
     protected override void EventFour()
@@ -86,7 +86,7 @@ public class Local_Abyss : Local
             case 4:
                 if (_successCount == 0)
                 { 
-                    Character.instance.characterSanity -= 3;
+                    Character.instance.DamagedSanity(3);
                 }
                 else
                     Debug.Log("실패");

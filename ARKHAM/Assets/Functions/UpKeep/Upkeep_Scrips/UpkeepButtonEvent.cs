@@ -61,6 +61,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
         upkeepEncounterPanel.SetActive(false);
         Character.instance.characterFocus = 0;
         Character.instance.currentMoveCount = 0;
+        Character.instance.maxMoveCount = Character.instance.characterSpeed;
         
     }
 
@@ -90,24 +91,31 @@ public class UpkeepButtonEvent : MonoBehaviour {
         {
             Debug.Log("보유자산 체크");
             Character.instance.money += 1;
-            DiceController.instance.AdditoryDiceValue = true;
-            DiceController.instance.returnDiceResult(1,1,6);
-            if(1==DiceController.instance.ResultDiceValue())
-            {
-                Character.instance.Retainer = false;
-            }
+            DiceController.instance.SetDice(1,1,1,DiceController.Use.Retainer);      
 
         }
         if(Character.instance.MinDiceSucc==4 || Character.instance.MinDiceSucc==6)
         {
             Debug.Log("축복 체크");
-            DiceController.instance.AdditoryDiceValue = true;
-            DiceController.instance.returnDiceResult(1, 1, 6);
-            if (1 == DiceController.instance.ResultDiceValue())
-            {
-                Character.instance.MinDiceSucc = 5;
-            }
+            DiceController.instance.SetDice(1, 1, 1, DiceController.Use.Bless);
+
         }
+    }
+    public void resultRetainer(int dice)
+    {
+        if (1 == dice)
+        {
+            Character.instance.Retainer = false;
+        }
+    }
+    public void resultBless(int dice)
+    {
+        if (1 == DiceController.instance.ResultDiceValue())
+        {
+            Character.instance.MinDiceSucc = 5;
+        }
+        else
+            Debug.Log("체크 실패");
     }
 
 

@@ -32,7 +32,7 @@ public class MoveController : MonoBehaviour
                 arkamLocal = Local.GetLocalObjById(otherWorldLocal.allowLocal_Id[0]);
 
                 Character.instance.specialLocalCheck = true;
-                this.transform.position = arkamLocal.transform.position;
+                this.transform.position = new Vector3 (arkamLocal.transform.position.x,1.2f, arkamLocal.transform.position.z);
                 OtherWorldPlace = 0;
                 
             }

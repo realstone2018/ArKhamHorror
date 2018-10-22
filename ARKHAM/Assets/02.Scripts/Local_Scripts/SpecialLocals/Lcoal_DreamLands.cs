@@ -80,7 +80,7 @@ public class Lcoal_DreamLands : Local
             case 2:
                 if (_successCount == 0)
                 {
-                    Character.instance.characterStamina -= 3;
+                    Character.instance.DamagedStamina(3);
                 }
                 break;
             case 3:
@@ -88,7 +88,7 @@ public class Lcoal_DreamLands : Local
             case 4:
                 if (_successCount == 0)
                 {
-                    Character.instance.characterSanity = 0;
+                    Character.instance.DamagedSanity(Character.instance.characterSanity);
                 }
                 else
                 {

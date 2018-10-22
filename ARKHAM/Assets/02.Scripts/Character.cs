@@ -61,8 +61,11 @@ public class Character : MonoBehaviour
 
     //전투
     public int PhysicalCombat;  //무기공격력(한손x2 or 양손)
+    public int characterPhysicalCombat { get { return PhysicalCombat+Fight; } set { PhysicalCombat = value; } }
     public int MagicalCombat;   //마법공격력
+    public int characterMagicalCombat { get { return MagicalCombat + Fight; } set { MagicalCombat = value; } }
     public int EvadeCheck;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
+    public int characterEvadeCheck { get { return EvadeCheck + Sneak; } set { EvadeCheck = value; } }
     public int HorrorCheck; //공포
     public int CombatCheck; //투지+무기 수치
     
@@ -179,7 +182,7 @@ public class Character : MonoBehaviour
 
     void DieCuzStamina()
     {
-        Debug.Log("멘탈이 0이하가 되어 죽음");
+        Debug.Log("체력이 0이하가 되어 죽음");
 
         Stamina = 1;
 
@@ -190,7 +193,7 @@ public class Character : MonoBehaviour
 
     void DieCuzSanity()
     {
-        Debug.Log("체력이 0이하가 되어 죽음");
+        Debug.Log("정신력이 0이하가 되어 죽음");
 
         Sanity = 1;
 

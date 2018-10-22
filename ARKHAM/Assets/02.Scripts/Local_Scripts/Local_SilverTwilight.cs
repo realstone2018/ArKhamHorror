@@ -68,7 +68,7 @@ public class Local_SilverTwilight : Local {
         switch (activeEvent)
         {
             case 1:
-                if (_successCount > 0)
+                if (successCount > 0)
                 {
                     Character.instance.clue += 3;
                 }
@@ -81,7 +81,7 @@ public class Local_SilverTwilight : Local {
                 }
                 break;
             case 2:
-                if (_successCount == 0)
+                if (successCount == 0)
                 {
                     if (Character.instance.MinDiceSucc==5)
                         Character.instance.MinDiceSucc = 6;
@@ -90,7 +90,7 @@ public class Local_SilverTwilight : Local {
                 }
                 break;
             case 3:
-                if (_successCount > 0)
+                if (successCount > 0)
                 {
                     DiceController.instance.AdditoryDiceValue = true;
                     DiceController.instance.SetDiceThrow(this, 1, Character.instance.MinDiceSucc, 6);
@@ -114,7 +114,6 @@ public class Local_SilverTwilight : Local {
                 {
                     Debug.Log("실패");
                 }
-                break;
                 break;
             case 4:
                 

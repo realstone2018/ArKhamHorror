@@ -29,7 +29,15 @@ public class MonsterController : MonoBehaviour {
         number++;
         // 우선은 지정 생성,  후에 랜덤생성으로 변경 예정 
         Monster dictionaryMon = MonsterDictionary.instance.RandomMonster();
-        
+
+        // 몬스터가 필드에 4마리가 있다면 다음 몬스터는 외각에 생성
+        if (monsters.Count >= 4)
+        {
+            OutSkirtsUI.instance.UpdateOutSkirtsUI(dictionaryMon.id);
+            return;
+        }
+
+
         Monster instanceMon = Instantiate(monsterPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
         instanceMon.transform.parent = local.transform;
         instanceMon.transform.localPosition = new Vector3(0, -1, 1);
@@ -43,11 +51,6 @@ public class MonsterController : MonoBehaviour {
         instanceMon.GetComponent<MeshRenderer>().material.mainTexture = monsterTexture;
 
         monsters.Add(instanceMon);
-
-        if (monsters.Count > 4)
-        {
-            // 교외로 
-        }
     }
 
 

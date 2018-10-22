@@ -127,7 +127,6 @@
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Dimention.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_GreatRace.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_LostInTimeSpace.cs" />
-    <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_OutSkirts.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_PlateauOfLeng.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Rlyeh.cs" />
     <Compile Include="Assets\02.Scripts\Local_Scripts\SpecialLocals\Local_Sky.cs" />
@@ -161,6 +160,7 @@
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_RiverTown.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_SouthSide.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_UpTown.cs" />
+    <Compile Include="Assets\02.Scripts\TerrorLevel.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />

@@ -10,7 +10,6 @@ public class OutSkirtsUI : MonoBehaviour {
     public List<Image> monsterImages = new List<Image>();
 
     public Transform outskirtsUIPanel;
-    public Transform outSkirtsLocal;
     int num = 0;
 
     public static OutSkirtsUI instance = null;
@@ -19,28 +18,33 @@ public class OutSkirtsUI : MonoBehaviour {
     {
         instance = this;
 
-        outSkirtsLocal = GameObject.FindObjectOfType<Local_OutSkirts>().transform;
-
         for (int i = 1; i < outskirtsUIPanel.childCount; i++)
         {
             monsterImages.Add(outskirtsUIPanel.GetChild(i).GetComponent<Image>());
         }
     }
 
-    public void UpdateOutSkirtsUI()
+    public void UpdateOutSkirtsUI(string name)
     {
-        num = outSkirtsLocal.childCount;
-
-        if (num == 0)
-            return;
-
-        for (int i = 0; i < num; i++)
+        // 외각의 몬스터가 7마리를 넘으면 곧포수준 한단계 업
+        if (num >= 7)
         {
-            Monster monster = outSkirtsLocal.GetChild(i).GetComponent<Monster>();
-
-            monsterImages[i].sprite = Resources.Load<Sprite>("MonsterImages/" + monster.id);
-            monsterImages[i].gameObject.SetActive(true);
+            TerrorLevel.instance.TerrorLevelUp();
+            DeActiveImages();
+            return;
         }
 
+        monsterImages[num].sprite = Resources.Load<Sprite>("MonsterImages/" + name);
+        monsterImages[num].gameObject.SetActive(true);
+        num++;
+    }
+
+    public void DeActiveImages()
+    {
+        for (int i = 0; i < monsterImages.Count; i++)
+        {
+            monsterImages[i].gameObject.SetActive(false);
+            num = 0;
+        }
     }
 }

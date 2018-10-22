@@ -68,7 +68,7 @@ public class MonsterDictionary : MonoBehaviour {
         return null;
     }
 
-    
+    // 이부분 그냥 Random.Range값으로 인덱스 접근해서 못가져오나  딕셔너리는??
     public Monster RandomMonster()
     {
         var enumerator = monsterMap.GetEnumerator();

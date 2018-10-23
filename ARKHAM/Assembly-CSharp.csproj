@@ -161,6 +161,7 @@
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_SouthSide.cs" />
     <Compile Include="Assets\02.Scripts\Street_Scripts\Street_UpTown.cs" />
     <Compile Include="Assets\02.Scripts\TerrorLevel.cs" />
+    <Compile Include="Assets\02.Scripts\UI_Scripts\CombatUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\MenuButton.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\OutSkirtsUI.cs" />
     <Compile Include="Assets\02.Scripts\UI_Scripts\SkyUI.cs" />

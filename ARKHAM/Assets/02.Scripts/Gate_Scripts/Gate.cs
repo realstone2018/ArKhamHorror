@@ -24,11 +24,13 @@ public class Gate : MonoBehaviour {
             if (BackMonster[i].simbol == GateSimbol)
             {
                 GameObject DestroyMonster = GameObject.Find(BackMonster[i].name);
+                Debug.Log(DestroyMonster.name);
                 Destroy(DestroyMonster.gameObject);
 
                 //몬스터 삭제
             }
         }
+        Character.instance.specialLocalCheck = false;
         OpenLocal.allowLocal_Id[0] = 0;
         Destroy(this.gameObject);
 

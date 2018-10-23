@@ -7,7 +7,8 @@ public class MonsterMoveController : MonoBehaviour {
     public Monster monster;
     public Local currentLocal;
     public Local goalLocal;
-    public Local sky;
+    public Transform skyLocal;
+    public Transform outskirtsLocal;
 
     public enum Color { White, Black };
     Color color;
@@ -60,8 +61,6 @@ public class MonsterMoveController : MonoBehaviour {
         IEnumerator moveCoroutine = MovePosition(goalLocal.position);
         yield return StartCoroutine(moveCoroutine);
       
-        monster.transform.SetParent(goalLocal.transform);
-
         Debug.Log(monster + "(" + color + ")" + " : " + currentLocal + "to" + goalLocal);
 
         
@@ -86,42 +85,40 @@ public class MonsterMoveController : MonoBehaviour {
         currentLocal = monster.GetComponentInParent<Local>();
 
         // 모든 조사자 들을 불러와 거리에있는 조사자만 분리해서 저장    
-        //////////////////////////////////////////////////////////////////////////////  따로 분리해서 저장할 필요있나 그냥 if문으로 거리애들만 적용하면 되장ㄶ나 
         // Find드는 배열에만 저장되므로 배열사용, 최대 4인게임이므로 크기는 4
-        GameObject[] characters = new GameObject[4];
+        Character[] characters = new Character[4];
         List<Character> streetCharacter = new List<Character>();
-        characters = GameObject.FindGameObjectsWithTag("Player");
+        characters = GameObject.FindObjectsOfType<Character>();
 
         for (int i = 0; i < characters.Length; i++)
         {
-            Debug.Log("캐릭터 리스트 : " + characters[i]);
-
             if (characters[i] != null)
             {
+                Debug.Log("캐릭터 리스트 : " + characters[i]);
+
                 // 캐릭터가 위치한 지역의 이동가능경로 수를 보고 지역인지 장소인지 판별
-                Character ch = characters[i].GetComponent<Character>();
-                Local local = Local.GetLocalObjById(ch.currentLocal_Id);
+                Local local = Local.GetLocalObjById(characters[i].currentLocal_Id);
 
                 //////////////////////////     이부분도 Localid 변경되면 바꾸기
                 if (local.allowLocal_Id.Length > 1)
                 {
                     Debug.Log("캐릭터 리스트 : " + characters[i] + "는 거리에 있습니다");
-                    streetCharacter.Add(ch);
+                    streetCharacter.Add(characters[i]);
                 }
             }
         }
 
         // 몬스터가 하늘 인 경우 
         if (currentLocal.local_Id == 121)
-        {            
-            // 거리에 있는 조사자가 없는 경우 그대로 
+        {
+            // 거리에 조사자가 없으면 하늘에 머문다
             if (streetCharacter.Count == 0)
             {
-                Debug.Log(monster + "거리에 있는 조사자가 없어 하늘에 머뭅니다.");
+                Debug.Log(monster + " 거리에 조사자가 없어 하늘에 머뭅니다.");
                 return;
             }
 
-            // 거리에 있는 조사다들중 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
+            // 거리에 조사자가 있다면 운둔이 가장 낮은놈을 판별 후 그곳으로 이동 
             Character lowSneakChar = streetCharacter[0];
 
             for (int i = 0; i < streetCharacter.Count; i++)
@@ -131,7 +128,12 @@ public class MonsterMoveController : MonoBehaviour {
             }
 
             goalLocal = Local.GetLocalObjById(lowSneakChar.currentLocal_Id);
-            StartCoroutine(MovePosition(goalLocal.position));
+
+            Debug.Log(monster + " 하늘에서 거리에있는 " + lowSneakChar + "에게로 이동합니다");
+
+            // 하늘에서 이동이므로 MoveToward가 아닌 바로이동 
+            monster.transform.position = new Vector3(goalLocal.position.x, 1.2f, goalLocal.position.z - 3.0f);
+            monster.transform.SetParent(goalLocal.transform);
 
             SkyUI.instance.UpdateSkyUI();
         }
@@ -142,10 +144,10 @@ public class MonsterMoveController : MonoBehaviour {
             if (streetCharacter.Count == 0)
             {
                 Debug.Log(monster + "거리에 조사자가 없어 하늘로 올라갑니다.");
-                
-                sky = GameObject.FindObjectOfType<Local_Sky>();
 
-                monster.transform.SetParent(sky.transform);
+                skyLocal = GameObject.FindObjectOfType<Local_Sky>().transform;
+
+                monster.transform.SetParent(skyLocal);
 
                 monster.transform.localPosition = Vector3.zero;
 
@@ -172,7 +174,7 @@ public class MonsterMoveController : MonoBehaviour {
                     }
                 }
             }
-            Debug.Log("가장 멀리 떨어져있는 캐릭터 :" + farthestChar.name);
+            Debug.Log(monster + " 가장 멀리 떨어져있는 캐릭터 :" + farthestChar.name + "에게 이동합니다");
 
             goalLocal = Local.GetLocalObjById(farthestChar.currentLocal_Id);
             StartCoroutine(MovePosition(goalLocal.position));
@@ -264,6 +266,8 @@ public class MonsterMoveController : MonoBehaviour {
 
             yield return new WaitForSeconds(0.02f);
         }
+
+        monster.transform.SetParent(goalLocal.transform);
 
         yield return null;
     }

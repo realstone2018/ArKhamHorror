@@ -64,6 +64,7 @@ public class LocalEventController : MonoBehaviour {
             //차원문 닫기 쪽 패널 활성화
             GateController.instance.closePanel();
         }
+
         else
         {
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
@@ -194,8 +195,12 @@ public class LocalEventController : MonoBehaviour {
     }
     */
 
-    //상점 아이템 구입 이벤트
 
+    //상점 아이템 구입 이벤트
+    // 버튼 클릭시 캐릭터의 지역id값ㅇ로 지역판별, 지역에 따른 다른 이벤트 발생 
+    // 발생 상점 스크립트는 인터페이스로 제작(이름을 ILocalInteract로 수정), 지역고유이벤트가 있는 스크립트에 인터페이스로 추가,  Controller로 따로 빼는게 아니고 
+    // 그 지역의 GetComponent<ILocalInteract>()를 불러와  LocalInteract()함수 호출 
+    // 처음 지역조우 UI를 띄울 때 해당 지역의 GetComponent<ILocalInteract>()가 null이라면 고유지역조우 버튼은 비활성화 시키기 
     public void LocalBuyEventButtonDown(int n)
     {
         localEncounterPanel.SetActive(false);

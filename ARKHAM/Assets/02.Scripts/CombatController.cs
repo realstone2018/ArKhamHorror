@@ -9,7 +9,8 @@ public class CombatController : MonoBehaviour {
     public Monster monster;
 
     public GameObject CombatPanel;
-    public Image monsterImage;
+    public GameObject mainCamera;
+    public GameObject combatCamera;
 
     public static CombatController instance = null;
 
@@ -18,20 +19,19 @@ public class CombatController : MonoBehaviour {
         instance = this;
     }
 
-    private void Start()
-    {
-        monsterImage = CombatPanel.transform.Find("MonsterImage").GetComponent<Image>();
-    }
-
     public  void SetCombatController(Character _character, Monster _monster)
     {
         character = _character;
         monster = _monster;
 
-        // CobatPanel Monster 이미지 변경
-        monsterImage.sprite = Resources.Load<Sprite>("MonsterImages/" + monster.name);
+        // CobatUIPanel 변경 후 호출 
+        CombatUI.instance.SetCombatUI(monster.id);
 
+        
         CombatPanel.SetActive(true);
+
+        combatCamera.SetActive(true);
+        mainCamera.SetActive(false);
     }
 
     public void EvasionCheck()

@@ -22,7 +22,8 @@ public class DiceController : MonoBehaviour
     public Mythos eventMythos;
     public Gate sealGate;
 
-    public GameObject cameraObj;
+    public GameObject mainCamera;
+    public GameObject combatCamera;
 
     public static DiceController instance = null;
 
@@ -38,7 +39,8 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        cameraObj = GameObject.Find("Camera");
+        mainCamera = GameObject.Find("Camera");
+        combatCamera = GameObject.Find("CombatCamera");
     }
 
     void Update()
@@ -70,7 +72,12 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            instanceDice.transform.parent = cameraObj.transform;
+
+            if (_use == Use.CombatCheck)
+                instanceDice.transform.parent = combatCamera.transform;
+            else
+                instanceDice.transform.parent = mainCamera.transform;
+
             instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
 
 
@@ -99,7 +106,7 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.parent = mainCamera.transform;
             instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
 
 
@@ -131,7 +138,7 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.parent = mainCamera.transform;
             instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
 
 
@@ -281,7 +288,7 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < diceCount; i++)
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-            instanceDice.transform.parent = cameraObj.transform;
+            instanceDice.transform.parent = mainCamera.transform;
             instanceDice.transform.localPosition = new Vector3(i * 2, -4, i * 2 + 6);
 
 

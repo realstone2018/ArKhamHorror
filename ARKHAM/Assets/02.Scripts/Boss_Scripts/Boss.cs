@@ -55,4 +55,18 @@ public class Boss : MonoBehaviour {
 
     }
 
+    public virtual void DamegeResult(int success)
+    {
+
+    }
+    public virtual void BossDieCheck()
+    {
+        if(BossDoomTrack<0)
+        {
+            //게임 정산화면
+            Destroy(this.gameObject);
+            
+        }
+    }
+
 }

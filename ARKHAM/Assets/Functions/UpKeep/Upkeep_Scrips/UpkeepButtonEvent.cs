@@ -27,13 +27,13 @@ public class UpkeepButtonEvent : MonoBehaviour {
     //upkeeppanel 활성화
     public void UpkeepEnCounterStep()
     {
-
+        upkeepEncounterPanel.SetActive(true);
         cluepanel.GetComponent<Text>().text = Character.instance.clue.ToString();
         moneypanel.GetComponent<Text>().text = Character.instance.money.ToString();
         tokenpanel1.GetComponent<Text>().text = Character.instance.GateNum.ToString();
         tokenpanel2.GetComponent<Text>().text = Character.instance.SumMonsterHP.ToString();
 
-        upkeepEncounterPanel.SetActive(true);
+        
         ShowInventory();
         
         Character.instance.characterFocus = Character.instance.MaxFocus;
@@ -69,7 +69,8 @@ public class UpkeepButtonEvent : MonoBehaviour {
     public void ShowInventory()
     {
         Transform parentOj = GameObject.FindGameObjectWithTag("Inventory").transform;
-        Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
+        //Vector3 parentvector = GameObject.FindGameObjectWithTag("Inventory").transform.position;
+        Vector3 parentvector = parentOj.transform.position;
         Transform childOj;
 
         if (0 < Character.instance.CharacterInventory.Count)
@@ -78,6 +79,7 @@ public class UpkeepButtonEvent : MonoBehaviour {
             {
                 childOj = Instantiate(InventoryCard, new Vector3(parentvector.x - 70+(i*24), parentvector.y, parentvector.z), Quaternion.identity, parentOj);
                 childOj.GetComponent<Image>().sprite = Character.instance.CharacterInventory[i].ItemImage;
+                childOj.GetComponent<ItemCard>().ItemName = Character.instance.CharacterInventory[i].ItemName;
                 //아이템 인벤토리 표현 좌표값 수정 요망
             }
 
@@ -110,8 +112,9 @@ public class UpkeepButtonEvent : MonoBehaviour {
     }
     public void resultBless(int dice)
     {
-        if (1 == DiceController.instance.ResultDiceValue())
+        if (1 == dice)
         {
+            Debug.Log("체크 성공");
             Character.instance.MinDiceSucc = 5;
         }
         else

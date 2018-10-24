@@ -107,6 +107,8 @@ public class CombatController : MonoBehaviour {
             Character.instance.CobatComplete();
 
             // 캐릭터 인벤에 트로피로
+            Character.instance.SumMonsterHP+= monster.hp;   //임시적
+
             Destroy(monster.gameObject);
             
             //전투종료 UI변경

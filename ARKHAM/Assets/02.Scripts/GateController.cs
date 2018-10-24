@@ -18,6 +18,7 @@ public class GateController : MonoBehaviour {
 
 
     public GameObject CloseGatePanel;
+    public GameObject SealGatePanel;
     public Image GateImage;
 
     public Gate CharacterInGate;
@@ -61,10 +62,11 @@ public class GateController : MonoBehaviour {
         }
         else
         {
-            Transform GateLocal = parent.transform.Find("Gate(Clone)"); //불가능
+            
 
             Debug.Log(GateDeck[0].name);
-            if (GateLocal == null)
+            Debug.Log(sealMarkCheck.ToString());
+            if (!sealMarkCheck.gateOpenCheck)
             {
                 GameObject gateClone = Instantiate(GateDeck[0], parent.transform);
 
@@ -75,11 +77,11 @@ public class GateController : MonoBehaviour {
                 else
                     otherWold.allowLocal_Id[1] = parent.GetComponent<Local>().local_Id;
 
-
-                FinalBattle.instance.DoomTrack = +1;
+                sealMarkCheck.gateOpenCheck = true;
+                FinalBattle.instance.DoomTrack += 1;
                 GateDeck.RemoveAt(0);
             }
-            else
+            else if(sealMarkCheck.gateOpenCheck)
             {
                 Debug.Log("차원문 충돌");
 
@@ -106,17 +108,28 @@ public class GateController : MonoBehaviour {
     }
 
 
-    public void closePanel()
+    public void ClosePanel()
     {
         CloseGatePanel.SetActive(true);
         GateImage.sprite = CharacterInGate.GateImage;
 
     }
+    public void SealPanel()
+    {
+        SealGatePanel.SetActive(true);
+    }
 
 
-    public void closeGateBtn(int n)
+    public void CloseGateBtn(int n)
     {
         CloseGatePanel.SetActive(false);
         CharacterInGate.ClosesGateCheck(n);
+    }
+
+ 
+    public void SealGateBten(int n)
+    {
+        SealGatePanel.SetActive(false);
+        CharacterInGate.SealbuttonCheck(n);
     }
 }

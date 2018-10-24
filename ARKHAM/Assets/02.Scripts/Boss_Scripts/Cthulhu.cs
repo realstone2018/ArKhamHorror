@@ -9,6 +9,7 @@ public class Cthulhu : Boss {
         BossDoomTrack = 13;
         BossCombatRating = -6;
         BossDefense = Defenses.Special;
+        BossImage = Resources.Load<Sprite>("StartScenes / Boss /Cthulhu");
     }
 
 

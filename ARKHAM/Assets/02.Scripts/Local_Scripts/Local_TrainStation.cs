@@ -19,8 +19,9 @@ public class Local_TrainStation : Local {
     {
         activeEvent = 1;
         eventText = "조이 비질이 기차 그림자 속에 쭈그리고 앉아서 당신을 향해 자기에게 오라고 손짓합니다. 다가가니 그가 무언가 팔 물건이 있다고 합니다. 일반 아이템 카드 1장을 뽑고 액면가보다 1$을 더 내고 살 수 있습니다.";
+        EventResult(0);
 
-        
+
     }
 
     protected override void EventTwo()

@@ -62,10 +62,10 @@ public class LocalEventController : MonoBehaviour {
         {
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
             //차원문 닫기 쪽 패널 활성화
-            GateController.instance.closePanel();
+            GateController.instance.ClosePanel();
         }
 
-        else
+        else if(character.currentLocal_Id%10!=0)
         {
             Character.instance.currentMoveCount = Character.instance.maxMoveCount;
 
@@ -102,6 +102,23 @@ public class LocalEventController : MonoBehaviour {
         drawCardPanel.SetActive(true);
 
         drawCardPanel.GetComponent<Animator>().SetBool("Spread", true);
+    }
+
+
+
+    public void LocalFuntionButtonDown()    //장소 능력 활성화 /////////////////////////////
+    {
+        localEncounterPanel.SetActive(false);
+        switch(eventLocal.local_Id)
+        {
+            case 1:
+                LocalBuyEventButtonDown(2);
+                break;
+            case 43:
+                LocalBuyEventButtonDown(1);
+                break;
+        }
+
     }
 
     
@@ -203,6 +220,7 @@ public class LocalEventController : MonoBehaviour {
     // 처음 지역조우 UI를 띄울 때 해당 지역의 GetComponent<ILocalInteract>()가 null이라면 고유지역조우 버튼은 비활성화 시키기 
     public void LocalBuyEventButtonDown(int n)
     {
+        
         localEncounterPanel.SetActive(false);
         localCardBuyEvent.SetActive(true);
 

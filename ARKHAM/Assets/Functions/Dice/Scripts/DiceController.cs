@@ -208,17 +208,20 @@ public class DiceController : MonoBehaviour
             case Use.MythosEvent:
                 eventMythos.EventResult(successCount);
                 break;
-            case Use.BossHit:
+            case Use.SealGate:
                 sealGate.SealGateResulte(successCount);
                 break;
-            case Use.FinalBattle:
-
+            case Use.BossHit:
+                Boss.instance.DamegeResult(successCoutn);
                 break;
             case Use.Retainer:
                 UpkeepButtonEvent.instance.resultRetainer(successCoutn);
                 break;
             case Use.Bless:
                 UpkeepButtonEvent.instance.resultBless(successCoutn);
+                break;
+            case Use.FinalBattle:
+                FinalBattle.instance.AttackResult(successCoutn);
                 break;
         }
     }
@@ -283,7 +286,11 @@ public class DiceController : MonoBehaviour
 
         // 주사위 수가 0이면 더 이상 진행할 필요 x, 배열도 모두 0으로 되있으므로 SuccessOrFailure는 0을 반환 -> 이벤트 실패
         if (diceCount <= 0)
+        {
+            ResultDiceValue();
             return;
+        }
+            
 
         for (int i = 0; i < diceCount; i++)
         {
@@ -299,7 +306,7 @@ public class DiceController : MonoBehaviour
     }
     public void SealGateSetDice(Gate _gate,int num, int min, int max)
     {
-        use = Use.BossHit;
+        use = Use.SealGate;
         sealGate = _gate;
 
         diceCount = num;

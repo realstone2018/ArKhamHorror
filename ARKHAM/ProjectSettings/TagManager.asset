@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - FinalBattlePanel
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 416129071
+    locked: 0
+  - name: FinalBattlePnael
+    uniqueID: 1914436735
     locked: 0

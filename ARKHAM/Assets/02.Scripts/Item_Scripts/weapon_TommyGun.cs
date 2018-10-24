@@ -12,7 +12,8 @@ public class weapon_TommyGun : ItemCard {
 
     public override void ItemFuntion()
     {
-        Character.instance.PhysicalCombat += 6;
+        Debug.Log("토미건 클릭");
+        Character.instance.characterPhysicalCombat += 6;
     }
 
 }

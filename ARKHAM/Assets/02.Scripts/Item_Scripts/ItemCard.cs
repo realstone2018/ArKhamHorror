@@ -15,6 +15,8 @@ public class ItemCard : MonoBehaviour {
     public Sprite ItemImage;
     public string ItemText;
 
+    public static ItemCard instance = null;
+
     public ItemCard(string _ItemName, int _price, int _hand, ItemKind _ItemKind, ItemType _itemType, Sprite _ItemImage, string _ItemText)
     {
         itemkind = _ItemKind;
@@ -24,6 +26,12 @@ public class ItemCard : MonoBehaviour {
         this.hand = _hand;
         this.ItemImage = _ItemImage;
         this.ItemText = _ItemText;
+
+        
+    }
+    private void Awake()
+    {
+        instance = this;
     }
 
     public virtual void ItemFuntion()

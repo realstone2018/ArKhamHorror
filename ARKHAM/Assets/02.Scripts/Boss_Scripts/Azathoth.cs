@@ -33,4 +33,5 @@ public class Azathoth : Boss {
     {
         Debug.Log("없음");
     }
+    
 }

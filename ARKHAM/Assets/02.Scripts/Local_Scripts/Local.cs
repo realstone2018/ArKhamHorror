@@ -25,6 +25,9 @@ public abstract class Local : MonoBehaviour {
     // 가상함수에서 사용함으로 Protected
     protected static Character character;
 
+    public bool gateOpenCheck = false;  //게이트 오픈여부
+
+
     void Awake()
     {
         locals = FindObjectsOfType<Local>();

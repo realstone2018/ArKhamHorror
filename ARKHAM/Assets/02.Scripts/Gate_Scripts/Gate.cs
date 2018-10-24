@@ -61,21 +61,28 @@ public class Gate : MonoBehaviour {
         if (successCount > 0)
         {
             if(Character.instance.clue > 4)
-            {
+            {            
                 Debug.Log("봉인 여부 선택");
-                //봉인 선택시
-                if(true)
-                {
-                    Character.instance.clue -= 5;
-                    Character.instance.GateNum += 1;
-                    Local seallocal = this.GetComponentInParent<Local>();
-                    seallocal.SealMark = true;
-                    
-                }
+                GateController.instance.SealPanel();      
             }
-            CloseGate();
+            
         }
 
+    }
+
+    public void SealbuttonCheck(int n)
+    {
+        Local seallocal = this.GetComponentInParent<Local>();
+        if (n==0)
+        {
+
+            Character.instance.clue -= 5;
+            Character.instance.GateNum += 1;
+            seallocal.SealMark = true;
+            
+        }
+        seallocal.gateOpenCheck = false;
+        CloseGate();
 
     }
 

@@ -15,6 +15,13 @@ public class UpkeepButtonEvent : MonoBehaviour {
     public GameObject tokenpanel1;
     public GameObject tokenpanel2;
 
+
+    public GameObject BlessPanel;
+    public GameObject onMoneyPanel;
+    public GameObject succPanel;
+    public GameObject failePanel;
+    public GameObject CursePanel;
+
     public Transform InventoryCard;
 
     public Text cluetext;
@@ -92,15 +99,24 @@ public class UpkeepButtonEvent : MonoBehaviour {
         if(Character.instance.Retainer == true)
         {
             Debug.Log("보유자산 체크");
+            GameObject temponMoneyPanel = Instantiate(onMoneyPanel, GameObject.Find("Canvas").transform);
+            Destroy(temponMoneyPanel.gameObject, 1.0f);
             Character.instance.money += 1;
             DiceController.instance.SetDice(1,1,1,DiceController.Use.Retainer);      
-
         }
-        if(Character.instance.MinDiceSucc==4 || Character.instance.MinDiceSucc==6)
+        if(Character.instance.MinDiceSucc==4)
         {
+            GameObject tempblessPanel = Instantiate(BlessPanel, GameObject.Find("Canvas").transform);
+            Destroy(tempblessPanel.gameObject, 1.0f);
             Debug.Log("축복 체크");
             DiceController.instance.SetDice(1, 1, 1, DiceController.Use.Bless);
 
+        }
+        else if(Character.instance.MinDiceSucc==6)
+        {
+            GameObject tempcursePanel = Instantiate(CursePanel, GameObject.Find("Canvas").transform);
+            Destroy(tempcursePanel.gameObject, 1.0f);
+            DiceController.instance.SetDice(1, 1, 1, DiceController.Use.Bless);
         }
     }
     public void resultRetainer(int dice)
@@ -114,11 +130,17 @@ public class UpkeepButtonEvent : MonoBehaviour {
     {
         if (1 == dice)
         {
-            Debug.Log("체크 성공");
+            GameObject tempfailePanel = Instantiate(failePanel, GameObject.Find("Canvas").transform);
+            Destroy(tempfailePanel.gameObject, 1.0f);
             Character.instance.MinDiceSucc = 5;
         }
         else
-            Debug.Log("체크 실패");
+        {
+            GameObject tempsuccPanel = Instantiate(succPanel, GameObject.Find("Canvas").transform);
+            Destroy(tempsuccPanel.gameObject, 1.0f);
+
+        }
+            
     }
 
 

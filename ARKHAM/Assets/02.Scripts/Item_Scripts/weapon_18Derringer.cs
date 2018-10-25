@@ -14,6 +14,23 @@ public class weapon_18Derringer : ItemCard {
 
     public override void ItemFuntion()
     {
-        Character.instance.PhysicalCombat += 2;
+        if (Character.instance.nowHand + hand < 3)
+        {
+            if (!useCheck)
+            {
+                Character.instance.PhysicalCombat += 2;
+                useCheck = true;
+                Character.instance.nowHand += hand;
+                
+            }
+
+            else
+            {
+                Character.instance.PhysicalCombat -= 2;
+                useCheck = false;
+                Character.instance.nowHand -= hand;
+            }
+        }
+        
     }
 }

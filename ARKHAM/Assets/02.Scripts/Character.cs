@@ -8,7 +8,6 @@ public class Character : MonoBehaviour
     IEnumerator MovingCharacter;
     public Sprite SheetImage;
 
-
     //캐릭터스텟
     public int Sanity;
     public int characterSanity { get { return Sanity; } set { Sanity = value; } }
@@ -45,6 +44,7 @@ public class Character : MonoBehaviour
 
     public int money = 0;
     public int clue = 0;
+    public int nowHand = 0;
 
 
     public List<ItemCard> CharacterInventory;
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
     public int InitSpellNum;
     public int InitSkillNum;
 
-    public bool Retainer=false;
+    public bool Retainer=false; //보유자산
 
 
     //전투
@@ -66,7 +66,8 @@ public class Character : MonoBehaviour
     public int characterMagicalCombat { get { return MagicalCombat; } set { MagicalCombat = value; } }
     public int EvadeCheck;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
     public int characterEvadeCheck { get { return EvadeCheck + Sneak; } set { EvadeCheck = value; } }
-    public int HorrorCheck; //공포
+    public int CharacterHorrorCheck;    //공포체크(의지+공포체크)
+    public int HorrorCheck { get { return Will + CharacterHorrorCheck; } set { CharacterHorrorCheck = value; } } //공포
     public int CharacterCombatCheck;    //토탈
     public int CombatCheck { get { return PhysicalCombat + MagicalCombat+ Fight + CharacterCombatCheck; } set { CharacterCombatCheck = value; } } //투지+무기 수치
 
@@ -150,7 +151,7 @@ public class Character : MonoBehaviour
             StopCoroutine(MovingCharacter);
             MovingComplete();
             Transform OtherWorld = other.GetComponent<Gate>().OpenLocal.transform;
-
+            LocalEventController.instance.InOtherWold();
             transform.position = OtherWorld.position; //다른세계로 날려보내기
         }
         else if(other.CompareTag("Gate") && specialLocalCheck)

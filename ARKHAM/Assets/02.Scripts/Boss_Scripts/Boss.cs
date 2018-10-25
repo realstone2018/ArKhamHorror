@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour {
     public Defenses BossDefense;    //방어수단 
     public int CombatCheck;
     public Sprite BossImage;
+    public string misscombate;
 
     public static Boss instance = null;
 

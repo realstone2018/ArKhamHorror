@@ -14,6 +14,7 @@ public class ItemCard : MonoBehaviour {
     public int hand;
     public Sprite ItemImage;
     public string ItemText;
+    public bool useCheck = false;
 
     public static ItemCard instance = null;
 

@@ -34,7 +34,7 @@ public class MoveController : MonoBehaviour
                 Character.instance.specialLocalCheck = true;
                 this.transform.position = new Vector3 (arkamLocal.transform.position.x,1.2f, arkamLocal.transform.position.z);
                 OtherWorldPlace = 0;
-                
+                LocalEventController.instance.OutOtherWold();
             }
         }
     }

@@ -9,11 +9,11 @@ public class Clue : MonoBehaviour {
 
             if (other.tag == "Player")
             {
-                if (GameManager.instance.gameState == GameManager.GameState.Encounter)
+                if (GameManager.instance.gameState != GameManager.GameState.Move)
                 {
 
                     Character.instance.clue += 1;
-                    Destroy(this);
+                    Destroy(this.gameObject);
                     
                 }
             }

@@ -21,6 +21,8 @@ public class LocalEventController : MonoBehaviour {
     public List<ItemCard> Drowcard;
 
 
+    public GameObject otherWorldPanel;
+
 
     public Image localImage;
     public Text localFunction;
@@ -293,4 +295,14 @@ public class LocalEventController : MonoBehaviour {
                 break;
         }
     }
+
+    public void InOtherWold()
+    {
+        otherWorldPanel.SetActive(true);
+    }
+    public void OutOtherWold()
+    {
+        otherWorldPanel.SetActive(false);
+    }
+
 }

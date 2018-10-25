@@ -12,8 +12,24 @@ public class weapon_TommyGun : ItemCard {
 
     public override void ItemFuntion()
     {
-        Debug.Log("토미건 클릭");
-        Character.instance.characterPhysicalCombat += 6;
+        if (Character.instance.nowHand + hand < 3)
+        {
+            if (!useCheck)
+            {
+                Character.instance.PhysicalCombat += 6;
+                useCheck = true;
+                Character.instance.nowHand += hand;
+
+            }
+
+            else
+            {
+                Character.instance.PhysicalCombat -= 6;
+                useCheck = false;
+                Character.instance.nowHand -= hand;
+            }
+        }
+
     }
 
 }

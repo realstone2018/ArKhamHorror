@@ -13,11 +13,25 @@ public class weapon_Cross : ItemCard {
 
     public override void ItemFuntion()
     {
+        if (Character.instance.nowHand + hand < 3)
+        {
+            if (!useCheck)
+            {
+                Character.instance.PhysicalCombat += 0;
+                Character.instance.MagicalCombat += 1;
+                useCheck = true;
+                Character.instance.nowHand += hand;
+            }
 
-        Character.instance.PhysicalCombat += 0;
-
-
-        Character.instance.MagicalCombat += 1;
+            else
+            {
+                Character.instance.PhysicalCombat -= 0;
+                Character.instance.MagicalCombat -= 1;
+                useCheck = false;
+                Character.instance.nowHand -= hand;
+            }
+        }
+       
     }
 
 }

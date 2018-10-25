@@ -11,6 +11,7 @@ public class Yig : Boss {
         BossDefense = Defenses.None;
         CombatCheck = +1;
         BossImage = Resources.Load<Sprite>("StartScenes / Boss / Yig");
+        misscombate = "Speed";
     }
 
 

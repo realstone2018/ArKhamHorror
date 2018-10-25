@@ -10,6 +10,7 @@ public class Cthulhu : Boss {
         BossCombatRating = -6;
         BossDefense = Defenses.Special;
         BossImage = Resources.Load<Sprite>("StartScenes / Boss /Cthulhu");
+        misscombate = "noEvasion";
     }
 
 

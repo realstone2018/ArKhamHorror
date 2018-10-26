@@ -85,6 +85,8 @@ public abstract class Local : MonoBehaviour {
         //LocalEventController.instance.SetMessage(eventText);
     }
 
+    
+
     protected abstract void EventOne();
 
     protected abstract void EventTwo();

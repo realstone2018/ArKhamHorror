@@ -26,17 +26,7 @@ public class Local_ScienceBuilding : Local {
 
 
 
-    public void LoalFuncion()
-    {
-        Debug.Log("실행");
-        //얻은 몬스터가 없거나 게이트가 없을경우 경고문
-        if(Character.instance.SumMonsterHP<5 && Character.instance.GateNum<1)
-        {
-            GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
-            Destroy(notPricePanel,1.5f);
-        }
-        
-    }
+   
 
 
 
@@ -108,7 +98,7 @@ public class Local_ScienceBuilding : Local {
 
     protected override void EventSeven()
     {
-        LoalFuncion();
+
     }
 
 

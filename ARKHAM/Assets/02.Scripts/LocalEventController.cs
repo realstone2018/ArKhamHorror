@@ -20,6 +20,8 @@ public class LocalEventController : MonoBehaviour {
     public GameObject ItemPanel3;
     public List<ItemCard> Drowcard;
 
+    public GameObject notprice;
+    public GameObject sciencebildingselectPanel;
 
     public GameObject otherWorldPanel;
 
@@ -114,11 +116,21 @@ public class LocalEventController : MonoBehaviour {
         switch(eventLocal.local_Id)
         {
             case 1:
-                LocalBuyEventButtonDown(2);
+                if(Character.instance.money>0)
+                    LocalBuyEventButtonDown(2);
+                else
+                    localEncounterPanel.SetActive(true);
                 break;
             case 43:
-                LocalBuyEventButtonDown(1);
+                if (Character.instance.money > 0)
+                    LocalBuyEventButtonDown(1);
+                else
+                    localEncounterPanel.SetActive(true);
                 break;
+            case 53:
+                SciencbulildingEvent();
+                break;
+
         }
 
     }
@@ -305,4 +317,55 @@ public class LocalEventController : MonoBehaviour {
         otherWorldPanel.SetActive(false);
     }
 
+    public void SciencbulildingEvent()
+    {
+        Debug.Log("실행");
+        //얻은 몬스터가 없거나 게이트가 없을경우 경고문
+        if (Character.instance.SumMonsterHP < 5 && Character.instance.GateNum < 1)
+        {
+            localEncounterPanel.SetActive(true);
+            GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
+            Destroy(notPricePanel, 1.5f);
+        }
+        else
+        {
+            //선택
+            sciencebildingselectPanel.SetActive(true);
+
+        }
+    }
+
+    public void SciencbulildingEventBtn(int num)
+    {
+        if(num==0)
+        {
+            if (Character.instance.SumMonsterHP > 4)
+            {
+                Character.instance.SumMonsterHP -= 5;
+                Character.instance.clue += 2;
+                sciencebildingselectPanel.SetActive(false);
+            }
+            else
+            {
+                localEncounterPanel.SetActive(true);
+                GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
+                Destroy(notPricePanel, 1.5f);
+            }
+        }
+        if (num == 1)
+        {
+            if (Character.instance.GateNum > 0)
+            {
+                Character.instance.GateNum -= 1;
+                Character.instance.clue += 2;
+                sciencebildingselectPanel.SetActive(false);
+            }
+            else
+            {
+                localEncounterPanel.SetActive(true);
+                GameObject notPricePanel = Instantiate(notprice, GameObject.Find("Canvas").transform);
+                Destroy(notPricePanel, 1.5f);
+            }
+        }
+    }
 }

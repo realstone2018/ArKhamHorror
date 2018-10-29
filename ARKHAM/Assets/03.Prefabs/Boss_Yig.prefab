@@ -54,4 +54,6 @@ MonoBehaviour:
   BossDoomTrack: 0
   BossCombatRating: 0
   BossDefense: 0
+  CombatCheck: 0
   BossImage: {fileID: 0}
+  misscombate: 

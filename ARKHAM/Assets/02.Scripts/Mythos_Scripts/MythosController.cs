@@ -101,7 +101,7 @@ public class MythosController : MonoBehaviour {
 
         // 단서 생성
         clue = Instantiate(cluePrefab, pulledMythos.clueLocal.transform);
-        clue.transform.localPosition = new Vector3(0, 1.5f, 1.5f);
+        clue.transform.localPosition = new Vector3(0, -1.5f, 1.5f);
 
         // 몬스터 이동 
   

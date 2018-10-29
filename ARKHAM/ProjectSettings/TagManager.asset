@@ -10,6 +10,7 @@ TagManager:
   - Gate
   - Boss
   - Street
+  - DiceBorder
   layers:
   - Default
   - TransparentFX
@@ -22,6 +23,9 @@ TagManager:
   - 
   - BackGround
   - FinalBattlePanel
+  - DiceBorder
+  - Dice
+  - 
   - 
   - 
   - 

@@ -37,12 +37,6 @@ public class DiceController : MonoBehaviour
     public enum Use {LocalEventCheck, EvasionCheck, FearCheck, CombatCheck, MythosEvent,BossHit,FinalBattle,SealGate,Bless,Retainer}
     public Use use;
 
-    private void Start()
-    {
-        mainCamera = GameObject.Find("Camera");
-        combatCamera = GameObject.Find("CombatCamera");
-    }
-
     void Update()
     {
         // readyThrow가 true일때만 마우스 클릭에 의해 이벤트 발생 
@@ -73,7 +67,7 @@ public class DiceController : MonoBehaviour
         {
             GameObject instanceDice = Instantiate(dicePrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
 
-            if (_use == Use.CombatCheck)
+            if (_use == Use.CombatCheck || _use == Use.EvasionCheck || _use == Use.FearCheck)
                 instanceDice.transform.parent = combatCamera.transform;
             else
                 instanceDice.transform.parent = mainCamera.transform;
@@ -197,7 +191,7 @@ public class DiceController : MonoBehaviour
                 eventLocal.EventResult(successCount);
                 break;
             case Use.EvasionCheck:
-                CombatController.instance.EvassionCheckResult(successCoutn);
+                CombatController.instance.EvasionCheckResult(successCoutn);
                 break;
             case Use.FearCheck:
                 CombatController.instance.FearCheckResult(successCoutn);
@@ -244,6 +238,7 @@ public class DiceController : MonoBehaviour
 
     void ResetDice()
     {
+        Debug.Log("RestDoce - Destroy All Dice");
         valueCount = 0;
 
         for (int i = 0; i < diceValues.Length; i++)

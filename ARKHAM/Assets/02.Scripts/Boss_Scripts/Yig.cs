@@ -27,7 +27,7 @@ public class Yig : Boss {
     public override void BossAbility()   //필드에 영향을 주는 능력
     {
         Debug.Log("추종자가 패하거나, 조사자들이 시공의 저편에 갈 때마다 파멸 마커를 추가한다.");
-        FinalBattle.instance.DoomTrack += 1;
+        FinalBattle.instance.DoomTrackCheck();
         //호출 위치 지정
         
     }

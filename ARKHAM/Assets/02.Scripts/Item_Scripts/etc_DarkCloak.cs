@@ -12,7 +12,7 @@ public class etc_DarkCloak : ItemCard {
 
     public override void ItemFuntion()
     {
-        Character.instance.EvadeCheck += 1;
+        Character.instance.evade += 1;
     }
 
 }

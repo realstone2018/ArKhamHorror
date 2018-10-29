@@ -31,7 +31,6 @@ public class weapon_Cross : ItemCard {
                 Character.instance.nowHand -= hand;
             }
         }
-       
     }
 
 }

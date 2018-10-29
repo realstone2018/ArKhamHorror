@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour {
 
     public Character character;
     public Monster monster;
 
-    public GameObject CombatPanel;
     public GameObject mainCamera;
     public GameObject combatCamera;
 
@@ -26,10 +24,7 @@ public class CombatController : MonoBehaviour {
 
         // CobatUIPanel 변경 후 호출 
         CombatUI.instance.SetCombatUI(monster.id);
-
         
-        CombatPanel.SetActive(true);
-
         combatCamera.SetActive(true);
         mainCamera.SetActive(false);
     }
@@ -38,20 +33,19 @@ public class CombatController : MonoBehaviour {
     {
         Debug.Log("EvasionCheck : " + character.characterEvadeCheck + "(Character Sneak)  +  " + monster.evasionLevel + "(Monster EvasionLevel)" );
 
-        CombatPanel.SetActive(false);
+        CombatUI.instance.CombatUIActive(false);
 
         //character.EvasionCheck(monster.evasionLevel);
 
         DiceController.instance.SetDice(character.characterEvadeCheck + monster.evasionLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.EvasionCheck);
     }
 
-    public void EvassionCheckResult(int successCount)
+    public void EvasionCheckResult(int successCount)
     {
-
-        if (successCount > 0)
+        if (successCount > monster.evasionLevel)
         {
             Debug.Log("회피성공");
-            // 회피
+            FinishCombat();
         }
         else
         {
@@ -60,7 +54,9 @@ public class CombatController : MonoBehaviour {
             // 전투 or 도망 선택  UI출력   전투버튼클릭시 FearCheck호출,   도망 버튼 클릭시 EvassionCheck호출 
 
             if (Character.instance.characterState != Character.State.FAINT)
-                CombatPanel.SetActive(true);
+                CombatUI.instance.CombatUIActive(true);
+            else
+                StartCoroutine(PlayerLose());
         }
     }
 
@@ -69,7 +65,7 @@ public class CombatController : MonoBehaviour {
         Debug.Log("FearCheck: " + character.HorrorCheck + "(Character Will)  +  " + monster.fearLevel + "(Monster FearLevel)");
 
         // UI 변경 
-        CombatPanel.SetActive(false);
+        CombatUI.instance.CombatUIActive(false);
 
         DiceController.instance.SetDice(character.HorrorCheck + monster.fearLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.FearCheck);     
     }
@@ -86,7 +82,10 @@ public class CombatController : MonoBehaviour {
 
         if (Character.instance.characterState != Character.State.FAINT)
             CombatCheck();
+        else
+            StartCoroutine(PlayerLose());
     }
+
 
     public void CombatCheck()
     {
@@ -94,8 +93,16 @@ public class CombatController : MonoBehaviour {
 
         // UI변경
 
+        // 물리저항
+
+        // 물리면역
+
+        // 마법저항
+
+        // 마법면역
         DiceController.instance.SetDice(character.CombatCheck + monster.combatLevel, Character.instance.MinDiceSucc, 6, DiceController.Use.CombatCheck);
     }
+
 
     public void CombatCheckResult(int successCount)
     {
@@ -103,27 +110,57 @@ public class CombatController : MonoBehaviour {
         {
             Debug.Log("승리");
 
-            // 일단 임시적으로 직접참조
-            Character.instance.CobatComplete();
-
-            // 캐릭터 인벤에 트로피로
-            Character.instance.SumMonsterHP+= monster.hp;   //임시적
-
-            Destroy(monster.gameObject);
-            
-            //전투종료 UI변경
+            StartCoroutine(PlayerWin());  
         }
         else
         {
             Debug.Log("전투체크 실패, " + monster.staminaDamage + "만큼 체력피해를 입습니다");
 
             character.DamagedStamina(monster.staminaDamage);
-            // 도망 or 전투 UI 출력
 
             if (Character.instance.characterState != Character.State.FAINT)
-                CombatPanel.SetActive(true);
-
+                CombatUI.instance.CombatUIActive(true);
+            else
+                StartCoroutine(PlayerLose());
         }
     }
 
+
+    private IEnumerator PlayerWin()
+    {
+        CombatUI.instance.CombatUIActive(false);
+        CombatUI.instance.CombatAnimUIActive(true);
+
+        // 몬스터를 플레리어 인벤토리로 이동, 몬스터 컨트롤러 리스트에서 Remove하면서 필드에서 삭제 
+
+
+        CombatUI.instance.PlayerWinAnim();
+        yield return new WaitForSeconds(3.0f);
+        FinishCombat();
+    }
+
+
+    private IEnumerator PlayerLose()
+    {
+        CombatUI.instance.CombatUIActive(false);
+        CombatUI.instance.CombatAnimUIActive(true);
+
+        CombatUI.instance.PlayerLoseAnim();
+        yield return new WaitForSeconds(3.0f);
+        FinishCombat();
+    }
+
+    private void FinishCombat()
+    {
+        Character.instance.CobatComplete();
+
+        combatCamera.SetActive(false);
+        mainCamera.SetActive(true);
+
+        // 애니메이션 초기화 
+        CombatUI.instance.FinishCombatAnim();
+
+        CombatUI.instance.CombatUIActive(false);
+        CombatUI.instance.CombatAnimUIActive(false);
+    }
 }

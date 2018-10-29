@@ -23,10 +23,17 @@ public class Dice : MonoBehaviour {
         gameObject.transform.eulerAngles = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DiceBorder"))
+            rigid.AddForce(8.0f, 0.0f, 8f, ForceMode.Impulse);
+
+    }
+
     public void ThrowDice() {
         rigid.isKinematic = false;
-        rigid.AddForce(10.0f, 5.0f, 0f, ForceMode.Impulse);
-
+        rigid.AddForce(12.0f, 10.0f, 5f, ForceMode.Impulse);
+        
         Invoke("CheckDiceMoving", 3.0f);
     }
 
@@ -35,11 +42,12 @@ public class Dice : MonoBehaviour {
     // 주사위가 5.5초가 지난 후에도 움직이고 있으면 1초후 다시 호출 
     void CheckDiceMoving()
     {
-        if (gameObject.GetComponent<Rigidbody>().IsSleeping() && transform.position.y <= 1.5f)
+        if (gameObject.GetComponent<Rigidbody>().IsSleeping() && transform.position.y <= 2.0f)
             CompareValusHeight();
         else
         {
             Invoke("CheckDiceMoving", 1.0f);
+            Debug.Log("Dice is Moving yet");
         }
     }
 

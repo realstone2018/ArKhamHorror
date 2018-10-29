@@ -29,7 +29,6 @@ public class weapon_TommyGun : ItemCard {
                 Character.instance.nowHand -= hand;
             }
         }
-
     }
 
 }

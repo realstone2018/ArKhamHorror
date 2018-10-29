@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4641171076636014}
   - component: {fileID: 33916792976285326}
   - component: {fileID: 23997919045467742}
-  - component: {fileID: 135501675114929210}
+  - component: {fileID: 136933594309101746}
   - component: {fileID: 114351930783053782}
   m_Layer: 0
   m_Name: CluePrefabs
@@ -36,13 +36,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015192837481620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.769505, y: 2.3513484, z: -11.676041}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &23997919045467742
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: efb5763fc4acb5c458d338d2061321aa, type: 2}
+  - {fileID: 2100000, guid: bcfaf9dc6b09cf44f903031bafc54a67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015192837481620}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114351930783053782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e014766a3d88b44a4ee29df1db9c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135501675114929210
-SphereCollider:
+--- !u!136 &136933594309101746
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -105,6 +105,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

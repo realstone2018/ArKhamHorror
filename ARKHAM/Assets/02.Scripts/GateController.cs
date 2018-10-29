@@ -76,7 +76,8 @@ public class GateController : MonoBehaviour {
                     otherWold.allowLocal_Id[1] = parent.GetComponent<Local>().local_Id;
 
 
-                FinalBattle.instance.DoomTrack = +1;
+                FinalBattle.instance.DoomTrackCheck();
+
                 GateDeck.RemoveAt(0);
             }
             else

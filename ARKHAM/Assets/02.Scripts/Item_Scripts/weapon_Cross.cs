@@ -14,10 +14,10 @@ public class weapon_Cross : ItemCard {
     public override void ItemFuntion()
     {
 
-        Character.instance.PhysicalCombat += 0;
+        Character.instance.powerOfWeapon += 0;
 
 
-        Character.instance.MagicalCombat += 1;
+        Character.instance.powerOfMagic += 1;
     }
 
 }

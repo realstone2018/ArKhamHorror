@@ -14,6 +14,6 @@ public class weapon_18Derringer : ItemCard {
 
     public override void ItemFuntion()
     {
-        Character.instance.PhysicalCombat += 2;
+        Character.instance.powerOfWeapon += 2;
     }
 }

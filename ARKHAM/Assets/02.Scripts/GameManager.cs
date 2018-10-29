@@ -44,25 +44,18 @@ public class GameManager : MonoBehaviour {
         switch(gameState)
         {
             case GameState.Setting:
-                Debug.Log(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
-                
                 GameSetting();
                 break;
             case GameState.Upkeep:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 MoveState();
                 break;
             case GameState.Move:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 EncounterState();
                 break;
             case GameState.Encounter:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 MythosState();
                 break;
             case GameState.Mythos:
-                FinalBattle.instance.CheckDoomTrack(GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack);
                 UpkeepState();
                 break;
         }

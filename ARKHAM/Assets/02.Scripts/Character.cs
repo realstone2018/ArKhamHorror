@@ -59,13 +59,13 @@ public class Character : MonoBehaviour
     public bool Retainer=false;
 
 
-    //전투
-    public int PhysicalCombat;  //무기공격력(한손x2 or 양손)
-    public int characterPhysicalCombat { get { return PhysicalCombat+Fight; } set { PhysicalCombat = value; } }
-    public int MagicalCombat;   //마법공격력
-    public int characterMagicalCombat { get { return MagicalCombat + Fight; } set { MagicalCombat = value; } }
-    public int EvadeCheck;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
-    public int characterEvadeCheck { get { return EvadeCheck + Sneak; } set { EvadeCheck = value; } }
+    //전투 관련 변수 
+    public int powerOfWeapon;  //무기공격력(한손x2 or 양손)
+    public int characterPhysicalCombat { get { return powerOfWeapon + Fight; } set { powerOfWeapon = value; } }
+    public int powerOfMagic;   //마법공격력
+    public int characterMagicalCombat { get { return powerOfMagic + Fight; } set { powerOfMagic = value; } }
+    public int evade;  //회피 (은둔 + 기술 or 조력자 의 회피+1 의 경우, 은둔체크는 기본스텟으로,회피체크는 이 변수로)
+    public int characterEvadeCheck { get { return evade + Sneak; } set { evade = value; } }
     public int HorrorCheck; //공포
     public int CombatCheck; //투지+무기 수치
     
@@ -165,8 +165,6 @@ public class Character : MonoBehaviour
 
         if (Sanity <= 0)
             DieCuzSanity();
-
-        // 애니메이션 
     }
 
     public void DamagedStamina(int damage)
@@ -175,9 +173,6 @@ public class Character : MonoBehaviour
 
         if (Stamina <= 0)
             DieCuzStamina();
-
-        // 애니메이션
-
     }
 
     void DieCuzStamina()
@@ -204,14 +199,19 @@ public class Character : MonoBehaviour
 
     void CharacterDie(Local local)
     {
+        /* 이계에서 죽었을 경우 
+        if (currentLocal_Id / 10 == 11)
+        {
+            시공간상의 실종 함수 호출 
+        }
+        */
+
         characterState = State.FAINT;
 
         Vector3 localPosition = local.transform.position;
         Vector3 pos = new Vector3(localPosition.x, 1.0f, localPosition.z - 3.0f);
         transform.position = pos;
         MaincameraController.instance.SetPosition(transform.position);
-
-        CombatController.instance.enabled = false;
 
         // 잃어버릴때 애니메이션 적용 
         money = 0;

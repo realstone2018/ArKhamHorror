@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class FinalBattle : MonoBehaviour {
 
-    public int DoomTrack;
-    public int MonsterNum;
+    public int doomTrack;
+    public int monsterNum;
+    public int bossDoomtrack;
 
     public static FinalBattle instance = null;
+    
 
     private void Awake()
     {
-        DoomTrack = 0;
-        MonsterNum = 0;
+        doomTrack = 0;
+        monsterNum = 0;
 
         instance = this;
     }
 
-    public void CheckDoomTrack(int BossDoomtrack)   //보스 전투 조건 체크
-    { 
 
-        if (DoomTrack == BossDoomtrack)
+    public void DoomTrackCheck()
+    {
+        doomTrack += 1;
+
+        bossDoomtrack = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().BossDoomTrack;
+
+        if (doomTrack == bossDoomtrack)
         {
             //아자토스 보스 전투 안함
             if (GameObject.FindGameObjectWithTag("Boss").ToString() == "Boss_Azathoth(Clone) (UnityEngine.GameObject)")
@@ -31,4 +37,5 @@ public class FinalBattle : MonoBehaviour {
             Debug.Log("마지막 전투 패널 활성화 나머지 비활성화");
         }
     }
+
 }

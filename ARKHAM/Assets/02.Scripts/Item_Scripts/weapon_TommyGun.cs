@@ -12,7 +12,7 @@ public class weapon_TommyGun : ItemCard {
 
     public override void ItemFuntion()
     {
-        Character.instance.PhysicalCombat += 6;
+        Character.instance.powerOfWeapon += 6;
     }
 
 }

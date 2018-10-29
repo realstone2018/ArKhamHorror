@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class CombatUI : MonoBehaviour {
 
-    // 처음 비활성화 상태이므로 직접참조 필요 
+    public GameObject combatPanel;
+    public GameObject combatAnimPanel;
+
     public GameObject bottomMenuPanel;
     public GameObject mainButtonPanel;
-    public GameObject combatAnimPanel;
 
     public Image charStamina;
     public Image charSanity;
@@ -26,16 +27,45 @@ public class CombatUI : MonoBehaviour {
         instance = this;
     }
 
+
     public void SetCombatUI(string monName)
     {
         monsterImage.sprite = Resources.Load<Sprite>("MonsterImages/" + monName);
         mainButtonPanel.SetActive(false);
         combatAnimPanel.SetActive(false);
 
+        combatPanel.SetActive(true);
     }
+
 
     public void StartCombat()
     {
 
+    }
+
+
+    public void CombatUIActive(bool value)
+    {
+        combatPanel.SetActive(value);
+    }
+
+    public void CombatAnimUIActive(bool value)
+    {
+        combatAnimPanel.SetActive(value);
+    }
+
+    public void PlayerWinAnim()
+    {
+        combatAnimPanel.GetComponent<Animator>().SetBool("PlayerWin", true);
+    }
+
+    public void PlayerLoseAnim()
+    {
+        combatAnimPanel.GetComponent<Animator>().SetBool("MonsterWin", true);
+    }
+
+    public void FinishCombatAnim()
+    {
+        combatAnimPanel.GetComponent<Animator>().SetBool("FinishCombat", true);
     }
 }
